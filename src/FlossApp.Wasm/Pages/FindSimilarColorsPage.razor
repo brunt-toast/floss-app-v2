@@ -1,0 +1,71 @@
+﻿@page "/FindSimilarColorsPage"
+@inject IFindSimilarColorsViewModel ViewModel
+@using System.Collections.ObjectModel
+@using FlossApp.Application.Enums
+@using FlossApp.Application.Models
+@using FlossApp.Application.Extensions.System.Drawing;
+@using FlossApp.Application.ViewModels.Colors
+
+<style>
+    div.color-sample-container {
+        display: flex;
+        -o-justify-content: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -ms-align-items: center;
+        -o-align-items: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+
+    div.color-sample {
+        margin-left: 1em;
+        height: 3em;
+        width: 3em;
+        -ms-border-radius: 50%;
+        border-radius: 50%;
+    }
+</style>
+
+<MudExpansionPanels>
+    @foreach (KeyValuePair<ColorSchema, ObservableCollection<ColorModel>> kvp in ViewModel.Matches)
+    {
+        <MudExpansionPanel Text="@kvp.Key.ToString()">
+            @foreach (ColorModel color in kvp.Value)
+            {
+                <MudPaper>
+                    <div class="row">
+                        <div class="col col-auto color-sample-container">
+                            <div class="color-sample" style=" background-color: #@color.Color.AsHex();"></div>
+                        </div>
+                        <div class="col">
+                            <h3>@color.Name</h3>
+                            @color.Number
+                        </div>
+                    </div>
+                </MudPaper>
+            }
+        </MudExpansionPanel>
+    }
+</MudExpansionPanels>
+
+<MudSpacer />
+
+<MudNumericField T="int" @bind-Value="ViewModel.NumberOfMatches" Label="Max matches" />
+
+<MudSelect T="ColorSchema" Label="Input schema" @bind-Value="ViewModel.InputSchema">
+    @foreach (var val in Enum.GetValues<ColorSchema>())
+    {
+        <MudSelectItem Value="@val">@val</MudSelectItem>
+    }
+</MudSelect>
+
+@if (ViewModel.InputSchema is ColorSchema.Rgb)
+{
+    <MudColorPicker Label="Color" @bind-Text="ViewModel.TargetColor" ShowAlpha="false" />
+}
+else if (ViewModel.InputSchema is ColorSchema.Dmc)
+{
+
+}
+
