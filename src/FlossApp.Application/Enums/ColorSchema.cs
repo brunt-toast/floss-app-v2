@@ -9,5 +9,6 @@ namespace FlossApp.Application.Enums;
 public enum ColorSchema
 {
     Rgb,
-    Dmc
+    Dmc,
+    Html
 }

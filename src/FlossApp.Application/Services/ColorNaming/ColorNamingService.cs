@@ -1,7 +1,6 @@
 ﻿using System.Drawing;
 using FlossApp.Application.Data;
 using FlossApp.Application.Enums;
-using FlossApp.Application.Interfaces;
 using FlossApp.Application.Services.ColorProvider;
 using FlossApp.Application.Utils;
 using Newtonsoft.Json;
@@ -16,6 +15,7 @@ public class ColorNamingService : IColorNamingService
         {
             ColorSchema.Rgb => $"{color.R:X}{color.G:X}{color.B:X}",
             ColorSchema.Dmc => await GetDmcNameAsync(color),
+            ColorSchema.Html => await GetHtmlNameAsync(color),
             _ => throw new ArgumentOutOfRangeException(nameof(schema), schema, null)
         };
     }
@@ -23,7 +23,14 @@ public class ColorNamingService : IColorNamingService
     private static async Task<string> GetDmcNameAsync(Color color)
     {
         var dmcColors = await DmcColor.GetAllAsync();
-        IRichColor target = dmcColors.FirstOrDefault(x => x.Red == color.R && x.Green == color.G && x.Blue == color.B) ?? new RichColor();
+        RichColor target = dmcColors.FirstOrDefault(x => x.Red == color.R && x.Green == color.G && x.Blue == color.B);
+        return target.Name;
+    }
+
+    private static async Task<string> GetHtmlNameAsync(Color color)
+    {
+        var dmcColors = await HtmlColor.GetAllAsync();
+        RichColor target = dmcColors.FirstOrDefault(x => x.Red == color.R && x.Green == color.G && x.Blue == color.B);
         return target.Name;
     }
 }

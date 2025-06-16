@@ -7,7 +7,6 @@ using FlossApp.Application.Data;
 using FlossApp.Application.Enums;
 using FlossApp.Application.Extensions.System.Collections.ObjectModel;
 using FlossApp.Application.Extensions.System.Drawing;
-using FlossApp.Application.Interfaces;
 using FlossApp.Application.Models;
 using FlossApp.Application.Services.ColorNaming;
 using FlossApp.Application.Services.ColorNumbering;
@@ -42,7 +41,6 @@ public partial class FindSimilarColorsViewModel : ViewModelBase, IFindSimilarCol
         Matches.Clear();
         foreach (var schema in Enum.GetValues<ColorSchema>())
         {
-
             var schemaColors = await _colorProviderService.GetColorsAsync(schema);
             var similarColors = TargetColor.GetMostSimilarColors(schemaColors.ToList(), NumberOfMatches);
 
@@ -59,9 +57,9 @@ public partial class FindSimilarColorsViewModel : ViewModelBase, IFindSimilarCol
                 continue;
             }
 
-            Matches.Add(schema, []);
-            await Matches[schema].AddRangeAsync(similarColorModels);
+            Matches.TryAdd(schema, new ObservableCollection<ColorModel>(similarColorModels));
         }
+
     }
 
     public string TargetColorString
@@ -82,10 +80,11 @@ public partial class FindSimilarColorsViewModel : ViewModelBase, IFindSimilarCol
 
     private async Task OnInputSchemaChangedAsync()
     {
-        IEnumerable<IRichColor> colors = InputSchema switch
+        IEnumerable<RichColor> colors = InputSchema switch
         {
             ColorSchema.Rgb => [],
             ColorSchema.Dmc => await DmcColor.GetAllAsync(),
+            ColorSchema.Html => await HtmlColor.GetAllAsync(),
             _ => throw new ArgumentOutOfRangeException()
         };
 
@@ -114,5 +113,6 @@ public interface IFindSimilarColorsViewModel
     public ColorSchema InputSchema { get; set; }
     public Dictionary<ColorSchema, ObservableCollection<ColorModel>> Matches { get; }
     public ObservableCollection<ColorModel> ColorsForInputSchema { get; }
+
     public bool IsExactMatch(Color c);
 }

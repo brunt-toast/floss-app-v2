@@ -36,8 +36,19 @@
     }
 </style>
 
-<main class="px-2">
+<main>
     <h1>Color Similarity</h1>
+
+    @if (!ViewModel.Matches.Any())
+    {
+        <MudPaper Style="text-align: center;">
+            <strong>No results</strong>
+            <p>
+                Nothing came up for this query.
+            </p>
+        </MudPaper>
+    }
+
     <MudExpansionPanels>
         @foreach (KeyValuePair<ColorSchema, ObservableCollection<ColorModel>> kvp in ViewModel.Matches)
         {

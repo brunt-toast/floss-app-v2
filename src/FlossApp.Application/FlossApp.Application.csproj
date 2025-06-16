@@ -9,10 +9,12 @@
 
   <ItemGroup>
     <None Remove="Resources\Dmc.json" />
+    <None Remove="Resources\Html.json" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="Resources\Dmc.json" />
+    <EmbeddedResource Include="Resources\Html.json" />
   </ItemGroup>
 
   <ItemGroup>

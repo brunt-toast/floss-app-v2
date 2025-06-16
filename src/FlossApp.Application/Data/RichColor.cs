@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using FlossApp.Application.Interfaces;
 
 namespace FlossApp.Application.Data;
 
-public struct RichColor : IRichColor
+public struct RichColor 
 {
     public byte Red { get; set; }
     public byte Green { get; set; }
