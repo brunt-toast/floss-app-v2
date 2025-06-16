@@ -36,7 +36,8 @@
     }
 </style>
 
-<main>
+<main class="px-2">
+    <h1>Color Similarity</h1>
     <MudExpansionPanels>
         @foreach (KeyValuePair<ColorSchema, ObservableCollection<ColorModel>> kvp in ViewModel.Matches)
         {
@@ -70,8 +71,6 @@
         }
     </MudExpansionPanels>
 </main>
-
-
 
 <nav class="navbar navbar-expand navbar-sticky-bottom">
     <div class="container justify-content-around">
