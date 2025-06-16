@@ -8,11 +8,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\Copic.json" />
     <None Remove="Resources\Dmc.json" />
     <None Remove="Resources\Html.json" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Resources\Copic.json" />
     <EmbeddedResource Include="Resources\Dmc.json" />
     <EmbeddedResource Include="Resources\Html.json" />
   </ItemGroup>

@@ -22,8 +22,7 @@ public partial class FindSimilarColorsViewModel : ViewModelBase, IFindSimilarCol
     private readonly IColorNamingService _colorNamingService;
     private readonly IColorNumberingService _colorNumberingService;
 
-    private readonly AsyncDelayedAction OnInputSchemaChangedDelayedAction;
-    private readonly AsyncDelayedAction OnPropertyChangedDelayedAction;
+    private readonly AsyncDelayedAction _onPropertyChangedDelayedAction;
 
     public FindSimilarColorsViewModel(IServiceProvider services) : base(services)
     {
@@ -31,8 +30,7 @@ public partial class FindSimilarColorsViewModel : ViewModelBase, IFindSimilarCol
         _colorNamingService = services.GetRequiredService<IColorNamingService>();
         _colorNumberingService = services.GetRequiredService<IColorNumberingService>();
 
-        OnInputSchemaChangedDelayedAction = new AsyncDelayedAction(OnInputSchemaChangedAsync, 1000);
-        OnPropertyChangedDelayedAction = new AsyncDelayedAction(RefreshMatches, 1000);
+        _onPropertyChangedDelayedAction = new AsyncDelayedAction(RefreshMatches, 1000);
 
         PropertyChanged += FindSimilarColorsViewModel_PropertyChanged;
     }
@@ -41,10 +39,10 @@ public partial class FindSimilarColorsViewModel : ViewModelBase, IFindSimilarCol
     {
         if (e.PropertyName == nameof(InputSchema))
         {
-            await OnInputSchemaChangedDelayedAction.TriggerWithDelayAsync();
+            await OnInputSchemaChangedAsync();
         }
 
-        await OnPropertyChangedDelayedAction.TriggerWithDelayAsync();
+        await _onPropertyChangedDelayedAction.TriggerWithDelayAsync();
     }
 
     private async Task RefreshMatches()
@@ -95,6 +93,7 @@ public partial class FindSimilarColorsViewModel : ViewModelBase, IFindSimilarCol
             ColorSchema.Rgb => [],
             ColorSchema.Dmc => await DmcColor.GetAllAsync(),
             ColorSchema.Html => await HtmlColor.GetAllAsync(),
+            ColorSchema.Copic => await CopicColor.GetAllAsync(),
             _ => throw new ArgumentOutOfRangeException()
         };
 

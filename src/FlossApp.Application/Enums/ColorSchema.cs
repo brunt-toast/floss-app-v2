@@ -10,5 +10,6 @@ public enum ColorSchema
 {
     Rgb,
     Dmc,
-    Html
+    Html,
+    Copic
 }

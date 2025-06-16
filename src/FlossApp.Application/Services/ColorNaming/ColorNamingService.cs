@@ -16,6 +16,7 @@ public class ColorNamingService : IColorNamingService
             ColorSchema.Rgb => $"{color.R:X}{color.G:X}{color.B:X}",
             ColorSchema.Dmc => await GetDmcNameAsync(color),
             ColorSchema.Html => await GetHtmlNameAsync(color),
+            ColorSchema.Copic => await GetCopicNameAsync(color),
             _ => throw new ArgumentOutOfRangeException(nameof(schema), schema, null)
         };
     }
@@ -30,6 +31,13 @@ public class ColorNamingService : IColorNamingService
     private static async Task<string> GetHtmlNameAsync(Color color)
     {
         var dmcColors = await HtmlColor.GetAllAsync();
+        RichColor target = dmcColors.FirstOrDefault(x => x.Red == color.R && x.Green == color.G && x.Blue == color.B);
+        return target.Name;
+    }
+
+    private static async Task<string> GetCopicNameAsync(Color color)
+    {
+        var dmcColors = await CopicColor.GetAllAsync();
         RichColor target = dmcColors.FirstOrDefault(x => x.Red == color.R && x.Green == color.G && x.Blue == color.B);
         return target.Name;
     }

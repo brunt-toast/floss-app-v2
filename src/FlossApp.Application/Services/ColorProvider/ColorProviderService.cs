@@ -15,6 +15,7 @@ public class ColorProviderService : IColorProviderService
             ColorSchema.Rgb => [],
             ColorSchema.Dmc => await GetDmcColorsAsync(),
             ColorSchema.Html => await GetHtmlColorsAsync(),
+            ColorSchema.Copic => await GetCopicColorsAsync(),
             _ => throw new ArgumentOutOfRangeException(nameof(schema), schema, null)
         };
     }
@@ -23,10 +24,6 @@ public class ColorProviderService : IColorProviderService
     {
         string json = await AsyncEmbeddedResourceReader.ReadEmbeddedResourceAsync(typeof(DmcColor).Assembly, "Dmc.json");
         DmcColor[] dmcColors = JsonConvert.DeserializeObject<DmcColor[]>(json) ?? [];
-        foreach (var c in dmcColors)
-        {
-            Console.WriteLine(c.Name);
-        }
         return dmcColors.Select(x => Color.FromArgb(255, x.Red, x.Green, x.Blue));
     }
 
@@ -34,10 +31,14 @@ public class ColorProviderService : IColorProviderService
     {
         string json = await AsyncEmbeddedResourceReader.ReadEmbeddedResourceAsync(typeof(HtmlColor).Assembly, "Html.json");
         HtmlColor[] dmcColors = JsonConvert.DeserializeObject<HtmlColor[]>(json) ?? [];
-        foreach (var c in dmcColors)
-        {
-            Console.WriteLine(c.Name);
-        }
+        return dmcColors.Select(x => ColorUtils.FromHexCode(x.Hex));
+    }
+
+    private static async Task<IEnumerable<Color>> GetCopicColorsAsync()
+    {
+        string json = await AsyncEmbeddedResourceReader.ReadEmbeddedResourceAsync(typeof(CopicColor).Assembly, "Copic.json");
+        CopicColor[] dmcColors = JsonConvert.DeserializeObject<CopicColor[]>(json) ?? [];
+        foreach (var color in dmcColors) Console.WriteLine(color);
         return dmcColors.Select(x => ColorUtils.FromHexCode(x.Hex));
     }
 }
