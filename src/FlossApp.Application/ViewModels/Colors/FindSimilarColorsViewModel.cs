@@ -22,11 +22,17 @@ public partial class FindSimilarColorsViewModel : ViewModelBase, IFindSimilarCol
     private readonly IColorNamingService _colorNamingService;
     private readonly IColorNumberingService _colorNumberingService;
 
+    private readonly AsyncDelayedAction OnInputSchemaChangedDelayedAction;
+    private readonly AsyncDelayedAction OnPropertyChangedDelayedAction;
+
     public FindSimilarColorsViewModel(IServiceProvider services) : base(services)
     {
         _colorProviderService = services.GetRequiredService<IColorProviderService>();
         _colorNamingService = services.GetRequiredService<IColorNamingService>();
         _colorNumberingService = services.GetRequiredService<IColorNumberingService>();
+
+        OnInputSchemaChangedDelayedAction = new AsyncDelayedAction(OnInputSchemaChangedAsync, 1000);
+        OnPropertyChangedDelayedAction = new AsyncDelayedAction(RefreshMatches, 1000);
 
         PropertyChanged += FindSimilarColorsViewModel_PropertyChanged;
     }
@@ -35,9 +41,14 @@ public partial class FindSimilarColorsViewModel : ViewModelBase, IFindSimilarCol
     {
         if (e.PropertyName == nameof(InputSchema))
         {
-            await OnInputSchemaChangedAsync();
+            await OnInputSchemaChangedDelayedAction.TriggerWithDelayAsync();
         }
 
+        await OnPropertyChangedDelayedAction.TriggerWithDelayAsync();
+    }
+
+    private async Task RefreshMatches()
+    {
         Matches.Clear();
         foreach (var schema in Enum.GetValues<ColorSchema>())
         {
@@ -59,7 +70,6 @@ public partial class FindSimilarColorsViewModel : ViewModelBase, IFindSimilarCol
 
             Matches.TryAdd(schema, new ObservableCollection<ColorModel>(similarColorModels));
         }
-
     }
 
     public string TargetColorString
