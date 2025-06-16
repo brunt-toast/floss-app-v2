@@ -1,6 +1,7 @@
 ﻿using System.Drawing;
 using FlossApp.Application.Data;
 using FlossApp.Application.Enums;
+using FlossApp.Application.Interfaces;
 
 namespace FlossApp.Application.Services.ColorNumbering;
 
@@ -19,7 +20,7 @@ public class ColorNumberingService : IColorNumberingService
     private static async Task<string> GetDmcNumberAsync(Color color)
     {
         var dmcColors = await DmcColor.GetAllAsync();
-        DmcColor target = dmcColors.FirstOrDefault(x => x.Red == color.R && x.Green == color.G && x.Blue == color.B);
+        IRichColor target = dmcColors.FirstOrDefault(x => x.Red == color.R && x.Green == color.G && x.Blue == color.B) ?? new RichColor();
         return target.Number;
     }
 }

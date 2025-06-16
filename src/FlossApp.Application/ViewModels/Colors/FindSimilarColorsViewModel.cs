@@ -1,10 +1,13 @@
 ﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Drawing;
+using System.Security.Cryptography.X509Certificates;
 using CommunityToolkit.Mvvm.ComponentModel;
+using FlossApp.Application.Data;
 using FlossApp.Application.Enums;
 using FlossApp.Application.Extensions.System.Collections.ObjectModel;
 using FlossApp.Application.Extensions.System.Drawing;
+using FlossApp.Application.Interfaces;
 using FlossApp.Application.Models;
 using FlossApp.Application.Services.ColorNaming;
 using FlossApp.Application.Services.ColorNumbering;
@@ -20,8 +23,6 @@ public partial class FindSimilarColorsViewModel : ViewModelBase, IFindSimilarCol
     private readonly IColorNamingService _colorNamingService;
     private readonly IColorNumberingService _colorNumberingService;
 
-    private Color _targetColor;
-
     public FindSimilarColorsViewModel(IServiceProvider services) : base(services)
     {
         _colorProviderService = services.GetRequiredService<IColorProviderService>();
@@ -33,12 +34,17 @@ public partial class FindSimilarColorsViewModel : ViewModelBase, IFindSimilarCol
 
     private async void FindSimilarColorsViewModel_PropertyChanged(object? sender, PropertyChangedEventArgs e)
     {
+        if (e.PropertyName == nameof(InputSchema))
+        {
+            await OnInputSchemaChangedAsync();
+        }
+
         Matches.Clear();
         foreach (var schema in Enum.GetValues<ColorSchema>())
         {
 
             var schemaColors = await _colorProviderService.GetColorsAsync(schema);
-            var similarColors = _targetColor.GetMostSimilarColors(schemaColors.ToList(), NumberOfMatches);
+            var similarColors = TargetColor.GetMostSimilarColors(schemaColors.ToList(), NumberOfMatches);
 
             List<ColorModel> similarColorModels = [];
             foreach (var x in similarColors)
@@ -58,25 +64,55 @@ public partial class FindSimilarColorsViewModel : ViewModelBase, IFindSimilarCol
         }
     }
 
-    public string TargetColor
+    public string TargetColorString
     {
-        get;
+        get => TargetColor.AsHex();
         set
         {
             SetProperty(ref field, value);
-            _targetColor = ColorUtils.FromHexCode(value);
+            TargetColor = ColorUtils.FromHexCode(value);
         }
     } = "";
 
+    [ObservableProperty] public partial Color TargetColor { get; set; }
     [ObservableProperty] public partial int NumberOfMatches { get; set; } = 5;
     [ObservableProperty] public partial ColorSchema InputSchema { get; set; }
     public Dictionary<ColorSchema, ObservableCollection<ColorModel>> Matches { get; } = [];
+    public ObservableCollection<ColorModel> ColorsForInputSchema { get; } = [];
+
+    private async Task OnInputSchemaChangedAsync()
+    {
+        IEnumerable<IRichColor> colors = InputSchema switch
+        {
+            ColorSchema.Rgb => [],
+            ColorSchema.Dmc => await DmcColor.GetAllAsync(),
+            _ => throw new ArgumentOutOfRangeException()
+        };
+
+        foreach (var x in colors)
+        {
+            ColorsForInputSchema.Add(new ColorModel(InputSchema, x.Name, x.Number, Color.FromArgb(255, x.Red, x.Green, x.Blue)));
+            await Task.Yield();
+        }
+    }
+
+    public bool IsExactMatch(Color c)
+    {
+        Console.WriteLine($"{c.R}-{c.G}-{c.B} == {TargetColor.R}-{TargetColor.G}-{TargetColor.B}?");
+
+        return c.R == TargetColor.R
+            && c.G == TargetColor.G
+            && c.B == TargetColor.B;
+    }
 }
 
 public interface IFindSimilarColorsViewModel
 {
-    public string TargetColor { get; set; }
+    public Color TargetColor { get; set; }
+    public string TargetColorString { get; set; }
     public int NumberOfMatches { get; set; }
     public ColorSchema InputSchema { get; set; }
     public Dictionary<ColorSchema, ObservableCollection<ColorModel>> Matches { get; }
+    public ObservableCollection<ColorModel> ColorsForInputSchema { get; }
+    public bool IsExactMatch(Color c);
 }

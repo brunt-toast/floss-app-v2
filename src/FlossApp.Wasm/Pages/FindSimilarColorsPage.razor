@@ -5,6 +5,7 @@
 @using FlossApp.Application.Models
 @using FlossApp.Application.Extensions.System.Drawing;
 @using FlossApp.Application.ViewModels.Colors
+@using System.Drawing
 
 <style>
     div.color-sample-container {
@@ -25,47 +26,88 @@
         -ms-border-radius: 50%;
         border-radius: 50%;
     }
+
+    .navbar-sticky-bottom {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 1030; /* above content */
+    }
 </style>
 
-<MudExpansionPanels>
-    @foreach (KeyValuePair<ColorSchema, ObservableCollection<ColorModel>> kvp in ViewModel.Matches)
-    {
-        <MudExpansionPanel Text="@kvp.Key.ToString()">
-            @foreach (ColorModel color in kvp.Value)
+<main>
+    <MudExpansionPanels>
+        @foreach (KeyValuePair<ColorSchema, ObservableCollection<ColorModel>> kvp in ViewModel.Matches)
+        {
+            <MudExpansionPanel>
+                <TitleContent>
+                    <h3>@kvp.Key.ToString()</h3>
+                </TitleContent>
+                <ChildContent>
+                    @foreach (ColorModel color in kvp.Value)
+                    {
+                        <MudPaper Class="my-1">
+                            <div class="row">
+                                <div class="col col-auto color-sample-container">
+                                    <div class="color-sample" style="background-color: #@color.Color.AsHex();"></div>
+                                </div>
+                                <div class="col">
+                                    <h4>@color.Name</h4>
+                                    @color.Number
+                                </div>
+                                <div class="col col-auto">
+                                    @if (ViewModel.IsExactMatch(color.Color))
+                                    {
+                                        <span>Exact match</span>
+                                    }
+                                </div>
+                            </div>
+                        </MudPaper>
+                    }
+                </ChildContent>
+            </MudExpansionPanel>
+        }
+    </MudExpansionPanels>
+</main>
+
+
+
+<nav class="navbar navbar-expand navbar-sticky-bottom">
+    <div class="container justify-content-around">
+        <MudPaper Class="p-2 w-100">
+            <MudNumericField T="int" @bind-Value="ViewModel.NumberOfMatches" Label="Max matches" />
+
+            <MudSelect T="ColorSchema" Label="Input schema" @bind-Value="ViewModel.InputSchema">
+                @foreach (var val in Enum.GetValues<ColorSchema>())
+                {
+                    <MudSelectItem Value="@val">@val</MudSelectItem>
+                }
+            </MudSelect>
+
+            @if (ViewModel.InputSchema is ColorSchema.Rgb)
             {
-                <MudPaper>
-                    <div class="row">
-                        <div class="col col-auto color-sample-container">
-                            <div class="color-sample" style=" background-color: #@color.Color.AsHex();"></div>
-                        </div>
-                        <div class="col">
-                            <h3>@color.Name</h3>
-                            @color.Number
-                        </div>
-                    </div>
-                </MudPaper>
+                <MudColorPicker Label="Color" @bind-Text="ViewModel.TargetColorString" ShowAlpha="false" />
             }
-        </MudExpansionPanel>
-    }
-</MudExpansionPanels>
-
-<MudSpacer />
-
-<MudNumericField T="int" @bind-Value="ViewModel.NumberOfMatches" Label="Max matches" />
-
-<MudSelect T="ColorSchema" Label="Input schema" @bind-Value="ViewModel.InputSchema">
-    @foreach (var val in Enum.GetValues<ColorSchema>())
-    {
-        <MudSelectItem Value="@val">@val</MudSelectItem>
-    }
-</MudSelect>
-
-@if (ViewModel.InputSchema is ColorSchema.Rgb)
-{
-    <MudColorPicker Label="Color" @bind-Text="ViewModel.TargetColor" ShowAlpha="false" />
-}
-else if (ViewModel.InputSchema is ColorSchema.Dmc)
-{
-
-}
+            else
+            {
+                <MudSelect T="System.Drawing.Color" ToStringFunc="t => t.Name" Label="Color" @bind-Value="ViewModel.TargetColor">
+                    @foreach (ColorModel cm in ViewModel.ColorsForInputSchema)
+                    {
+                        <MudSelectItem Value="cm.Color">
+                            <div class="row p-1">
+                                <div class="col col-auto color-sample-container">
+                                    <div class="color-sample" style="width: 1em; height: 1em; background-color: #@cm.Color.AsHex();"></div>
+                                </div>
+                                <div class="col">
+                                    @cm.Name (@cm.Number)
+                                </div>
+                            </div>
+                        </MudSelectItem>
+                    }
+                </MudSelect>
+            }
+        </MudPaper>
+    </div>
+</nav>
 

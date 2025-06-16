@@ -1,6 +1,7 @@
 ﻿using System.Drawing;
 using FlossApp.Application.Data;
 using FlossApp.Application.Enums;
+using FlossApp.Application.Interfaces;
 using FlossApp.Application.Services.ColorProvider;
 using FlossApp.Application.Utils;
 using Newtonsoft.Json;
@@ -22,7 +23,7 @@ public class ColorNamingService : IColorNamingService
     private static async Task<string> GetDmcNameAsync(Color color)
     {
         var dmcColors = await DmcColor.GetAllAsync();
-        DmcColor target = dmcColors.FirstOrDefault(x => x.Red == color.R && x.Green == color.G && x.Blue == color.B);
+        IRichColor target = dmcColors.FirstOrDefault(x => x.Red == color.R && x.Green == color.G && x.Blue == color.B) ?? new RichColor();
         return target.Name;
     }
 }
