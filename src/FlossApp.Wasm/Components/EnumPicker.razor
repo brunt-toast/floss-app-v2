@@ -1,0 +1,9 @@
+﻿@using FlossApp.Wasm.Extensions.System
+@typeparam T
+
+<MudSelect T="T" @bind-Value="Value" Label="@Label">
+    @foreach (var val in Enum.GetValues<T>())
+    {
+        <MudSelectItem T="T" Value="val">@val.ToDisplayName()</MudSelectItem>
+    }
+</MudSelect>

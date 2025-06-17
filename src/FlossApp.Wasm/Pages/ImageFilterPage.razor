@@ -1,6 +1,7 @@
 ﻿@page "/ImageFilter"
 @using FlossApp.Application.Enums
 @using FlossApp.Application.ViewModels.Images
+@using FlossApp.Wasm.Components
 @inject IImageFilterViewModel ViewModel
 
 @if (!string.IsNullOrWhiteSpace(ViewModel.ImageOutBase64))
@@ -20,12 +21,7 @@
 
 <MudStack>
     <div class="row">
-        <MudSelect T="ColorSchema" Label="Target schema" @bind-Value="ViewModel.TargetSchema">
-            @foreach (var val in Enum.GetValues<ColorSchema>())
-            {
-                <MudSelectItem Value="@val">@val</MudSelectItem>
-            }
-        </MudSelect>
+        <EnumPicker Label="Target schema" T="ColorSchema" @bind-Value="ViewModel.TargetSchema" />
     </div>
 
     <div class="row">

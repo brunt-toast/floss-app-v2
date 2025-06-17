@@ -6,6 +6,8 @@
 @using FlossApp.Application.Extensions.System.Drawing;
 @using FlossApp.Application.ViewModels.Colors
 @using System.Drawing
+@using FlossApp.Wasm.Extensions.System
+@using FlossApp.Wasm.Components
 
 <style>
     div.color-sample-container {
@@ -54,7 +56,7 @@
         {
             <MudExpansionPanel>
                 <TitleContent>
-                    <h3>@kvp.Key.ToString()</h3>
+                    <h3>@kvp.Key.ToDisplayName()</h3>
                 </TitleContent>
                 <ChildContent>
                     @foreach (ColorModel color in kvp.Value)
@@ -88,12 +90,7 @@
         <MudPaper Class="p-2 w-100">
             <MudNumericField T="int" @bind-Value="ViewModel.NumberOfMatches" Label="Max matches" />
 
-            <MudSelect T="ColorSchema" Label="Input schema" @bind-Value="ViewModel.InputSchema">
-                @foreach (var val in Enum.GetValues<ColorSchema>())
-                {
-                    <MudSelectItem Value="@val">@val</MudSelectItem>
-                }
-            </MudSelect>
+            <EnumPicker Label="Input schema" T="ColorSchema" @bind-Value="ViewModel.InputSchema" />
 
             @if (ViewModel.InputSchema is ColorSchema.Rgb)
             {
