@@ -1,11 +1,13 @@
 ﻿using System.Drawing;
 using FlossApp.Application.Data;
 using FlossApp.Application.Enums;
+using MethodTimer;
 
 namespace FlossApp.Application.Services.ColorNumbering;
 
 public class ColorNumberingService : IColorNumberingService
 {
+    [Time]
     public async Task<string> GetNumberAsync(Color color, ColorSchema schema)
     {
         return schema switch

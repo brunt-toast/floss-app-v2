@@ -4,6 +4,7 @@ using SixLabors.ImageSharp.Processing;
 using FlossApp.Application.Enums;
 using FlossApp.Application.Extensions.System.Drawing;
 using FlossApp.Application.Services.ColorProvider;
+using MethodTimer;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace FlossApp.Application.Services.ImageFiltering;
@@ -17,6 +18,7 @@ public class ImageFilteringService : IImageFilteringService
         _colorProviderService = services.GetRequiredService<IColorProviderService>();
     }
 
+    [Time]
     public Image<Rgba32> PixelateImage(Image<Rgba32> input, float scale)
     {
         if (scale is <= 0 or > 1)
@@ -37,6 +39,7 @@ public class ImageFilteringService : IImageFilteringService
         return resized;
     }
 
+    [Time]
     public async Task<Image<Rgba32>> ReduceToSchemaColorsAsync(Image<Rgba32> image, ColorSchema schema)
     {
         if (schema is ColorSchema.Rgb)

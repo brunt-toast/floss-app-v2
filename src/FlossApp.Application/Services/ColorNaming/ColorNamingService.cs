@@ -3,12 +3,14 @@ using FlossApp.Application.Data;
 using FlossApp.Application.Enums;
 using FlossApp.Application.Services.ColorProvider;
 using FlossApp.Application.Utils;
+using MethodTimer;
 using Newtonsoft.Json;
 
 namespace FlossApp.Application.Services.ColorNaming;
 
 public class ColorNamingService : IColorNamingService
 {
+    [Time]
     public async Task<string> GetNameAsync(Color color, ColorSchema schema)
     {
         return schema switch

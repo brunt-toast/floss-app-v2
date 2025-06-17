@@ -2,6 +2,7 @@
 using FlossApp.Application.Data;
 using FlossApp.Application.Enums;
 using FlossApp.Application.Utils;
+using MethodTimer;
 using Newtonsoft.Json;
 
 namespace FlossApp.Application.Services.ColorProvider;
@@ -12,6 +13,7 @@ public class ColorProviderService : IColorProviderService
     private HtmlColor[]? _htmlColorCache;
     private CopicColor[]? _copicColorCache;
 
+    [Time]
     public async Task<IEnumerable<Color>> GetColorsAsync(ColorSchema schema)
     {
         return schema switch
