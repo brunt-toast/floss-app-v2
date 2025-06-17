@@ -32,10 +32,11 @@ public partial class EnumPicker<T> where T : struct, Enum
             {
                 return;
             }
+
             field = value;
             LabelChanged.InvokeAsync(value);
         }
-    }
+    } = "";
 
     [Parameter]
     public EventCallback<string> LabelChanged { get; set; }
