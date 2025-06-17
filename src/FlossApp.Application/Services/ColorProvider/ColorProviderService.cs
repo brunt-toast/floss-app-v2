@@ -8,6 +8,10 @@ namespace FlossApp.Application.Services.ColorProvider;
 
 public class ColorProviderService : IColorProviderService
 {
+    private DmcColor[]? _dmcColorCache;
+    private HtmlColor[]? _htmlColorCache;
+    private CopicColor[]? _copicColorCache;
+
     public async Task<IEnumerable<Color>> GetColorsAsync(ColorSchema schema)
     {
         return schema switch
@@ -20,25 +24,39 @@ public class ColorProviderService : IColorProviderService
         };
     }
 
-    private static async Task<IEnumerable<Color>> GetDmcColorsAsync()
+    private async Task<IEnumerable<Color>> GetDmcColorsAsync()
     {
-        string json = await AsyncEmbeddedResourceReader.ReadEmbeddedResourceAsync(typeof(DmcColor).Assembly, "Dmc.json");
-        DmcColor[] dmcColors = JsonConvert.DeserializeObject<DmcColor[]>(json) ?? [];
-        return dmcColors.Select(x => Color.FromArgb(255, x.Red, x.Green, x.Blue));
+        _dmcColorCache ??= await GetFromFileAsync<DmcColor>("Dmc.json");
+        return _dmcColorCache.Select(x =>
+        {
+            var c = x.AsRichColor();
+            return Color.FromArgb(255, c.Red, c.Green, c.Blue);
+        });
     }
 
-    private static async Task<IEnumerable<Color>> GetHtmlColorsAsync()
+    private async Task<IEnumerable<Color>> GetHtmlColorsAsync()
     {
-        string json = await AsyncEmbeddedResourceReader.ReadEmbeddedResourceAsync(typeof(HtmlColor).Assembly, "Html.json");
-        HtmlColor[] dmcColors = JsonConvert.DeserializeObject<HtmlColor[]>(json) ?? [];
-        return dmcColors.Select(x => ColorUtils.FromHexCode(x.Hex));
+        _htmlColorCache ??= await GetFromFileAsync<HtmlColor>("Html.json");
+        return _htmlColorCache.Select(x =>
+        {
+            var c = x.AsRichColor();
+            return Color.FromArgb(255, c.Red, c.Green, c.Blue);
+        });
     }
 
-    private static async Task<IEnumerable<Color>> GetCopicColorsAsync()
+    private async Task<IEnumerable<Color>> GetCopicColorsAsync()
     {
-        string json = await AsyncEmbeddedResourceReader.ReadEmbeddedResourceAsync(typeof(CopicColor).Assembly, "Copic.json");
-        CopicColor[] dmcColors = JsonConvert.DeserializeObject<CopicColor[]>(json) ?? [];
-        foreach (var color in dmcColors) Console.WriteLine(color);
-        return dmcColors.Select(x => ColorUtils.FromHexCode(x.Hex));
+        _copicColorCache ??= await GetFromFileAsync<CopicColor>("Copic.json");
+        return _copicColorCache.Select(x =>
+        {
+            var c = x.AsRichColor();
+            return Color.FromArgb(255, c.Red, c.Green, c.Blue);
+        });
+    }
+
+    private static async Task<T[]> GetFromFileAsync<T>(string resourceName)
+    {
+        string json = await AsyncEmbeddedResourceReader.ReadEmbeddedResourceAsync(typeof(T).Assembly, resourceName);
+        return JsonConvert.DeserializeObject<T[]>(json) ?? [];
     }
 }

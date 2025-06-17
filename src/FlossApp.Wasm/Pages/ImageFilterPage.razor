@@ -1,4 +1,5 @@
 ﻿@page "/ImageFilter"
+@using FlossApp.Application.Enums
 @using FlossApp.Application.ViewModels.Images
 @inject IImageFilterViewModel ViewModel
 
@@ -11,11 +12,22 @@
             @(ViewModel.ImageIn.Width)x@(ViewModel.ImageIn.Height)
             ->
             @(ViewModel.ImageOut.Width)x@(ViewModel.ImageOut.Height)
+
+            (@(ViewModel.ImageOut.Width * ViewModel.ImageOut.Height) total)
         </p>
     </MudPaper>
 }
 
 <MudStack>
+    <div class="row">
+        <MudSelect T="ColorSchema" Label="Target schema" @bind-Value="ViewModel.TargetSchema">
+            @foreach (var val in Enum.GetValues<ColorSchema>())
+            {
+                <MudSelectItem Value="@val">@val</MudSelectItem>
+            }
+        </MudSelect>
+    </div>
+
     <div class="row">
         <div class="col col-auto">
             <MudNumericField Label="Pixel ratio" @bind-Value="ViewModel.PixelRatio"
@@ -46,7 +58,6 @@
             <MudFileUpload T="IBrowserFile" FilesChanged="UploadFiles" MaximumFileCount="1">
                 <ActivatorContent>
                     <MudButton Variant="Variant.Filled"
-                               Color="Color.Primary"
                                StartIcon="@Icons.Material.Filled.FileOpen">
                         Choose File
                     </MudButton>
@@ -60,7 +71,9 @@
         </div>
         <div class="col" style="text-align: center;">
             <MudButton Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.Save">
-                Save
+                <a href="data:image/png;base64,@(ViewModel.ImageOutBase64)" download="@(Guid.NewGuid()).png">
+                    Save
+                </a>
             </MudButton>
         </div>
     </div>

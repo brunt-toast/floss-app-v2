@@ -4,7 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CommunityToolkit.Mvvm.ComponentModel;
+using FlossApp.Application.Enums;
+using FlossApp.Application.Services.ImageFiltering;
 using FlossApp.Application.Utils;
+using Microsoft.Extensions.DependencyInjection;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.PixelFormats;
 
@@ -12,12 +15,15 @@ namespace FlossApp.Application.ViewModels.Images;
 
 public partial class ImageFilterViewModel : ViewModelBase, IImageFilterViewModel
 {
+    private readonly IImageFilteringService _imageFilteringService;
+
     [ObservableProperty]
     public partial Image<Rgba32> ImageIn { get; private set; }
     [ObservableProperty]
     public partial Image<Rgba32> ImageOut { get; private set; }
 
     [ObservableProperty] public partial string ImageOutBase64 { get; private set; } = "";
+    [ObservableProperty] public partial ColorSchema TargetSchema { get; set; } 
 
     public float PixelRatio
     {
@@ -35,7 +41,7 @@ public partial class ImageFilterViewModel : ViewModelBase, IImageFilterViewModel
         get => (int)Math.Floor(ImageIn.Width * PixelRatio);
         set
         {
-            PixelRatio = value / ImageIn.Width;
+            PixelRatio = (float)value / ImageIn.Width;
         }
     }
     public int TargetHeight
@@ -43,12 +49,14 @@ public partial class ImageFilterViewModel : ViewModelBase, IImageFilterViewModel
         get => (int)Math.Floor(ImageIn.Height * PixelRatio);
         set
         {
-            PixelRatio = value / ImageIn.Height;
+            PixelRatio = (float)value / ImageIn.Height;
         }
     }
 
     public ImageFilterViewModel(IServiceProvider services) : base(services)
     {
+        _imageFilteringService = services.GetRequiredService<IImageFilteringService>();
+
         ImageIn = new Image<Rgba32>(1, 1, new Rgba32(255, 255, 255));
         ImageOut = new Image<Rgba32>(1, 1, new Rgba32(255, 255, 255));
     }
@@ -69,8 +77,10 @@ public partial class ImageFilterViewModel : ViewModelBase, IImageFilterViewModel
     {
         try
         {
-            var pixelated = ImagePixelator.Pixelate(ImageIn, PixelRatio);
-            ImageOut = pixelated;
+            var pixelated = _imageFilteringService.PixelateImage(ImageIn, PixelRatio);
+            var colored = await _imageFilteringService.ReduceToSchemaColorsAsync(pixelated, TargetSchema);
+
+            ImageOut = colored;
             await using var stream = new MemoryStream();
             await pixelated.SaveAsPngAsync(stream);
             stream.Position = 0;
@@ -96,4 +106,5 @@ public interface IImageFilterViewModel
 
     public int TargetWidth { get; set; }
     public int TargetHeight { get; set; }
+    public ColorSchema TargetSchema { get; set; }
 }

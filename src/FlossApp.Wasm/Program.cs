@@ -1,6 +1,7 @@
 using FlossApp.Application.Services.ColorNaming;
 using FlossApp.Application.Services.ColorNumbering;
 using FlossApp.Application.Services.ColorProvider;
+using FlossApp.Application.Services.ImageFiltering;
 using FlossApp.Application.ViewModels.Colors;
 using FlossApp.Application.ViewModels.Images;
 using FlossApp.Wasm;
@@ -18,6 +19,7 @@ builder.Services.AddMudServices();
 builder.Services.AddSingleton<IColorNamingService, ColorNamingService>();
 builder.Services.AddSingleton<IColorNumberingService, ColorNumberingService>();
 builder.Services.AddSingleton<IColorProviderService, ColorProviderService>();
+builder.Services.AddScoped<IImageFilteringService, ImageFilteringService>();
 
 builder.Services.AddScoped<IFindSimilarColorsViewModel, FindSimilarColorsViewModel>();
 builder.Services.AddScoped<IImageFilterViewModel, ImageFilterViewModel>();

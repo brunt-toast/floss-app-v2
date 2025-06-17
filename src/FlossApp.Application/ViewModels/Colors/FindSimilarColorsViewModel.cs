@@ -106,8 +106,6 @@ public partial class FindSimilarColorsViewModel : ViewModelBase, IFindSimilarCol
 
     public bool IsExactMatch(Color c)
     {
-        Console.WriteLine($"{c.R}-{c.G}-{c.B} == {TargetColor.R}-{TargetColor.G}-{TargetColor.B}?");
-
         return c.R == TargetColor.R
             && c.G == TargetColor.G
             && c.B == TargetColor.B;
