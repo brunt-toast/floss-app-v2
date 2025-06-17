@@ -8,6 +8,7 @@ using FlossApp.Application.Enums;
 using FlossApp.Application.Services.ImageFiltering;
 using FlossApp.Application.Utils;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.PixelFormats;
 
@@ -15,6 +16,7 @@ namespace FlossApp.Application.ViewModels.Images;
 
 public partial class ImageFilterViewModel : ViewModelBase, IImageFilterViewModel
 {
+    private readonly ILogger _logger;
     private readonly IImageFilteringService _imageFilteringService;
 
     [ObservableProperty]
@@ -56,6 +58,7 @@ public partial class ImageFilterViewModel : ViewModelBase, IImageFilterViewModel
     public ImageFilterViewModel(IServiceProvider services) : base(services)
     {
         _imageFilteringService = services.GetRequiredService<IImageFilteringService>();
+        _logger = services.GetRequiredService<ILoggerFactory>().CreateLogger<ImageFilterViewModel>();
 
         ImageIn = new Image<Rgba32>(1, 1, new Rgba32(255, 255, 255));
         ImageOut = new Image<Rgba32>(1, 1, new Rgba32(255, 255, 255));
@@ -69,7 +72,7 @@ public partial class ImageFilterViewModel : ViewModelBase, IImageFilterViewModel
         }
         catch (Exception ex)
         {
-            Console.WriteLine(ex);
+            _logger.LogError(ex, "Unexpected exception while loading a file stream");
         }
     }
 
@@ -89,7 +92,7 @@ public partial class ImageFilterViewModel : ViewModelBase, IImageFilterViewModel
         }
         catch (Exception ex)
         {
-            Console.WriteLine(ex);
+            _logger.LogError(ex, "Unexpected exception while processing an image");
         }
     }
 }

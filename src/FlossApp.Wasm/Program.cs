@@ -2,6 +2,7 @@ using FlossApp.Application.Services.ColorNaming;
 using FlossApp.Application.Services.ColorNumbering;
 using FlossApp.Application.Services.ColorProvider;
 using FlossApp.Application.Services.ImageFiltering;
+using FlossApp.Application.Telemetry;
 using FlossApp.Application.ViewModels.Colors;
 using FlossApp.Application.ViewModels.Images;
 using FlossApp.Wasm;
@@ -16,6 +17,7 @@ builder.RootComponents.Add<HeadOutlet>("head::after");
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 builder.Services.AddMudServices();
 
+builder.Services.AddSingleton<ILoggerFactory, FlossAppLoggerFactory>();
 builder.Services.AddSingleton<IColorNamingService, ColorNamingService>();
 builder.Services.AddSingleton<IColorNumberingService, ColorNumberingService>();
 builder.Services.AddSingleton<IColorProviderService, ColorProviderService>();
