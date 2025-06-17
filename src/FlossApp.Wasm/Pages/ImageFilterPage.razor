@@ -1,0 +1,67 @@
+﻿@page "/ImageFilter"
+@using FlossApp.Application.ViewModels.Images
+@inject IImageFilterViewModel ViewModel
+
+@if (!string.IsNullOrWhiteSpace(ViewModel.ImageOutBase64))
+{
+    <MudPaper style="max-width: 100%" Class="m-1 p-2 pb-5">
+        <img style="width: 100%; height: auto; image-rendering: pixelated;"
+             src="data:image/png;base64,@(ViewModel.ImageOutBase64)" />
+        <p style="text-align: center">
+            @(ViewModel.ImageIn.Width)x@(ViewModel.ImageIn.Height)
+            ->
+            @(ViewModel.ImageOut.Width)x@(ViewModel.ImageOut.Height)
+        </p>
+    </MudPaper>
+}
+
+<MudStack>
+    <div class="row">
+        <div class="col col-auto">
+            <MudNumericField Label="Pixel ratio" @bind-Value="ViewModel.PixelRatio"
+                             T="float" Min="@((float)0.01)" Max="1" Step="@((float)0.01)" />
+        </div>
+
+        <div class="col">
+            <MudNumericField Label="New width" @bind-Value="ViewModel.TargetWidth"
+                             T="int" Min="1" Max="ViewModel.ImageIn.Width" />
+        </div>
+
+        <div class="col">
+            <MudNumericField Label="New Height" @bind-Value="ViewModel.TargetHeight"
+                             T="int" Min="1" Max="ViewModel.ImageIn.Height" />
+        </div>
+    </div>
+
+    <div class="row">
+
+        <div class="col">
+            <MudSlider @bind-Value="ViewModel.PixelRatio"
+                       T="float" Min="@((float)0.01)" Max="1" Step="@((float)0.01)" />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col" style="text-align: center;">
+            <MudFileUpload T="IBrowserFile" FilesChanged="UploadFiles" MaximumFileCount="1">
+                <ActivatorContent>
+                    <MudButton Variant="Variant.Filled"
+                               Color="Color.Primary"
+                               StartIcon="@Icons.Material.Filled.FileOpen">
+                        Choose File
+                    </MudButton>
+                </ActivatorContent>
+            </MudFileUpload>
+        </div>
+        <div class="col" style="text-align: center;">
+            <MudButton OnClick="ViewModel.ProcessImageAsync" Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.Refresh">
+                Process
+            </MudButton>
+        </div>
+        <div class="col" style="text-align: center;">
+            <MudButton Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.Save">
+                Save
+            </MudButton>
+        </div>
+    </div>
+</MudStack>
