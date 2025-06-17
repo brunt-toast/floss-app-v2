@@ -16,8 +16,4 @@
     <ProjectReference Include="..\FlossApp.Application\FlossApp.Application.csproj" />
   </ItemGroup>
 
-  <PropertyGroup>
-    <StaticWebAssetBasePath>floss-app-v2/</StaticWebAssetBasePath>
-  </PropertyGroup>
-
 </Project>
