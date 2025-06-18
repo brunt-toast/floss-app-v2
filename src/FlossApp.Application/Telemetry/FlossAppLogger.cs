@@ -16,7 +16,10 @@ public class FlossAppLogger : ILogger
         Console.WriteLine($"{DateTime.Now:O} {_categoryName} [{logLevel}] {formatter(state, exception)}");
     }
 
-    public bool IsEnabled(LogLevel logLevel) => true;
+    public bool IsEnabled(LogLevel logLevel)
+    {
+        return logLevel > LogLevel.Debug;
+    }
 
     public IDisposable? BeginScope<TState>(TState state) where TState : notnull
     {
