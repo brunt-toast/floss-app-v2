@@ -46,6 +46,7 @@ public class ColorProviderService : IColorProviderService
             ColorSchema.Dmc => (await GetFromFileAsync<DmcColor>("Dmc.json")).Cast<IColorFromJson>().ToArray(),
             ColorSchema.Html => (await GetFromFileAsync<HtmlColor>("Html.json")).Cast<IColorFromJson>().ToArray(),
             ColorSchema.Copic => (await GetFromFileAsync<CopicColor>("Copic.json")).Cast<IColorFromJson>().ToArray(),
+            ColorSchema.Anchor => (await GetFromFileAsync<AnchorColor>("Anchor.json")).Cast<IColorFromJson>().ToArray(),
             _ => throw new ArgumentOutOfRangeException(nameof(schema), schema, null)
         };
         var richColors = fromFile.Select(x => x.AsRichColor()).ToArray();

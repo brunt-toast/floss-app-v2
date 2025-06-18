@@ -1,0 +1,3166 @@
+[
+  {
+    "floss": "300",
+    "description": "Bark",
+    "r": 111,
+    "g": 47,
+    "b": 0
+  },
+  {
+    "floss": "310",
+    "description": "Black",
+    "r": 0,
+    "g": 0,
+    "b": 0
+  },
+  {
+    "floss": "444",
+    "description": "Canary Yellow",
+    "r": 255,
+    "g": 214,
+    "b": 0
+  },
+  {
+    "floss": "971",
+    "description": "Citrus",
+    "r": 246,
+    "g": 127,
+    "b": 0
+  },
+  {
+    "floss": "300",
+    "description": "Coffee",
+    "r": 111,
+    "g": 47,
+    "b": 0
+  },
+  {
+    "floss": "444",
+    "description": "Jonquil",
+    "r": 255,
+    "g": 214,
+    "b": 0
+  },
+  {
+    "floss": "973",
+    "description": "Jonquil",
+    "r": 255,
+    "g": 227,
+    "b": 0
+  },
+  {
+    "floss": "300",
+    "description": "Mocha",
+    "r": 111,
+    "g": 47,
+    "b": 0
+  },
+  {
+    "floss": "740",
+    "description": "Orange Spice",
+    "r": 255,
+    "g": 139,
+    "b": 0
+  },
+  {
+    "floss": "740",
+    "description": "Tangerine",
+    "r": 255,
+    "g": 139,
+    "b": 0
+  },
+  {
+    "floss": "606",
+    "description": "Blaze",
+    "r": 250,
+    "g": 50,
+    "b": 3
+  },
+  {
+    "floss": "606",
+    "description": "Crimson Red",
+    "r": 250,
+    "g": 50,
+    "b": 3
+  },
+  {
+    "floss": "3829",
+    "description": "Nutmeg",
+    "r": 169,
+    "g": 130,
+    "b": 4
+  },
+  {
+    "floss": "3829",
+    "description": "Toast",
+    "r": 169,
+    "g": 130,
+    "b": 4
+  },
+  {
+    "floss": "900",
+    "description": "Apricot",
+    "r": 209,
+    "g": 88,
+    "b": 7
+  },
+  {
+    "floss": "946",
+    "description": "Blaze",
+    "r": 235,
+    "g": 99,
+    "b": 7
+  },
+  {
+    "floss": "900",
+    "description": "Christmas Red",
+    "r": 209,
+    "g": 88,
+    "b": 7
+  },
+  {
+    "floss": "946",
+    "description": "Tangerine Very",
+    "r": 235,
+    "g": 99,
+    "b": 7
+  },
+  {
+    "floss": "3371",
+    "description": "Fudge",
+    "r": 30,
+    "g": 17,
+    "b": 8
+  },
+  {
+    "floss": "938",
+    "description": "Fudge",
+    "r": 54,
+    "g": 31,
+    "b": 14
+  },
+  {
+    "floss": "680",
+    "description": "Spice",
+    "r": 188,
+    "g": 141,
+    "b": 14
+  },
+  {
+    "floss": "400",
+    "description": "Coffee",
+    "r": 143,
+    "g": 67,
+    "b": 15
+  },
+  {
+    "floss": "400",
+    "description": "Spice",
+    "r": 143,
+    "g": 67,
+    "b": 15
+  },
+  {
+    "floss": "919",
+    "description": "Apricot",
+    "r": 166,
+    "g": 69,
+    "b": 16
+  },
+  {
+    "floss": "919",
+    "description": "Mocha",
+    "r": 166,
+    "g": 69,
+    "b": 16
+  },
+  {
+    "floss": "898",
+    "description": "Coffee",
+    "r": 73,
+    "g": 42,
+    "b": 19
+  },
+  {
+    "floss": "970",
+    "description": "Melon",
+    "r": 247,
+    "g": 139,
+    "b": 19
+  },
+  {
+    "floss": "972",
+    "description": "Citrus",
+    "r": 255,
+    "g": 181,
+    "b": 21
+  },
+  {
+    "floss": "699",
+    "description": "Grass Green",
+    "r": 5,
+    "g": 101,
+    "b": 23
+  },
+  {
+    "floss": "Avocado",
+    "description": "Parrot Green",
+    "r": 5,
+    "g": 101,
+    "b": 23
+  },
+  {
+    "floss": "921",
+    "description": "Brick",
+    "r": 198,
+    "g": 98,
+    "b": 24
+  },
+  {
+    "floss": "934",
+    "description": "Unnamed",
+    "r": 49,
+    "g": 57,
+    "b": 25
+  },
+  {
+    "floss": "780",
+    "description": "Spice",
+    "r": 148,
+    "g": 99,
+    "b": 26
+  },
+  {
+    "floss": "780",
+    "description": "Topaz",
+    "r": 148,
+    "g": 99,
+    "b": 26
+  },
+  {
+    "floss": "700",
+    "description": "Emerald",
+    "r": 7,
+    "g": 115,
+    "b": 27
+  },
+  {
+    "floss": "814",
+    "description": "Raspberry",
+    "r": 123,
+    "g": 0,
+    "b": 27
+  },
+  {
+    "floss": "700",
+    "description": "Spruce",
+    "r": 7,
+    "g": 115,
+    "b": 27
+  },
+  {
+    "floss": "817",
+    "description": "Blossom Pink",
+    "r": 187,
+    "g": 5,
+    "b": 31
+  },
+  {
+    "floss": "815Garnet",
+    "description": "Burgundy",
+    "r": 187,
+    "g": 5,
+    "b": 31
+  },
+  {
+    "floss": "817",
+    "description": "Salmon",
+    "r": 187,
+    "g": 5,
+    "b": 31
+  },
+  {
+    "floss": "781",
+    "description": "Bark",
+    "r": 162,
+    "g": 109,
+    "b": 32
+  },
+  {
+    "floss": "782",
+    "description": "Saffron",
+    "r": 174,
+    "g": 119,
+    "b": 32
+  },
+  {
+    "floss": "782",
+    "description": "Tawny",
+    "r": 174,
+    "g": 119,
+    "b": 32
+  },
+  {
+    "floss": "782",
+    "description": "Topaz",
+    "r": 174,
+    "g": 119,
+    "b": 32
+  },
+  {
+    "floss": "935",
+    "description": "Stone Gray",
+    "r": 66,
+    "g": 77,
+    "b": 33
+  },
+  {
+    "floss": "904",
+    "description": "Avocado",
+    "r": 85,
+    "g": 120,
+    "b": 34
+  },
+  {
+    "floss": "3777",
+    "description": "Bark",
+    "r": 134,
+    "g": 48,
+    "b": 34
+  },
+  {
+    "floss": "3777",
+    "description": "Brick",
+    "r": 134,
+    "g": 48,
+    "b": 34
+  },
+  {
+    "floss": "3777",
+    "description": "Terra Cotta",
+    "r": 134,
+    "g": 48,
+    "b": 34
+  },
+  {
+    "floss": "922",
+    "description": "Amberglow",
+    "r": 226,
+    "g": 115,
+    "b": 35
+  },
+  {
+    "floss": "816",
+    "description": "Antique Rose",
+    "r": 151,
+    "g": 11,
+    "b": 35
+  },
+  {
+    "floss": "890",
+    "description": "Turf Green",
+    "r": 23,
+    "g": 73,
+    "b": 35
+  },
+  {
+    "floss": "783",
+    "description": "Brass",
+    "r": 206,
+    "g": 145,
+    "b": 36
+  },
+  {
+    "floss": "905",
+    "description": "Avocado",
+    "r": 98,
+    "g": 138,
+    "b": 40
+  },
+  {
+    "floss": "905",
+    "description": "Parrot Green",
+    "r": 98,
+    "g": 138,
+    "b": 40
+  },
+  {
+    "floss": "701",
+    "description": "Emerald",
+    "r": 63,
+    "g": 143,
+    "b": 41
+  },
+  {
+    "floss": "3031",
+    "description": "Fern Green",
+    "r": 75,
+    "g": 60,
+    "b": 42
+  },
+  {
+    "floss": "3031",
+    "description": "Tawny",
+    "r": 75,
+    "g": 60,
+    "b": 42
+  },
+  {
+    "floss": "498",
+    "description": "Brick",
+    "r": 167,
+    "g": 19,
+    "b": 43
+  },
+  {
+    "floss": "498",
+    "description": "Burgundy",
+    "r": 167,
+    "g": 19,
+    "b": 43
+  },
+  {
+    "floss": "498",
+    "description": "Carmine Red",
+    "r": 167,
+    "g": 19,
+    "b": 43
+  },
+  {
+    "floss": "498",
+    "description": "Cherry Red",
+    "r": 167,
+    "g": 19,
+    "b": 43
+  },
+  {
+    "floss": "301",
+    "description": "Cinnamon",
+    "r": 179,
+    "g": 95,
+    "b": 43
+  },
+  {
+    "floss": "741",
+    "description": "Citrus",
+    "r": 255,
+    "g": 163,
+    "b": 43
+  },
+  {
+    "floss": "741",
+    "description": "Tangerine",
+    "r": 255,
+    "g": 163,
+    "b": 43
+  },
+  {
+    "floss": "741",
+    "description": "Topaz",
+    "r": 255,
+    "g": 163,
+    "b": 43
+  },
+  {
+    "floss": "347",
+    "description": "Peony",
+    "r": 191,
+    "g": 45,
+    "b": 45
+  },
+  {
+    "floss": "702",
+    "description": "Emerald",
+    "r": 71,
+    "g": 167,
+    "b": 47
+  },
+  {
+    "floss": "702",
+    "description": "spring Green",
+    "r": 71,
+    "g": 167,
+    "b": 47
+  },
+  {
+    "floss": "730",
+    "description": "Olive Green",
+    "r": 130,
+    "g": 123,
+    "b": 48
+  },
+  {
+    "floss": "986",
+    "description": "Pine",
+    "r": 64,
+    "g": 82,
+    "b": 48
+  },
+  {
+    "floss": "986",
+    "description": "Spruce",
+    "r": 64,
+    "g": 82,
+    "b": 48
+  },
+  {
+    "floss": "3685",
+    "description": "Rspberry",
+    "r": 136,
+    "g": 21,
+    "b": 49
+  },
+  {
+    "floss": "580",
+    "description": "Avocado",
+    "r": 136,
+    "g": 141,
+    "b": 51
+  },
+  {
+    "floss": "500",
+    "description": "Grass Green",
+    "r": 4,
+    "g": 77,
+    "b": 51
+  },
+  {
+    "floss": "500",
+    "description": "Juniper",
+    "r": 4,
+    "g": 77,
+    "b": 51
+  },
+  {
+    "floss": "580",
+    "description": "Parrot Green",
+    "r": 136,
+    "g": 141,
+    "b": 51
+  },
+  {
+    "floss": "154",
+    "description": "Violet",
+    "r": 87,
+    "g": 36,
+    "b": 51
+  },
+  {
+    "floss": "704",
+    "description": "Chartreuse",
+    "r": 158,
+    "g": 207,
+    "b": 52
+  },
+  {
+    "floss": "704",
+    "description": "Parrot Green",
+    "r": 158,
+    "g": 207,
+    "b": 52
+  },
+  {
+    "floss": "906",
+    "description": "Parrot Green",
+    "r": 127,
+    "g": 179,
+    "b": 53
+  },
+  {
+    "floss": "355",
+    "description": "Copper",
+    "r": 152,
+    "g": 68,
+    "b": 54
+  },
+  {
+    "floss": "902",
+    "description": "Burgundy",
+    "r": 130,
+    "g": 38,
+    "b": 55
+  },
+  {
+    "floss": "902",
+    "description": "Carmine Rose",
+    "r": 130,
+    "g": 38,
+    "b": 55
+  },
+  {
+    "floss": "902",
+    "description": "Rose Wine",
+    "r": 130,
+    "g": 38,
+    "b": 55
+  },
+  {
+    "floss": "3852",
+    "description": "Topaz",
+    "r": 205,
+    "g": 157,
+    "b": 55
+  },
+  {
+    "floss": "902",
+    "description": "raspberry",
+    "r": 130,
+    "g": 38,
+    "b": 55
+  },
+  {
+    "floss": "581",
+    "description": "Fern Green",
+    "r": 167,
+    "g": 174,
+    "b": 56
+  },
+  {
+    "floss": "321",
+    "description": "Carmine Rose",
+    "r": 199,
+    "g": 43,
+    "b": 59
+  },
+  {
+    "floss": "3818",
+    "description": "Emerald",
+    "r": 17,
+    "g": 90,
+    "b": 59
+  },
+  {
+    "floss": "3818",
+    "description": "Ocean Green",
+    "r": 17,
+    "g": 90,
+    "b": 59
+  },
+  {
+    "floss": "729",
+    "description": "Bark",
+    "r": 208,
+    "g": 165,
+    "b": 62
+  },
+  {
+    "floss": "729",
+    "description": "Wheat",
+    "r": 208,
+    "g": 165,
+    "b": 62
+  },
+  {
+    "floss": "3858",
+    "description": "Fawn",
+    "r": 150,
+    "g": 74,
+    "b": 63
+  },
+  {
+    "floss": "725",
+    "description": "Citrus",
+    "r": 255,
+    "g": 200,
+    "b": 64
+  },
+  {
+    "floss": "725",
+    "description": "Topaz",
+    "r": 255,
+    "g": 200,
+    "b": 64
+  },
+  {
+    "floss": "987",
+    "description": "Grass Green",
+    "r": 88,
+    "g": 113,
+    "b": 65
+  },
+  {
+    "floss": "987",
+    "description": "Loden Green",
+    "r": 88,
+    "g": 113,
+    "b": 65
+  },
+  {
+    "floss": "976",
+    "description": "Antique Gold",
+    "r": 194,
+    "g": 129,
+    "b": 66
+  },
+  {
+    "floss": "721",
+    "description": "Apricot",
+    "r": 242,
+    "g": 120,
+    "b": 66
+  },
+  {
+    "floss": "829",
+    "description": "Brass",
+    "r": 126,
+    "g": 107,
+    "b": 66
+  },
+  {
+    "floss": "666",
+    "description": "Carnation",
+    "r": 227,
+    "g": 29,
+    "b": 66
+  },
+  {
+    "floss": "3799",
+    "description": "Charcoal Gray",
+    "r": 66,
+    "g": 66,
+    "b": 66
+  },
+  {
+    "floss": "976",
+    "description": "Cinnamon",
+    "r": 194,
+    "g": 129,
+    "b": 66
+  },
+  {
+    "floss": "420",
+    "description": "Desert",
+    "r": 160,
+    "g": 112,
+    "b": 66
+  },
+  {
+    "floss": "3799",
+    "description": "Gray",
+    "r": 66,
+    "g": 66,
+    "b": 66
+  },
+  {
+    "floss": "666",
+    "description": "Unnamed",
+    "r": 227,
+    "g": 29,
+    "b": 66
+  },
+  {
+    "floss": "915",
+    "description": "Plum",
+    "r": 130,
+    "g": 0,
+    "b": 67
+  },
+  {
+    "floss": "3781",
+    "description": "Unnamed",
+    "r": 107,
+    "g": 87,
+    "b": 67
+  },
+  {
+    "floss": "3830",
+    "description": "Terra Cotta",
+    "r": 185,
+    "g": 85,
+    "b": 68
+  },
+  {
+    "floss": "779",
+    "description": "Amethyst",
+    "r": 98,
+    "g": 75,
+    "b": 69
+  },
+  {
+    "floss": "561",
+    "description": "Juniper",
+    "r": 44,
+    "g": 106,
+    "b": 69
+  },
+  {
+    "floss": "561",
+    "description": "Spruce",
+    "r": 44,
+    "g": 106,
+    "b": 69
+  },
+  {
+    "floss": "3853",
+    "description": "Antique Gold",
+    "r": 242,
+    "g": 151,
+    "b": 70
+  },
+  {
+    "floss": "777",
+    "description": "Antique Rose",
+    "r": 145,
+    "g": 53,
+    "b": 70
+  },
+  {
+    "floss": "777",
+    "description": "China Rose",
+    "r": 145,
+    "g": 53,
+    "b": 70
+  },
+  {
+    "floss": "3362",
+    "description": "Laurel Green",
+    "r": 94,
+    "g": 107,
+    "b": 71
+  },
+  {
+    "floss": "3362",
+    "description": "Stone Gray",
+    "r": 94,
+    "g": 107,
+    "b": 71
+  },
+  {
+    "floss": "703",
+    "description": "spring Green",
+    "r": 123,
+    "g": 181,
+    "b": 71
+  },
+  {
+    "floss": "350",
+    "description": "Salmon",
+    "r": 224,
+    "g": 72,
+    "b": 72
+  },
+  {
+    "floss": "167",
+    "description": "Turf",
+    "r": 167,
+    "g": 124,
+    "b": 73
+  },
+  {
+    "floss": "830",
+    "description": "Sand Stone",
+    "r": 141,
+    "g": 120,
+    "b": 75
+  },
+  {
+    "floss": "830",
+    "description": "Wheat",
+    "r": 141,
+    "g": 120,
+    "b": 75
+  },
+  {
+    "floss": "733",
+    "description": "Olive Green",
+    "r": 188,
+    "g": 179,
+    "b": 76
+  },
+  {
+    "floss": "3862",
+    "description": "Tawny",
+    "r": 138,
+    "g": 110,
+    "b": 78
+  },
+  {
+    "floss": "550",
+    "description": "Violet",
+    "r": 92,
+    "g": 24,
+    "b": 78
+  },
+  {
+    "floss": "470",
+    "description": "Avocado",
+    "r": 148,
+    "g": 171,
+    "b": 79
+  },
+  {
+    "floss": "520",
+    "description": "Avocado",
+    "r": 102,
+    "g": 109,
+    "b": 79
+  },
+  {
+    "floss": "520",
+    "description": "Laurel Green",
+    "r": 102,
+    "g": 109,
+    "b": 79
+  },
+  {
+    "floss": "520",
+    "description": "Loden Green",
+    "r": 102,
+    "g": 109,
+    "b": 79
+  },
+  {
+    "floss": "3772",
+    "description": "Beige Brown",
+    "r": 160,
+    "g": 108,
+    "b": 80
+  },
+  {
+    "floss": "3772",
+    "description": "Chicory",
+    "r": 160,
+    "g": 108,
+    "b": 80
+  },
+  {
+    "floss": "832",
+    "description": "Desert",
+    "r": 189,
+    "g": 155,
+    "b": 81
+  },
+  {
+    "floss": "436",
+    "description": "Flesh",
+    "r": 203,
+    "g": 144,
+    "b": 81
+  },
+  {
+    "floss": "436",
+    "description": "Toast",
+    "r": 203,
+    "g": 144,
+    "b": 81
+  },
+  {
+    "floss": "315",
+    "description": "Antique Mauve",
+    "r": 129,
+    "g": 73,
+    "b": 82
+  },
+  {
+    "floss": "501",
+    "description": "Blue Mist",
+    "r": 57,
+    "g": 111,
+    "b": 82
+  },
+  {
+    "floss": "3773",
+    "description": "Chicory",
+    "r": 182,
+    "g": 117,
+    "b": 82
+  },
+  {
+    "floss": "501",
+    "description": "Pine",
+    "r": 57,
+    "g": 111,
+    "b": 82
+  },
+  {
+    "floss": "3773",
+    "description": "Terra Cotta",
+    "r": 182,
+    "g": 117,
+    "b": 82
+  },
+  {
+    "floss": "939",
+    "description": "Delft Blue",
+    "r": 27,
+    "g": 40,
+    "b": 83
+  },
+  {
+    "floss": "307",
+    "description": "Canary Yellow",
+    "r": 253,
+    "g": 237,
+    "b": 84
+  },
+  {
+    "floss": "726",
+    "description": "Jonquil",
+    "r": 253,
+    "g": 215,
+    "b": 85
+  },
+  {
+    "floss": "831",
+    "description": "Desert",
+    "r": 170,
+    "g": 143,
+    "b": 86
+  },
+  {
+    "floss": "611",
+    "description": "Earth",
+    "r": 150,
+    "g": 118,
+    "b": 86
+  },
+  {
+    "floss": "611",
+    "description": "Fawn",
+    "r": 150,
+    "g": 118,
+    "b": 86
+  },
+  {
+    "floss": "910",
+    "description": "Mint Green",
+    "r": 24,
+    "g": 126,
+    "b": 86
+  },
+  {
+    "floss": "831",
+    "description": "Olive Green",
+    "r": 170,
+    "g": 143,
+    "b": 86
+  },
+  {
+    "floss": "611",
+    "description": "Terra Cotta",
+    "r": 150,
+    "g": 118,
+    "b": 86
+  },
+  {
+    "floss": "3803",
+    "description": "Rasperry",
+    "r": 171,
+    "g": 51,
+    "b": 87
+  },
+  {
+    "floss": "3803",
+    "description": "Wineberry",
+    "r": 171,
+    "g": 51,
+    "b": 87
+  },
+  {
+    "floss": "3011",
+    "description": "Fern Green",
+    "r": 137,
+    "g": 138,
+    "b": 88
+  },
+  {
+    "floss": "3011",
+    "description": "Forest",
+    "r": 137,
+    "g": 138,
+    "b": 88
+  },
+  {
+    "floss": "3011",
+    "description": "Mocha Brown",
+    "r": 137,
+    "g": 138,
+    "b": 88
+  },
+  {
+    "floss": "917",
+    "description": "Antique Rose",
+    "r": 155,
+    "g": 19,
+    "b": 89
+  },
+  {
+    "floss": "917",
+    "description": "Orchid",
+    "r": 155,
+    "g": 19,
+    "b": 89
+  },
+  {
+    "floss": "3815",
+    "description": "Pine",
+    "r": 71,
+    "g": 119,
+    "b": 89
+  },
+  {
+    "floss": "320",
+    "description": "Juniper",
+    "r": 105,
+    "g": 136,
+    "b": 90
+  },
+  {
+    "floss": "988",
+    "description": "Grass Green",
+    "r": 115,
+    "g": 139,
+    "b": 91
+  },
+  {
+    "floss": "820",
+    "description": "Blue",
+    "r": 14,
+    "g": 54,
+    "b": 92
+  },
+  {
+    "floss": "645",
+    "description": "Gray",
+    "r": 110,
+    "g": 101,
+    "b": 92
+  },
+  {
+    "floss": "840",
+    "description": "Linen",
+    "r": 154,
+    "g": 124,
+    "b": 92
+  },
+  {
+    "floss": "840",
+    "description": "Unnamed",
+    "r": 154,
+    "g": 124,
+    "b": 92
+  },
+  {
+    "floss": "3012",
+    "description": "Fern Green",
+    "r": 166,
+    "g": 167,
+    "b": 93
+  },
+  {
+    "floss": "3012",
+    "description": "Tawny",
+    "r": 166,
+    "g": 167,
+    "b": 93
+  },
+  {
+    "floss": "3834",
+    "description": "Violet",
+    "r": 114,
+    "g": 55,
+    "b": 93
+  },
+  {
+    "floss": "3750",
+    "description": "antique Blue",
+    "r": 56,
+    "g": 76,
+    "b": 94
+  },
+  {
+    "floss": "3364",
+    "description": "Laurel Green",
+    "r": 131,
+    "g": 151,
+    "b": 95
+  },
+  {
+    "floss": "3364",
+    "description": "Loden Green",
+    "r": 131,
+    "g": 151,
+    "b": 95
+  },
+  {
+    "floss": "3820",
+    "description": "Nutmeg",
+    "r": 223,
+    "g": 182,
+    "b": 95
+  },
+  {
+    "floss": "163",
+    "description": "Juniper",
+    "r": 77,
+    "g": 131,
+    "b": 97
+  },
+  {
+    "floss": "640",
+    "description": "Rose Gray",
+    "r": 133,
+    "g": 123,
+    "b": 97
+  },
+  {
+    "floss": "3828",
+    "description": "Sand Stone",
+    "r": 183,
+    "g": 139,
+    "b": 97
+  },
+  {
+    "floss": "3828",
+    "description": "Turf/td>",
+    "r": 183,
+    "g": 139,
+    "b": 97
+  },
+  {
+    "floss": "3740",
+    "description": "Amethyst",
+    "r": 120,
+    "g": 87,
+    "b": 98
+  },
+  {
+    "floss": "718",
+    "description": "Orchid",
+    "r": 156,
+    "g": 36,
+    "b": 98
+  },
+  {
+    "floss": "505",
+    "description": "Pine",
+    "r": 51,
+    "g": 131,
+    "b": 98
+  },
+  {
+    "floss": "823",
+    "description": "Indigo",
+    "r": 33,
+    "g": 48,
+    "b": 99
+  },
+  {
+    "floss": "791",
+    "description": "Ocean Blue",
+    "r": 70,
+    "g": 69,
+    "b": 99
+  },
+  {
+    "floss": "3722",
+    "description": "Rose Wine",
+    "r": 188,
+    "g": 108,
+    "b": 100
+  },
+  {
+    "floss": "370",
+    "description": "Sierra",
+    "r": 184,
+    "g": 157,
+    "b": 100
+  },
+  {
+    "floss": "311",
+    "description": "Delft Blue",
+    "r": 28,
+    "g": 80,
+    "b": 102
+  },
+  {
+    "floss": "327",
+    "description": "Lavender",
+    "r": 99,
+    "g": 54,
+    "b": 102
+  },
+  {
+    "floss": "3726",
+    "description": "antique Mauve",
+    "r": 155,
+    "g": 91,
+    "b": 102
+  },
+  {
+    "floss": "3801",
+    "description": "Blush",
+    "r": 231,
+    "g": 73,
+    "b": 103
+  },
+  {
+    "floss": "3052",
+    "description": "Laurel Green",
+    "r": 136,
+    "g": 146,
+    "b": 104
+  },
+  {
+    "floss": "3819",
+    "description": "Olive Green",
+    "r": 224,
+    "g": 232,
+    "b": 104
+  },
+  {
+    "floss": "3052",
+    "description": "Stone Gray",
+    "r": 136,
+    "g": 146,
+    "b": 104
+  },
+  {
+    "floss": "3854",
+    "description": "Topaz",
+    "r": 242,
+    "g": 175,
+    "b": 104
+  },
+  {
+    "floss": "562",
+    "description": "Mint Green",
+    "r": 83,
+    "g": 151,
+    "b": 106
+  },
+  {
+    "floss": "924",
+    "description": "Steel Blue",
+    "r": 86,
+    "g": 106,
+    "b": 106
+  },
+  {
+    "floss": "912",
+    "description": "Spruce",
+    "r": 27,
+    "g": 157,
+    "b": 107
+  },
+  {
+    "floss": "335",
+    "description": "Blossom Pink",
+    "r": 238,
+    "g": 84,
+    "b": 110
+  },
+  {
+    "floss": "158",
+    "description": "Blueberry",
+    "r": 76,
+    "g": 82,
+    "b": 110
+  },
+  {
+    "floss": "335",
+    "description": "Carmine Rose",
+    "r": 238,
+    "g": 84,
+    "b": 110
+  },
+  {
+    "floss": "815Garnet",
+    "description": "Carmine Rose",
+    "r": 238,
+    "g": 84,
+    "b": 110
+  },
+  {
+    "floss": "3832",
+    "description": "Peony",
+    "r": 219,
+    "g": 85,
+    "b": 110
+  },
+  {
+    "floss": "722",
+    "description": "Apricot",
+    "r": 247,
+    "g": 151,
+    "b": 111
+  },
+  {
+    "floss": "3340",
+    "description": "Melon",
+    "r": 255,
+    "g": 131,
+    "b": 111
+  },
+  {
+    "floss": "3687",
+    "description": "Antique Rose",
+    "r": 201,
+    "g": 107,
+    "b": 112
+  },
+  {
+    "floss": "3064",
+    "description": "Copper",
+    "r": 196,
+    "g": 142,
+    "b": 112
+  },
+  {
+    "floss": "3687",
+    "description": "Mauve",
+    "r": 201,
+    "g": 107,
+    "b": 112
+  },
+  {
+    "floss": "3808",
+    "description": "Unnamed",
+    "r": 54,
+    "g": 105,
+    "b": 112
+  },
+  {
+    "floss": "930",
+    "description": "Denim",
+    "r": 69,
+    "g": 92,
+    "b": 113
+  },
+  {
+    "floss": "502",
+    "description": "Ocean Green",
+    "r": 91,
+    "g": 144,
+    "b": 113
+  },
+  {
+    "floss": "930",
+    "description": "Sage",
+    "r": 69,
+    "g": 92,
+    "b": 113
+  },
+  {
+    "floss": "371",
+    "description": "Turf",
+    "r": 191,
+    "g": 166,
+    "b": 113
+  },
+  {
+    "floss": "961",
+    "description": "Antique Rose",
+    "r": 207,
+    "g": 115,
+    "b": 115
+  },
+  {
+    "floss": "336",
+    "description": "Delft Blue",
+    "r": 37,
+    "g": 59,
+    "b": 115
+  },
+  {
+    "floss": "451",
+    "description": "Terra Cotta",
+    "r": 145,
+    "g": 123,
+    "b": 115
+  },
+  {
+    "floss": "989",
+    "description": "Emerald",
+    "r": 141,
+    "g": 166,
+    "b": 117
+  },
+  {
+    "floss": "989",
+    "description": "Grass Green",
+    "r": 141,
+    "g": 166,
+    "b": 117
+  },
+  {
+    "floss": "3804",
+    "description": "Beauty Rose",
+    "r": 224,
+    "g": 40,
+    "b": 118
+  },
+  {
+    "floss": "743",
+    "description": "Canary Yellow",
+    "r": 254,
+    "g": 211,
+    "b": 118
+  },
+  {
+    "floss": "3804",
+    "description": "China Rose",
+    "r": 224,
+    "g": 40,
+    "b": 118
+  },
+  {
+    "floss": "3804",
+    "description": "Magenta",
+    "r": 224,
+    "g": 40,
+    "b": 118
+  },
+  {
+    "floss": "3827",
+    "description": "Cinnamon",
+    "r": 247,
+    "g": 187,
+    "b": 119
+  },
+  {
+    "floss": "734",
+    "description": "Harvest",
+    "r": 199,
+    "g": 192,
+    "b": 119
+  },
+  {
+    "floss": "3827",
+    "description": "Nutmeg",
+    "r": 247,
+    "g": 187,
+    "b": 119
+  },
+  {
+    "floss": "734",
+    "description": "Olive Green",
+    "r": 199,
+    "g": 192,
+    "b": 119
+  },
+  {
+    "floss": "402",
+    "description": "Terra Cotta",
+    "r": 247,
+    "g": 167,
+    "b": 119
+  },
+  {
+    "floss": "3778",
+    "description": "Brick",
+    "r": 217,
+    "g": 137,
+    "b": 120
+  },
+  {
+    "floss": "333",
+    "description": "Lavender",
+    "r": 92,
+    "g": 84,
+    "b": 120
+  },
+  {
+    "floss": "3022",
+    "description": "Pewter",
+    "r": 142,
+    "g": 144,
+    "b": 120
+  },
+  {
+    "floss": "3778",
+    "description": "Terra Cotta",
+    "r": 217,
+    "g": 137,
+    "b": 120
+  },
+  {
+    "floss": "471",
+    "description": "Avocado",
+    "r": 174,
+    "g": 191,
+    "b": 121
+  },
+  {
+    "floss": "422",
+    "description": "Desert",
+    "r": 198,
+    "g": 159,
+    "b": 123
+  },
+  {
+    "floss": "422",
+    "description": "Spice",
+    "r": 198,
+    "g": 159,
+    "b": 123
+  },
+  {
+    "floss": "792",
+    "description": "Thistle",
+    "r": 85,
+    "g": 91,
+    "b": 123
+  },
+  {
+    "floss": "3041",
+    "description": "Amethyst",
+    "r": 149,
+    "g": 111,
+    "b": 124
+  },
+  {
+    "floss": "803",
+    "description": "Antique Blue",
+    "r": 44,
+    "g": 89,
+    "b": 124
+  },
+  {
+    "floss": "3842",
+    "description": "Delft Blue",
+    "r": 50,
+    "g": 102,
+    "b": 124
+  },
+  {
+    "floss": "803",
+    "description": "Delft Blue",
+    "r": 44,
+    "g": 89,
+    "b": 124
+  },
+  {
+    "floss": "3842",
+    "description": "Sapphire",
+    "r": 50,
+    "g": 102,
+    "b": 124
+  },
+  {
+    "floss": "3842",
+    "description": "Surf Blue",
+    "r": 50,
+    "g": 102,
+    "b": 124
+  },
+  {
+    "floss": "Turquoise",
+    "description": "Surf Blue",
+    "r": 50,
+    "g": 102,
+    "b": 124
+  },
+  {
+    "floss": "223",
+    "description": "Wineberry",
+    "r": 204,
+    "g": 132,
+    "b": 124
+  },
+  {
+    "floss": "3816",
+    "description": "Pine",
+    "r": 101,
+    "g": 165,
+    "b": 125
+  },
+  {
+    "floss": "3814",
+    "description": "Sea Green",
+    "r": 80,
+    "g": 139,
+    "b": 125
+  },
+  {
+    "floss": "3814",
+    "description": "Unnamed",
+    "r": 80,
+    "g": 139,
+    "b": 125
+  },
+  {
+    "floss": "841",
+    "description": "Fawn",
+    "r": 182,
+    "g": 155,
+    "b": 126
+  },
+  {
+    "floss": "316",
+    "description": "Antique",
+    "r": 183,
+    "g": 115,
+    "b": 127
+  },
+  {
+    "floss": "316",
+    "description": "Rose Wine",
+    "r": 183,
+    "g": 115,
+    "b": 127
+  },
+  {
+    "floss": "834",
+    "description": "Saffron",
+    "r": 219,
+    "g": 190,
+    "b": 127
+  },
+  {
+    "floss": "834",
+    "description": "Sand Stone",
+    "r": 219,
+    "g": 190,
+    "b": 127
+  },
+  {
+    "floss": "3013",
+    "description": "Avocado",
+    "r": 185,
+    "g": 185,
+    "b": 130
+  },
+  {
+    "floss": "3053",
+    "description": "Loden Green",
+    "r": 156,
+    "g": 164,
+    "b": 130
+  },
+  {
+    "floss": "3731",
+    "description": "Peony",
+    "r": 218,
+    "g": 103,
+    "b": 131
+  },
+  {
+    "floss": "3731",
+    "description": "Rasperry",
+    "r": 218,
+    "g": 103,
+    "b": 131
+  },
+  {
+    "floss": "3731",
+    "description": "Rose Wine",
+    "r": 218,
+    "g": 103,
+    "b": 131
+  },
+  {
+    "floss": "3835",
+    "description": "Violet",
+    "r": 148,
+    "g": 96,
+    "b": 131
+  },
+  {
+    "floss": "3809",
+    "description": "Unnamed",
+    "r": 63,
+    "g": 124,
+    "b": 133
+  },
+  {
+    "floss": "824",
+    "description": "Copen Blue",
+    "r": 57,
+    "g": 105,
+    "b": 135
+  },
+  {
+    "floss": "3712",
+    "description": "Salmon",
+    "r": 241,
+    "g": 135,
+    "b": 135
+  },
+  {
+    "floss": "824",
+    "description": "Stormy Blue",
+    "r": 57,
+    "g": 105,
+    "b": 135
+  },
+  {
+    "floss": "312",
+    "description": "Blue",
+    "r": 53,
+    "g": 102,
+    "b": 139
+  },
+  {
+    "floss": "3032",
+    "description": "Linen",
+    "r": 179,
+    "g": 159,
+    "b": 139
+  },
+  {
+    "floss": "445",
+    "description": "Olive Green Very",
+    "r": 255,
+    "g": 251,
+    "b": 139
+  },
+  {
+    "floss": "553",
+    "description": "Plum",
+    "r": 163,
+    "g": 99,
+    "b": 139
+  },
+  {
+    "floss": "3032",
+    "description": "Sierra",
+    "r": 179,
+    "g": 159,
+    "b": 139
+  },
+  {
+    "floss": "3032",
+    "description": "Unnamed",
+    "r": 179,
+    "g": 159,
+    "b": 139
+  },
+  {
+    "floss": "312",
+    "description": "Wedgewood",
+    "r": 53,
+    "g": 102,
+    "b": 139
+  },
+  {
+    "floss": "3807",
+    "description": "Blueberry",
+    "r": 96,
+    "g": 103,
+    "b": 140
+  },
+  {
+    "floss": "892",
+    "description": "Carnation",
+    "r": 255,
+    "g": 121,
+    "b": 140
+  },
+  {
+    "floss": "414",
+    "description": "Charcoal Gray",
+    "r": 140,
+    "g": 140,
+    "b": 140
+  },
+  {
+    "floss": "3807",
+    "description": "Ocean Blue",
+    "r": 96,
+    "g": 103,
+    "b": 140
+  },
+  {
+    "floss": "414",
+    "description": "Pumice",
+    "r": 140,
+    "g": 140,
+    "b": 140
+  },
+  {
+    "floss": "3765",
+    "description": "Sea Blue",
+    "r": 52,
+    "g": 127,
+    "b": 140
+  },
+  {
+    "floss": "3765",
+    "description": "Unnamed",
+    "r": 52,
+    "g": 127,
+    "b": 140
+  },
+  {
+    "floss": "437",
+    "description": "Brick",
+    "r": 228,
+    "g": 187,
+    "b": 142
+  },
+  {
+    "floss": "437",
+    "description": "Copper",
+    "r": 228,
+    "g": 187,
+    "b": 142
+  },
+  {
+    "floss": "956",
+    "description": "Blush",
+    "r": 255,
+    "g": 145,
+    "b": 145
+  },
+  {
+    "floss": "3838",
+    "description": "Ocean Blue",
+    "r": 92,
+    "g": 114,
+    "b": 148
+  },
+  {
+    "floss": "503",
+    "description": "Pine",
+    "r": 123,
+    "g": 172,
+    "b": 148
+  },
+  {
+    "floss": "3838",
+    "description": "Thistle",
+    "r": 92,
+    "g": 114,
+    "b": 148
+  },
+  {
+    "floss": "676",
+    "description": "Brass",
+    "r": 229,
+    "g": 206,
+    "b": 151
+  },
+  {
+    "floss": "676",
+    "description": "Nutmeg",
+    "r": 229,
+    "g": 206,
+    "b": 151
+  },
+  {
+    "floss": "676",
+    "description": "Sand Stone",
+    "r": 229,
+    "g": 206,
+    "b": 151
+  },
+  {
+    "floss": "676",
+    "description": "Tangerine",
+    "r": 229,
+    "g": 206,
+    "b": 151
+  },
+  {
+    "floss": "676",
+    "description": "Wheat",
+    "r": 229,
+    "g": 206,
+    "b": 151
+  },
+  {
+    "floss": "3822",
+    "description": "Citrus",
+    "r": 246,
+    "g": 220,
+    "b": 152
+  },
+  {
+    "floss": "368",
+    "description": "Grass Green",
+    "r": 166,
+    "g": 194,
+    "b": 152
+  },
+  {
+    "floss": "3746",
+    "description": "Lavender",
+    "r": 119,
+    "g": 107,
+    "b": 152
+  },
+  {
+    "floss": "3341",
+    "description": "Melon",
+    "r": 252,
+    "g": 171,
+    "b": 152
+  },
+  {
+    "floss": "3833",
+    "description": "Antique Rose",
+    "r": 234,
+    "g": 134,
+    "b": 153
+  },
+  {
+    "floss": "3833",
+    "description": "Beauty Rose",
+    "r": 234,
+    "g": 134,
+    "b": 153
+  },
+  {
+    "floss": "3046",
+    "description": "Fern Green",
+    "r": 216,
+    "g": 188,
+    "b": 154
+  },
+  {
+    "floss": "3810",
+    "description": "Unnamed",
+    "r": 72,
+    "g": 142,
+    "b": 154
+  },
+  {
+    "floss": "3733",
+    "description": "Blush",
+    "r": 232,
+    "g": 135,
+    "b": 155
+  },
+  {
+    "floss": "647",
+    "description": "Blue Mist",
+    "r": 176,
+    "g": 166,
+    "b": 156
+  },
+  {
+    "floss": "647",
+    "description": "Gray",
+    "r": 176,
+    "g": 166,
+    "b": 156
+  },
+  {
+    "floss": "3864",
+    "description": "Sierra",
+    "r": 203,
+    "g": 182,
+    "b": 156
+  },
+  {
+    "floss": "3864",
+    "description": "Unnamed",
+    "r": 203,
+    "g": 182,
+    "b": 156
+  },
+  {
+    "floss": "3864",
+    "description": "Wineberry",
+    "r": 203,
+    "g": 182,
+    "b": 156
+  },
+  {
+    "floss": "931",
+    "description": "Antique",
+    "r": 106,
+    "g": 133,
+    "b": 158
+  },
+  {
+    "floss": "931",
+    "description": "Blue Gray",
+    "r": 106,
+    "g": 133,
+    "b": 158
+  },
+  {
+    "floss": "931",
+    "description": "Denim",
+    "r": 106,
+    "g": 133,
+    "b": 158
+  },
+  {
+    "floss": "738",
+    "description": "Desert",
+    "r": 236,
+    "g": 204,
+    "b": 158
+  },
+  {
+    "floss": "738",
+    "description": "Spice",
+    "r": 236,
+    "g": 204,
+    "b": 158
+  },
+  {
+    "floss": "931",
+    "description": "Steel Blue",
+    "r": 106,
+    "g": 133,
+    "b": 158
+  },
+  {
+    "floss": "842",
+    "description": "Ecru",
+    "r": 209,
+    "g": 186,
+    "b": 161
+  },
+  {
+    "floss": "842",
+    "description": "Fawn",
+    "r": 209,
+    "g": 186,
+    "b": 161
+  },
+  {
+    "floss": "842",
+    "description": "Harvest",
+    "r": 209,
+    "g": 186,
+    "b": 161
+  },
+  {
+    "floss": "3851",
+    "description": "Mint Green",
+    "r": 73,
+    "g": 179,
+    "b": 161
+  },
+  {
+    "floss": "3851",
+    "description": "Spruce",
+    "r": 73,
+    "g": 179,
+    "b": 161
+  },
+  {
+    "floss": "793",
+    "description": "Blueberry",
+    "r": 112,
+    "g": 125,
+    "b": 162
+  },
+  {
+    "floss": "893",
+    "description": "Carnation",
+    "r": 252,
+    "g": 144,
+    "b": 162
+  },
+  {
+    "floss": "3760",
+    "description": "Sea Blue",
+    "r": 62,
+    "g": 133,
+    "b": 162
+  },
+  {
+    "floss": "793",
+    "description": "Stormy Blue",
+    "r": 112,
+    "g": 125,
+    "b": 162
+  },
+  {
+    "floss": "793",
+    "description": "thistle",
+    "r": 112,
+    "g": 125,
+    "b": 162
+  },
+  {
+    "floss": "3849",
+    "description": "Sea Green",
+    "r": 82,
+    "g": 179,
+    "b": 164
+  },
+  {
+    "floss": "806",
+    "description": "Sapphire",
+    "r": 61,
+    "g": 149,
+    "b": 165
+  },
+  {
+    "floss": "825",
+    "description": "Stormy Blue",
+    "r": 71,
+    "g": 129,
+    "b": 165
+  },
+  {
+    "floss": "806",
+    "description": "Surf Blue",
+    "r": 61,
+    "g": 149,
+    "b": 165
+  },
+  {
+    "floss": "3782",
+    "description": "Tawny",
+    "r": 210,
+    "g": 188,
+    "b": 166
+  },
+  {
+    "floss": "3042",
+    "description": "Amethyst",
+    "r": 183,
+    "g": 157,
+    "b": 167
+  },
+  {
+    "floss": "518",
+    "description": "Unnamed",
+    "r": 79,
+    "g": 147,
+    "b": 167
+  },
+  {
+    "floss": "209",
+    "description": "Violet",
+    "r": 163,
+    "g": 123,
+    "b": 167
+  },
+  {
+    "floss": "3771",
+    "description": "Copper",
+    "r": 244,
+    "g": 187,
+    "b": 169
+  },
+  {
+    "floss": "3771",
+    "description": "Peony",
+    "r": 244,
+    "g": 187,
+    "b": 169
+  },
+  {
+    "floss": "3771",
+    "description": "Wineberry",
+    "r": 244,
+    "g": 187,
+    "b": 169
+  },
+  {
+    "floss": "3771",
+    "description": "sportsman Flesh",
+    "r": 244,
+    "g": 187,
+    "b": 169
+  },
+  {
+    "floss": "3836",
+    "description": "Lavender",
+    "r": 186,
+    "g": 145,
+    "b": 170
+  },
+  {
+    "floss": "3817",
+    "description": "Mint Green",
+    "r": 153,
+    "g": 195,
+    "b": 170
+  },
+  {
+    "floss": "3836",
+    "description": "Plum",
+    "r": 186,
+    "g": 145,
+    "b": 170
+  },
+  {
+    "floss": "613",
+    "description": "Turf",
+    "r": 220,
+    "g": 196,
+    "b": 170
+  },
+  {
+    "floss": "3836",
+    "description": "Violet",
+    "r": 186,
+    "g": 145,
+    "b": 170
+  },
+  {
+    "floss": "318",
+    "description": "Haze",
+    "r": 171,
+    "g": 171,
+    "b": 171
+  },
+  {
+    "floss": "524",
+    "description": "Laurel Green",
+    "r": 196,
+    "g": 205,
+    "b": 172
+  },
+  {
+    "floss": "3354",
+    "description": "Magenta",
+    "r": 228,
+    "g": 166,
+    "b": 172
+  },
+  {
+    "floss": "524",
+    "description": "Pewter",
+    "r": 196,
+    "g": 205,
+    "b": 172
+  },
+  {
+    "floss": "745",
+    "description": "Jonquil",
+    "r": 255,
+    "g": 233,
+    "b": 173
+  },
+  {
+    "floss": "760",
+    "description": "Peony",
+    "r": 245,
+    "g": 173,
+    "b": 173
+  },
+  {
+    "floss": "760",
+    "description": "Salmon",
+    "r": 245,
+    "g": 173,
+    "b": 173
+  },
+  {
+    "floss": "955",
+    "description": "Spruce",
+    "r": 162,
+    "g": 214,
+    "b": 173
+  },
+  {
+    "floss": "926",
+    "description": "Blue Mist",
+    "r": 152,
+    "g": 174,
+    "b": 174
+  },
+  {
+    "floss": "3806",
+    "description": "China Rose",
+    "r": 255,
+    "g": 140,
+    "b": 174
+  },
+  {
+    "floss": "452",
+    "description": "Rose Gray",
+    "r": 192,
+    "g": 179,
+    "b": 174
+  },
+  {
+    "floss": "452",
+    "description": "Terra Cotta",
+    "r": 192,
+    "g": 179,
+    "b": 174
+  },
+  {
+    "floss": "727",
+    "description": "Jonquil",
+    "r": 255,
+    "g": 241,
+    "b": 175
+  },
+  {
+    "floss": "564",
+    "description": "Ocean Green",
+    "r": 167,
+    "g": 205,
+    "b": 175
+  },
+  {
+    "floss": "224",
+    "description": "Rose Wine",
+    "r": 235,
+    "g": 183,
+    "b": 175
+  },
+  {
+    "floss": "3348",
+    "description": "Parrot Green",
+    "r": 204,
+    "g": 217,
+    "b": 177
+  },
+  {
+    "floss": "3727",
+    "description": "Antique Maauve",
+    "r": 219,
+    "g": 169,
+    "b": 178
+  },
+  {
+    "floss": "597",
+    "description": "Glacier Blue",
+    "r": 91,
+    "g": 163,
+    "b": 179
+  },
+  {
+    "floss": "597",
+    "description": "Sea Green",
+    "r": 91,
+    "g": 163,
+    "b": 179
+  },
+  {
+    "floss": "597",
+    "description": "Unnamed",
+    "r": 91,
+    "g": 163,
+    "b": 179
+  },
+  {
+    "floss": "3326",
+    "description": "Blossom Pink",
+    "r": 251,
+    "g": 173,
+    "b": 180
+  },
+  {
+    "floss": "959",
+    "description": "Sea Green",
+    "r": 89,
+    "g": 199,
+    "b": 180
+  },
+  {
+    "floss": "957",
+    "description": "Antique Rose",
+    "r": 253,
+    "g": 181,
+    "b": 181
+  },
+  {
+    "floss": "957",
+    "description": "Carnation",
+    "r": 253,
+    "g": 181,
+    "b": 181
+  },
+  {
+    "floss": "957",
+    "description": "China Rose",
+    "r": 253,
+    "g": 181,
+    "b": 181
+  },
+  {
+    "floss": "Turquoise",
+    "description": "Blue Mist Very",
+    "r": 38,
+    "g": 150,
+    "b": 182
+  },
+  {
+    "floss": "995",
+    "description": "Copen Blue",
+    "r": 38,
+    "g": 150,
+    "b": 182
+  },
+  {
+    "floss": "799",
+    "description": "Delft Blue",
+    "r": 116,
+    "g": 142,
+    "b": 182
+  },
+  {
+    "floss": "995",
+    "description": "Ice Blue",
+    "r": 38,
+    "g": 150,
+    "b": 182
+  },
+  {
+    "floss": "155",
+    "description": "Lavender",
+    "r": 152,
+    "g": 145,
+    "b": 182
+  },
+  {
+    "floss": "995",
+    "description": "Unnamed",
+    "r": 38,
+    "g": 150,
+    "b": 182
+  },
+  {
+    "floss": "322",
+    "description": "Blue",
+    "r": 90,
+    "g": 143,
+    "b": 184
+  },
+  {
+    "floss": "322",
+    "description": "Delft Blue",
+    "r": 90,
+    "g": 143,
+    "b": 184
+  },
+  {
+    "floss": "322",
+    "description": "Wedgewood",
+    "r": 90,
+    "g": 143,
+    "b": 184
+  },
+  {
+    "floss": "776",
+    "description": "Carnation",
+    "r": 252,
+    "g": 176,
+    "b": 185
+  },
+  {
+    "floss": "807",
+    "description": "Denim",
+    "r": 100,
+    "g": 171,
+    "b": 186
+  },
+  {
+    "floss": "807",
+    "description": "Unnamed",
+    "r": 100,
+    "g": 171,
+    "b": 186
+  },
+  {
+    "floss": "945",
+    "description": "Chicory",
+    "r": 251,
+    "g": 213,
+    "b": 187
+  },
+  {
+    "floss": "945",
+    "description": "Spice",
+    "r": 251,
+    "g": 213,
+    "b": 187
+  },
+  {
+    "floss": "3716",
+    "description": "China Rose",
+    "r": 255,
+    "g": 189,
+    "b": 189
+  },
+  {
+    "floss": "603",
+    "description": "Carmine Rose",
+    "r": 255,
+    "g": 164,
+    "b": 190
+  },
+  {
+    "floss": "603",
+    "description": "Magenta",
+    "r": 255,
+    "g": 164,
+    "b": 190
+  },
+  {
+    "floss": "754",
+    "description": "Flesh",
+    "r": 247,
+    "g": 203,
+    "b": 191
+  },
+  {
+    "floss": "966",
+    "description": "Grass Green",
+    "r": 185,
+    "g": 215,
+    "b": 192
+  },
+  {
+    "floss": "966",
+    "description": "Juniper",
+    "r": 185,
+    "g": 215,
+    "b": 192
+  },
+  {
+    "floss": "334",
+    "description": "Sea Blue",
+    "r": 115,
+    "g": 159,
+    "b": 193
+  },
+  {
+    "floss": "3047",
+    "description": "Turf",
+    "r": 231,
+    "g": 214,
+    "b": 193
+  },
+  {
+    "floss": "794",
+    "description": "Unnamed",
+    "r": 143,
+    "g": 156,
+    "b": 193
+  },
+  {
+    "floss": "334",
+    "description": "Wedgewood",
+    "r": 115,
+    "g": 159,
+    "b": 193
+  },
+  {
+    "floss": "3689",
+    "description": "Baby Pink",
+    "r": 251,
+    "g": 191,
+    "b": 194
+  },
+  {
+    "floss": "3689",
+    "description": "Plum",
+    "r": 251,
+    "g": 191,
+    "b": 194
+  },
+  {
+    "floss": "950",
+    "description": "Flesh",
+    "r": 238,
+    "g": 211,
+    "b": 196
+  },
+  {
+    "floss": "3608",
+    "description": "Orchid",
+    "r": 234,
+    "g": 156,
+    "b": 196
+  },
+  {
+    "floss": "3608",
+    "description": "Raspberry",
+    "r": 234,
+    "g": 156,
+    "b": 196
+  },
+  {
+    "floss": "932",
+    "description": "Antique Blue",
+    "r": 162,
+    "g": 181,
+    "b": 198
+  },
+  {
+    "floss": "932",
+    "description": "Sea Blue",
+    "r": 162,
+    "g": 181,
+    "b": 198
+  },
+  {
+    "floss": "932",
+    "description": "Slate Blue",
+    "r": 162,
+    "g": 181,
+    "b": 198
+  },
+  {
+    "floss": "519",
+    "description": "Delft Blue",
+    "r": 126,
+    "g": 177,
+    "b": 200
+  },
+  {
+    "floss": "739",
+    "description": "Ecru",
+    "r": 248,
+    "g": 228,
+    "b": 200
+  },
+  {
+    "floss": "519",
+    "description": "Glacier Blue",
+    "r": 126,
+    "g": 177,
+    "b": 200
+  },
+  {
+    "floss": "739",
+    "description": "Pearl",
+    "r": 248,
+    "g": 228,
+    "b": 200
+  },
+  {
+    "floss": "3779",
+    "description": "Salmon",
+    "r": 248,
+    "g": 202,
+    "b": 200
+  },
+  {
+    "floss": "519",
+    "description": "Thistle",
+    "r": 126,
+    "g": 177,
+    "b": 200
+  },
+  {
+    "floss": "519",
+    "description": "Unnamed",
+    "r": 126,
+    "g": 177,
+    "b": 200
+  },
+  {
+    "floss": "761",
+    "description": "Rose Wine",
+    "r": 255,
+    "g": 201,
+    "b": 201
+  },
+  {
+    "floss": "927",
+    "description": "Blue Mist",
+    "r": 189,
+    "g": 203,
+    "b": 203
+  },
+  {
+    "floss": "677",
+    "description": "Citrus",
+    "r": 245,
+    "g": 236,
+    "b": 203
+  },
+  {
+    "floss": "644",
+    "description": "Gray",
+    "r": 221,
+    "g": 216,
+    "b": 203
+  },
+  {
+    "floss": "927",
+    "description": "Haze",
+    "r": 189,
+    "g": 203,
+    "b": 203
+  },
+  {
+    "floss": "453",
+    "description": "Linen",
+    "r": 215,
+    "g": 206,
+    "b": 203
+  },
+  {
+    "floss": "644",
+    "description": "Sierra",
+    "r": 221,
+    "g": 216,
+    "b": 203
+  },
+  {
+    "floss": "3033",
+    "description": "Copper",
+    "r": 227,
+    "g": 216,
+    "b": 204
+  },
+  {
+    "floss": "369",
+    "description": "Grass Green",
+    "r": 215,
+    "g": 237,
+    "b": 204
+  },
+  {
+    "floss": "353",
+    "description": "Salmon",
+    "r": 254,
+    "g": 215,
+    "b": 204
+  },
+  {
+    "floss": "598",
+    "description": "Surf Blue",
+    "r": 144,
+    "g": 195,
+    "b": 204
+  },
+  {
+    "floss": "598",
+    "description": "Unnamed",
+    "r": 144,
+    "g": 195,
+    "b": 204
+  },
+  {
+    "floss": "605",
+    "description": "Nelke Dunkel",
+    "r": 255,
+    "g": 192,
+    "b": 205
+  },
+  {
+    "floss": "605",
+    "description": "Orchid",
+    "r": 255,
+    "g": 192,
+    "b": 205
+  },
+  {
+    "floss": "605",
+    "description": "Unnamed",
+    "r": 255,
+    "g": 192,
+    "b": 205
+  },
+  {
+    "floss": "543",
+    "description": "Linen",
+    "r": 242,
+    "g": 227,
+    "b": 206
+  },
+  {
+    "floss": "951",
+    "description": "Cinnamon",
+    "r": 255,
+    "g": 226,
+    "b": 207
+  },
+  {
+    "floss": "951",
+    "description": "Sand Stone",
+    "r": 255,
+    "g": 226,
+    "b": 207
+  },
+  {
+    "floss": "3843",
+    "description": "Ice Blue",
+    "r": 20,
+    "g": 170,
+    "b": 208
+  },
+  {
+    "floss": "168",
+    "description": "Amethyst",
+    "r": 209,
+    "g": 209,
+    "b": 209
+  },
+  {
+    "floss": "168",
+    "description": "Gray",
+    "r": 209,
+    "g": 209,
+    "b": 209
+  },
+  {
+    "floss": "3743",
+    "description": "Violet",
+    "r": 215,
+    "g": 203,
+    "b": 211
+  },
+  {
+    "floss": "772",
+    "description": "Loden Green",
+    "r": 228,
+    "g": 236,
+    "b": 212
+  },
+  {
+    "floss": "225",
+    "description": "Copper",
+    "r": 255,
+    "g": 223,
+    "b": 213
+  },
+  {
+    "floss": "225",
+    "description": "Flesh",
+    "r": 255,
+    "g": 223,
+    "b": 213
+  },
+  {
+    "floss": "225",
+    "description": "Rose Wine",
+    "r": 255,
+    "g": 223,
+    "b": 213
+  },
+  {
+    "floss": "415",
+    "description": "Blue Mist",
+    "r": 211,
+    "g": 211,
+    "b": 214
+  },
+  {
+    "floss": "963",
+    "description": "Antique Rose",
+    "r": 255,
+    "g": 215,
+    "b": 215
+  },
+  {
+    "floss": "813",
+    "description": "Blue",
+    "r": 161,
+    "g": 194,
+    "b": 215
+  },
+  {
+    "floss": "963",
+    "description": "China Rose",
+    "r": 255,
+    "g": 215,
+    "b": 215
+  },
+  {
+    "floss": "813",
+    "description": "Copen Blue",
+    "r": 161,
+    "g": 194,
+    "b": 215
+  },
+  {
+    "floss": "3774",
+    "description": "Fawn",
+    "r": 243,
+    "g": 225,
+    "b": 215
+  },
+  {
+    "floss": "813",
+    "description": "Ocean Blue",
+    "r": 161,
+    "g": 194,
+    "b": 215
+  },
+  {
+    "floss": "3774",
+    "description": "Peony",
+    "r": 243,
+    "g": 225,
+    "b": 215
+  },
+  {
+    "floss": "3774",
+    "description": "Wineberry",
+    "r": 243,
+    "g": 225,
+    "b": 215
+  },
+  {
+    "floss": "3766",
+    "description": "Sapphire",
+    "r": 153,
+    "g": 207,
+    "b": 217
+  },
+  {
+    "floss": "818",
+    "description": "Soft Carnation",
+    "r": 255,
+    "g": 223,
+    "b": 217
+  },
+  {
+    "floss": "948",
+    "description": "Citrus",
+    "r": 254,
+    "g": 231,
+    "b": 218
+  },
+  {
+    "floss": "3752",
+    "description": "Sea Blue",
+    "r": 199,
+    "g": 209,
+    "b": 219
+  },
+  {
+    "floss": "3752",
+    "description": "Sea Foam",
+    "r": 199,
+    "g": 209,
+    "b": 219
+  },
+  {
+    "floss": "3761",
+    "description": "Blueberry",
+    "r": 172,
+    "g": 216,
+    "b": 226
+  },
+  {
+    "floss": "3761",
+    "description": "Larkspur",
+    "r": 172,
+    "g": 216,
+    "b": 226
+  },
+  {
+    "floss": "3823",
+    "description": "Citrus",
+    "r": 255,
+    "g": 253,
+    "b": 227
+  },
+  {
+    "floss": "211",
+    "description": "Lilac",
+    "r": 227,
+    "g": 203,
+    "b": 227
+  },
+  {
+    "floss": "3325",
+    "description": "Sapphire",
+    "r": 184,
+    "g": 210,
+    "b": 230
+  },
+  {
+    "floss": "3024",
+    "description": "Juniper",
+    "r": 235,
+    "g": 234,
+    "b": 231
+  },
+  {
+    "floss": "3024",
+    "description": "Rose Gray",
+    "r": 235,
+    "g": 234,
+    "b": 231
+  },
+  {
+    "floss": "3072",
+    "description": "Blue Mist",
+    "r": 230,
+    "g": 232,
+    "b": 232
+  },
+  {
+    "floss": "3753",
+    "description": "Sea Blue",
+    "r": 219,
+    "g": 226,
+    "b": 233
+  },
+  {
+    "floss": "762",
+    "description": "Blue Mist",
+    "r": 236,
+    "g": 236,
+    "b": 236
+  },
+  {
+    "floss": "762",
+    "description": "Charcoal Gray",
+    "r": 236,
+    "g": 236,
+    "b": 236
+  },
+  {
+    "floss": "996",
+    "description": "Unnamed",
+    "r": 48,
+    "g": 194,
+    "b": 236
+  },
+  {
+    "floss": "827",
+    "description": "Antique Blue",
+    "r": 189,
+    "g": 221,
+    "b": 237
+  },
+  {
+    "floss": "828",
+    "description": "Antique Blue",
+    "r": 197,
+    "g": 232,
+    "b": 237
+  },
+  {
+    "floss": "828",
+    "description": "Blue",
+    "r": 197,
+    "g": 232,
+    "b": 237
+  },
+  {
+    "floss": "828",
+    "description": "Glacier Blue",
+    "r": 197,
+    "g": 232,
+    "b": 237
+  },
+  {
+    "floss": "827",
+    "description": "Sapphire",
+    "r": 189,
+    "g": 221,
+    "b": 237
+  },
+  {
+    "floss": "746",
+    "description": "Ecru",
+    "r": 252,
+    "g": 252,
+    "b": 238
+  },
+  {
+    "floss": "3865",
+    "description": "White",
+    "r": 249,
+    "g": 247,
+    "b": 241
+  },
+  {
+    "floss": "747",
+    "description": "Sapphire",
+    "r": 229,
+    "g": 252,
+    "b": 253
+  },
+  {
+    "floss": "B5200",
+    "description": "Snow White",
+    "r": 255,
+    "g": 255,
+    "b": 255
+  }
+]
