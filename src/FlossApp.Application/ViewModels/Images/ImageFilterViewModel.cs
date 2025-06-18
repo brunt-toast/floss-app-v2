@@ -1,10 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CommunityToolkit.Mvvm.ComponentModel;
+using FlossApp.Application.Data;
 using FlossApp.Application.Enums;
+using FlossApp.Application.Extensions.System.Collections.ObjectModel;
+using FlossApp.Application.Services.ImageAnalysis;
 using FlossApp.Application.Services.ImageFiltering;
 using FlossApp.Application.Utils;
 using Microsoft.Extensions.DependencyInjection;
@@ -18,6 +22,7 @@ public partial class ImageFilterViewModel : ViewModelBase, IImageFilterViewModel
 {
     private readonly ILogger _logger;
     private readonly IImageFilteringService _imageFilteringService;
+    private readonly IImageAnalysisService _imageAnalysisService;
 
     [ObservableProperty]
     public partial Image<Rgba32> ImageIn { get; private set; }
@@ -25,7 +30,8 @@ public partial class ImageFilterViewModel : ViewModelBase, IImageFilterViewModel
     public partial Image<Rgba32> ImageOut { get; private set; }
 
     [ObservableProperty] public partial string ImageOutBase64 { get; private set; } = "";
-    [ObservableProperty] public partial ColorSchema TargetSchema { get; set; } 
+    [ObservableProperty] public partial ColorSchema TargetSchema { get; set; }
+    [ObservableProperty] public partial IDictionary<RichColor, int> Palette { get; private set; } = new Dictionary<RichColor, int>();
 
     public float PixelRatio
     {
@@ -58,6 +64,7 @@ public partial class ImageFilterViewModel : ViewModelBase, IImageFilterViewModel
     public ImageFilterViewModel(IServiceProvider services) : base(services)
     {
         _imageFilteringService = services.GetRequiredService<IImageFilteringService>();
+        _imageAnalysisService = services.GetRequiredService<IImageAnalysisService>();
         _logger = services.GetRequiredService<ILoggerFactory>().CreateLogger<ImageFilterViewModel>();
 
         ImageIn = new Image<Rgba32>(1, 1, new Rgba32(255, 255, 255));
@@ -89,6 +96,8 @@ public partial class ImageFilterViewModel : ViewModelBase, IImageFilterViewModel
             stream.Position = 0;
             byte[] bytes = stream.ToArray();
             ImageOutBase64 = Convert.ToBase64String(bytes);
+
+            Palette = await _imageAnalysisService.GetPaletteAsync(ImageOut, TargetSchema);
         }
         catch (Exception ex)
         {
@@ -105,6 +114,7 @@ public interface IImageFilterViewModel
     public string ImageOutBase64 { get; }
     public Image<Rgba32> ImageIn { get; }
     public Image<Rgba32> ImageOut { get; }
+    public IDictionary<RichColor, int> Palette { get; }
 
     public float PixelRatio { get; set; }
     public int TargetWidth { get; set; }

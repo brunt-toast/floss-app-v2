@@ -1,6 +1,7 @@
 using FlossApp.Application.Services.ColorNaming;
 using FlossApp.Application.Services.ColorNumbering;
 using FlossApp.Application.Services.ColorProvider;
+using FlossApp.Application.Services.ImageAnalysis;
 using FlossApp.Application.Services.ImageFiltering;
 using FlossApp.Application.Telemetry;
 using FlossApp.Application.ViewModels.Colors;
@@ -21,7 +22,8 @@ builder.Services.AddSingleton<ILoggerFactory, FlossAppLoggerFactory>();
 builder.Services.AddSingleton<IColorNamingService, ColorNamingService>();
 builder.Services.AddSingleton<IColorNumberingService, ColorNumberingService>();
 builder.Services.AddSingleton<IColorProviderService, ColorProviderService>();
-builder.Services.AddScoped<IImageFilteringService, ImageFilteringService>();
+builder.Services.AddSingleton<IImageFilteringService, ImageFilteringService>();
+builder.Services.AddSingleton<IImageAnalysisService, ImageAnalysisService>();
 
 builder.Services.AddScoped<IFindSimilarColorsViewModel, FindSimilarColorsViewModel>();
 builder.Services.AddScoped<IImageFilterViewModel, ImageFilterViewModel>();

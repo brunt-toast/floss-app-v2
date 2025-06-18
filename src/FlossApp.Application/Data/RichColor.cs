@@ -6,11 +6,16 @@ using System.Threading.Tasks;
 
 namespace FlossApp.Application.Data;
 
-public struct RichColor 
+public record struct RichColor 
 {
     public byte Red { get; set; }
     public byte Green { get; set; }
     public byte Blue { get; set; }
     public string Name { get; set; }
     public string Number { get; set; }
+
+    public string AsHex()
+    {
+        return $"{Red:X}{Green:X}{Blue:X}";
+    }
 }

@@ -4,6 +4,27 @@
 @using FlossApp.Wasm.Components
 @inject IImageFilterViewModel ViewModel
 
+<style>
+    div.color-sample-container {
+        display: flex;
+        -o-justify-content: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -ms-align-items: center;
+        -o-align-items: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+
+    div.color-sample {
+        margin-left: 1em;
+        height: 2em;
+        width: 2em;
+        -ms-border-radius: 50%;
+        border-radius: 50%;
+    }
+</style>
+
 @if (!string.IsNullOrWhiteSpace(ViewModel.ImageOutBase64))
 {
     <MudPaper style="max-width: 100%" Class="m-1 p-2 pb-5">
@@ -17,6 +38,29 @@
             (@(ViewModel.ImageOut.Width * ViewModel.ImageOut.Height) total)
         </p>
     </MudPaper>
+
+    @if (ViewModel.TargetSchema is not ColorSchema.Rgb)
+    {
+        <MudExpansionPanels Class="my-2">
+            <MudExpansionPanel Text="Palette">
+                @foreach (var color in ViewModel.Palette)
+                {
+                    <div class="row">
+                        <div class="col col-auto color-sample-container">
+                            <div class="color-sample" style="background-color: #@color.Key.AsHex();"></div>
+                        </div>
+                        <div class="col">
+                            <strong>@color.Key.Name</strong><br />
+                            @color.Key.Number
+                        </div>
+                        <div class="col col-auto p-1">
+                            @(color.Value)x
+                        </div>
+                    </div>
+                }
+            </MudExpansionPanel>
+        </MudExpansionPanels>
+    }
 }
 
 <MudStack>
