@@ -12,6 +12,15 @@ public class ColorProviderService : IColorProviderService
     private readonly Dictionary<ColorSchema, RichColor[]> _cache = [];
 
     [Time]
+    public async Task PopulateCacheAsync()
+    {
+        foreach (var schema in Enum.GetValues<ColorSchema>())
+        {
+            await PopulateCacheForSchemaAsync(schema);
+        }
+    }
+
+    [Time]
     public async Task<IEnumerable<Color>> GetColorsAsync(ColorSchema schema)
     {
         var clrs = await GetRichColorsAsync(schema);
@@ -21,11 +30,16 @@ public class ColorProviderService : IColorProviderService
     [Time]
     public async Task<IEnumerable<RichColor>> GetRichColorsAsync(ColorSchema schema)
     {
-        if (_cache.ContainsKey(schema))
+        if (!_cache.ContainsKey(schema))
         {
-            return _cache.GetValueOrDefault(schema) ?? [];
+            await PopulateCacheForSchemaAsync(schema);
         }
 
+        return _cache.GetValueOrDefault(schema) ?? [];
+    }
+
+    private async Task PopulateCacheForSchemaAsync(ColorSchema schema)
+    {
         IColorFromJson[] fromFile = schema switch
         {
             ColorSchema.Rgb => [],
@@ -35,9 +49,7 @@ public class ColorProviderService : IColorProviderService
             _ => throw new ArgumentOutOfRangeException(nameof(schema), schema, null)
         };
         var richColors = fromFile.Select(x => x.AsRichColor()).ToArray();
-
         _cache.Add(schema, richColors);
-        return richColors;
     }
 
     private static async Task<T[]> GetFromFileAsync<T>(string resourceName)
