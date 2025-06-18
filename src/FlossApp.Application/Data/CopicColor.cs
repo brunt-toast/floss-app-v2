@@ -14,12 +14,6 @@ public struct CopicColor : IColorFromJson
     [JsonProperty("number")] public string Number { get; set; }
     [JsonProperty("hex")] public string Hex { get; set; }
 
-    public static async Task<IEnumerable<RichColor>> GetAllAsync()
-    {
-        string json = await AsyncEmbeddedResourceReader.ReadEmbeddedResourceAsync(typeof(CopicColor).Assembly, "Copic.json");
-        return JsonConvert.DeserializeObject<CopicColor[]>(json)?.Select(x => x.AsRichColor()) ?? [];
-    }
-
     public RichColor AsRichColor()
     {
         var color = ColorUtils.FromHexCode(Hex);

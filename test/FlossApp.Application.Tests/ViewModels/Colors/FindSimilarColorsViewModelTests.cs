@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,21 +14,12 @@ namespace FlossApp.Application.Tests.ViewModels.Colors;
 public class FinsSimilarColorsViewModelTests
 {
     [TestMethod]
-    public void Works()
+    public void TargetColor_ShouldMatch_TargetColorString()
     {
         var services = new MockServiceProvider();
         IFindSimilarColorsViewModel viewModel = new FindSimilarColorsViewModel(services);
-        viewModel.TargetColor = "#555555";
-        viewModel.InputSchema = ColorSchema.Rgb;
-        viewModel.NumberOfMatches = 5;
 
-        foreach (var match in viewModel.Matches)
-        {
-            Console.WriteLine(match.Key);
-            foreach (var match2 in match.Value)
-            {
-                Console.WriteLine($"\t{match2.Name}");
-            }
-        }
+        viewModel.TargetColorString = "#010101";
+        Assert.AreEqual(viewModel.TargetColor, Color.FromArgb(255, 1, 1, 1));
     }
 }

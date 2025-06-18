@@ -1,43 +1,30 @@
 ﻿using System.Drawing;
 using FlossApp.Application.Data;
 using FlossApp.Application.Enums;
+using FlossApp.Application.Services.ColorProvider;
 using MethodTimer;
 
 namespace FlossApp.Application.Services.ColorNumbering;
 
 public class ColorNumberingService : IColorNumberingService
 {
+    private readonly IColorProviderService _colorProviderService;
+
+    public ColorNumberingService(IColorProviderService colorProviderService)
+    {
+        _colorProviderService = colorProviderService;
+    }
+
     [Time]
     public async Task<string> GetNumberAsync(Color color, ColorSchema schema)
     {
-        return schema switch
+        if (schema is ColorSchema.Rgb)
         {
-            ColorSchema.Rgb => $"{color.R:X}{color.G:X}{color.B:X}",
-            ColorSchema.Dmc => await GetDmcNumberAsync(color),
-            ColorSchema.Html => await GetHtmlNumberAsync(color),
-            ColorSchema.Copic => await GetCopicNumberAsync(color),
-            _ => throw new ArgumentOutOfRangeException(nameof(schema), schema, null)
-        };
-    }
+            return $"{color.R:X}{color.G:X}{color.B:X}";
+        }
 
-    private static async Task<string> GetDmcNumberAsync(Color color)
-    {
-        var dmcColors = await DmcColor.GetAllAsync();
-        RichColor target = dmcColors.FirstOrDefault(x => x.Red == color.R && x.Green == color.G && x.Blue == color.B);
-        return target.Number;
-    }
-
-    private static async Task<string> GetHtmlNumberAsync(Color color)
-    {
-        var dmcColors = await HtmlColor.GetAllAsync();
-        RichColor target = dmcColors.FirstOrDefault(x => x.Red == color.R && x.Green == color.G && x.Blue == color.B);
-        return target.Number;
-    }
-
-    private static async Task<string> GetCopicNumberAsync(Color color)
-    {
-        var dmcColors = await CopicColor.GetAllAsync();
-        RichColor target = dmcColors.FirstOrDefault(x => x.Red == color.R && x.Green == color.G && x.Blue == color.B);
-        return target.Number;
+        var colors = await _colorProviderService.GetRichColorsAsync(schema);
+        return colors.Select(c => c.AsRichColor())
+            .FirstOrDefault(c => c.Red == color.R && c.Green == color.G && c.Blue == color.B).Number;
     }
 }

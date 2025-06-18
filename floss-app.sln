@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlossApp.Application", "src
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlossApp.Wasm", "src\FlossApp.Wasm\FlossApp.Wasm.csproj", "{BD2F5571-85E7-465D-A6F6-F6EF2659323A}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlossApp.Application.Tests", "test\FlossApp.Application.Tests\FlossApp.Application.Tests.csproj", "{18DFABC0-2EAA-4348-1347-C05F97E45CFE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,9 +25,16 @@ Global
 		{BD2F5571-85E7-465D-A6F6-F6EF2659323A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BD2F5571-85E7-465D-A6F6-F6EF2659323A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BD2F5571-85E7-465D-A6F6-F6EF2659323A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{18DFABC0-2EAA-4348-1347-C05F97E45CFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18DFABC0-2EAA-4348-1347-C05F97E45CFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18DFABC0-2EAA-4348-1347-C05F97E45CFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18DFABC0-2EAA-4348-1347-C05F97E45CFE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{18DFABC0-2EAA-4348-1347-C05F97E45CFE} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {389C4362-B43D-48F1-B308-6850D7D96CA8}

@@ -9,51 +9,38 @@ namespace FlossApp.Application.Services.ColorProvider;
 
 public class ColorProviderService : IColorProviderService
 {
-    private DmcColor[]? _dmcColorCache;
-    private HtmlColor[]? _htmlColorCache;
-    private CopicColor[]? _copicColorCache;
+    private readonly Dictionary<ColorSchema, IColorFromJson[]> _cache = [];
 
     [Time]
     public async Task<IEnumerable<Color>> GetColorsAsync(ColorSchema schema)
     {
-        return schema switch
+        var clrs = await GetRichColorsAsync(schema);
+        return clrs.Select(x =>
+        {
+            var c = x.AsRichColor();
+            return Color.FromArgb(255, c.Red, c.Green, c.Blue);
+        });
+    }
+
+    [Time]
+    public async Task<IEnumerable<IColorFromJson>> GetRichColorsAsync(ColorSchema schema)
+    {
+        if (_cache.ContainsKey(schema))
+        {
+            return _cache.GetValueOrDefault(schema) ?? [];
+        }
+
+        IColorFromJson[] fromFile = schema switch
         {
             ColorSchema.Rgb => [],
-            ColorSchema.Dmc => await GetDmcColorsAsync(),
-            ColorSchema.Html => await GetHtmlColorsAsync(),
-            ColorSchema.Copic => await GetCopicColorsAsync(),
+            ColorSchema.Dmc => (await GetFromFileAsync<DmcColor>("Dmc.json")).Cast<IColorFromJson>().ToArray(),
+            ColorSchema.Html => (await GetFromFileAsync<HtmlColor>("Html.json")).Cast<IColorFromJson>().ToArray(),
+            ColorSchema.Copic => (await GetFromFileAsync<CopicColor>("Copic.json")).Cast<IColorFromJson>().ToArray(),
             _ => throw new ArgumentOutOfRangeException(nameof(schema), schema, null)
         };
-    }
 
-    private async Task<IEnumerable<Color>> GetDmcColorsAsync()
-    {
-        _dmcColorCache ??= await GetFromFileAsync<DmcColor>("Dmc.json");
-        return _dmcColorCache.Select(x =>
-        {
-            var c = x.AsRichColor();
-            return Color.FromArgb(255, c.Red, c.Green, c.Blue);
-        });
-    }
-
-    private async Task<IEnumerable<Color>> GetHtmlColorsAsync()
-    {
-        _htmlColorCache ??= await GetFromFileAsync<HtmlColor>("Html.json");
-        return _htmlColorCache.Select(x =>
-        {
-            var c = x.AsRichColor();
-            return Color.FromArgb(255, c.Red, c.Green, c.Blue);
-        });
-    }
-
-    private async Task<IEnumerable<Color>> GetCopicColorsAsync()
-    {
-        _copicColorCache ??= await GetFromFileAsync<CopicColor>("Copic.json");
-        return _copicColorCache.Select(x =>
-        {
-            var c = x.AsRichColor();
-            return Color.FromArgb(255, c.Red, c.Green, c.Blue);
-        });
+        _cache.Add(schema, fromFile);
+        return fromFile;
     }
 
     private static async Task<T[]> GetFromFileAsync<T>(string resourceName)

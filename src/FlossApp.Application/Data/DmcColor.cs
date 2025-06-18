@@ -15,12 +15,6 @@ public struct DmcColor : IColorFromJson
     [JsonProperty("description")] public string Name { get; set; } 
     [JsonProperty("floss")] public string Number { get; set; } 
 
-    public static async Task<IEnumerable<RichColor>> GetAllAsync()
-    {
-        string json = await AsyncEmbeddedResourceReader.ReadEmbeddedResourceAsync(typeof(DmcColor).Assembly, "Dmc.json");
-        return JsonConvert.DeserializeObject<DmcColor[]>(json)?.Select(x => x.AsRichColor()) ?? [];
-    }
-
     public RichColor AsRichColor()
     {
         return new RichColor
