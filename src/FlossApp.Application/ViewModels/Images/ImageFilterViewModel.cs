@@ -103,10 +103,10 @@ public interface IImageFilterViewModel
     public Task ProcessImageAsync();
 
     public string ImageOutBase64 { get; }
-    public float PixelRatio { get; set; }
     public Image<Rgba32> ImageIn { get; }
     public Image<Rgba32> ImageOut { get; }
 
+    public float PixelRatio { get; set; }
     public int TargetWidth { get; set; }
     public int TargetHeight { get; set; }
     public ColorSchema TargetSchema { get; set; }
