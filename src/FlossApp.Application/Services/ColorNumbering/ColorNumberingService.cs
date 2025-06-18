@@ -24,7 +24,6 @@ public class ColorNumberingService : IColorNumberingService
         }
 
         var colors = await _colorProviderService.GetRichColorsAsync(schema);
-        return colors.Select(c => c.AsRichColor())
-            .FirstOrDefault(c => c.Red == color.R && c.Green == color.G && c.Blue == color.B).Number;
+        return colors.FirstOrDefault(c => c.Red == color.R && c.Green == color.G && c.Blue == color.B).Number;
     }
 }

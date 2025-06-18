@@ -88,7 +88,7 @@ public partial class FindSimilarColorsViewModel : ViewModelBase, IFindSimilarCol
 
     private async Task OnInputSchemaChangedAsync()
     {
-        IEnumerable<RichColor> colors = (await _colorProviderService.GetRichColorsAsync(InputSchema)).Select(x => x.AsRichColor());
+        IEnumerable<RichColor> colors = (await _colorProviderService.GetRichColorsAsync(InputSchema));
 
         foreach (var x in colors)
         {

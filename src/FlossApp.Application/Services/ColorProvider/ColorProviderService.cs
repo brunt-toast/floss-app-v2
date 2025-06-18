@@ -9,21 +9,17 @@ namespace FlossApp.Application.Services.ColorProvider;
 
 public class ColorProviderService : IColorProviderService
 {
-    private readonly Dictionary<ColorSchema, IColorFromJson[]> _cache = [];
+    private readonly Dictionary<ColorSchema, RichColor[]> _cache = [];
 
     [Time]
     public async Task<IEnumerable<Color>> GetColorsAsync(ColorSchema schema)
     {
         var clrs = await GetRichColorsAsync(schema);
-        return clrs.Select(x =>
-        {
-            var c = x.AsRichColor();
-            return Color.FromArgb(255, c.Red, c.Green, c.Blue);
-        });
+        return clrs.Select(x => Color.FromArgb(255, x.Red, x.Green, x.Blue));
     }
 
     [Time]
-    public async Task<IEnumerable<IColorFromJson>> GetRichColorsAsync(ColorSchema schema)
+    public async Task<IEnumerable<RichColor>> GetRichColorsAsync(ColorSchema schema)
     {
         if (_cache.ContainsKey(schema))
         {
@@ -38,9 +34,10 @@ public class ColorProviderService : IColorProviderService
             ColorSchema.Copic => (await GetFromFileAsync<CopicColor>("Copic.json")).Cast<IColorFromJson>().ToArray(),
             _ => throw new ArgumentOutOfRangeException(nameof(schema), schema, null)
         };
+        var richColors = fromFile.Select(x => x.AsRichColor()).ToArray();
 
-        _cache.Add(schema, fromFile);
-        return fromFile;
+        _cache.Add(schema, richColors);
+        return richColors;
     }
 
     private static async Task<T[]> GetFromFileAsync<T>(string resourceName)

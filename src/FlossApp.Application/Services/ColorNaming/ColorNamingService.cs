@@ -19,7 +19,7 @@ public class ColorNamingService : IColorNamingService
     public async Task<string> GetNameAsync(Color color, ColorSchema schema)
     {
         var colors = await _colorProviderService.GetRichColorsAsync(schema);
-        RichColor target = colors.Select(x => x.AsRichColor()).FirstOrDefault(x => x.Red == color.R && x.Green == color.G && x.Blue == color.B);
+        RichColor target = colors.FirstOrDefault(x => x.Red == color.R && x.Green == color.G && x.Blue == color.B);
         return target.Name;
     }
 }
