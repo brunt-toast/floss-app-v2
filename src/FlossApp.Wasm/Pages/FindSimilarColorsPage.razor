@@ -101,6 +101,8 @@
             }
             else
             {
+                <RichColorPicker Schema="@ViewModel.InputSchema" Label="test" @bind-Value="ViewModel.TargetColorRich" />
+@* 
                 <MudSelect T="System.Drawing.Color" ToStringFunc="t => t.Name" Label="Color" @bind-Value="ViewModel.TargetColor">
                     @foreach (ColorModel cm in ViewModel.ColorsForInputSchema)
                     {
@@ -115,7 +117,7 @@
                             </div>
                         </MudSelectItem>
                     }
-                </MudSelect>
+                </MudSelect> *@
             }
         </MudPaper>
     </div>

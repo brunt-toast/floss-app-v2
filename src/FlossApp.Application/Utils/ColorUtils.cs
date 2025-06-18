@@ -5,6 +5,7 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using FlossApp.Application.Data;
 
 namespace FlossApp.Application.Utils;
 
@@ -71,5 +72,12 @@ public static class ColorUtils
             byte.Parse(hexCode.Substring(2, 2), NumberStyles.HexNumber),
             byte.Parse(hexCode.Substring(4, 2), NumberStyles.HexNumber)
         );
+    }
+
+    public static bool ColorEquals(RichColor left, Color right)
+    {
+        return left.Red == right.R
+               && left.Green == right.G
+               && left.Blue == right.B;
     }
 }

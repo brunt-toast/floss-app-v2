@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using FlossApp.Application.Data;
 using FlossApp.Application.Enums;
 using FlossApp.Application.Services.ColorProvider;
+using FlossApp.Application.Utils;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.PixelFormats;
 
@@ -34,7 +35,7 @@ public class ImageAnalysisService : IImageAnalysisService
                 for (int x = 0; x < rowSpan.Length; x++)
                 {
                     var color = System.Drawing.Color.FromArgb(rowSpan[x].A, rowSpan[x].R, rowSpan[x].G, rowSpan[x].B);
-                    var match = set.FirstOrDefault(c => ColorEquals(color, c));
+                    var match = set.FirstOrDefault(c => ColorUtils.ColorEquals(c, color));
                     if (!ret.TryAdd(match, 1))
                     {
                         ret[match]++;
@@ -44,12 +45,5 @@ public class ImageAnalysisService : IImageAnalysisService
         });
 
         return ret;
-    }
-
-    private static bool ColorEquals(System.Drawing.Color left, RichColor right)
-    {
-        return left.R == right.Red
-               && left.G == right.Green
-               && left.B == right.Blue;
     }
 }

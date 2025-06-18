@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SixLabors.ImageSharp;
 
 namespace FlossApp.Application.Data;
 
@@ -17,5 +18,10 @@ public record struct RichColor
     public string AsHex()
     {
         return $"{Red:X}{Green:X}{Blue:X}";
+    }
+
+    public System.Drawing.Color AsSysDrawingColor()
+    {
+        return System.Drawing.Color.FromArgb(255, Red, Green, Blue);
     }
 }

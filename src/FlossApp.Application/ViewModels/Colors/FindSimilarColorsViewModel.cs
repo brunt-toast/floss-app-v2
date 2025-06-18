@@ -80,6 +80,23 @@ public partial class FindSimilarColorsViewModel : ViewModelBase, IFindSimilarCol
         }
     } = "";
 
+    public RichColor TargetColorRich
+    {
+        get
+        {
+            var clrsTask = _colorProviderService.GetRichColorsAsync(InputSchema);
+            clrsTask.Wait();
+            var clrs = clrsTask.Result;
+            return clrs.FirstOrDefault(x => ColorUtils.ColorEquals(x, TargetColor));
+        }
+        set
+        {
+            
+            SetProperty(ref field, value);
+            TargetColor = value.AsSysDrawingColor();
+        }
+    }
+
     [ObservableProperty] public partial Color TargetColor { get; set; }
     [ObservableProperty] public partial int NumberOfMatches { get; set; } = 5;
     [ObservableProperty] public partial ColorSchema InputSchema { get; set; }
@@ -108,6 +125,7 @@ public partial class FindSimilarColorsViewModel : ViewModelBase, IFindSimilarCol
 public interface IFindSimilarColorsViewModel
 {
     public Color TargetColor { get; set; }
+    public RichColor TargetColorRich { get; set; }
     public string TargetColorString { get; set; }
     public int NumberOfMatches { get; set; }
     public ColorSchema InputSchema { get; set; }

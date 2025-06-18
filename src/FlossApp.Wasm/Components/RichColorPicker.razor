@@ -1,0 +1,17 @@
+﻿@using FlossApp.Application.Data
+
+<MudAutocomplete T="RichColor" Label="@Label" @bind-Value="Value"
+                 MaxItems="null"
+                 SearchFunc="@Search"
+                 ToStringFunc="@ToStringFunc">
+    <ItemTemplate Context="e">
+        <MudText>
+            <MudIcon Icon="@Icons.Material.Filled.Circle" style="@($"color: #{e.AsHex()}")" Class="mb-n1 mr-3" /> @ToStringFunc(e)
+        </MudText>
+    </ItemTemplate>
+    <ItemSelectedTemplate Context="e">
+        <MudText>
+            <MudIcon Icon="@Icons.Material.Filled.Circle" style="@($"color: #{e.AsHex()}")" Class="mb-n1 mr-3" /> @ToStringFunc(e)
+        </MudText>
+    </ItemSelectedTemplate>
+</MudAutocomplete>
