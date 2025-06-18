@@ -8,6 +8,7 @@
 @using System.Drawing
 @using FlossApp.Wasm.Extensions.System
 @using FlossApp.Wasm.Components
+@using Color = System.Drawing.Color
 
 <style>
     div.color-sample-container {
@@ -73,7 +74,9 @@
                                 <div class="col col-auto">
                                     @if (ViewModel.IsExactMatch(color.Color))
                                     {
-                                        <span>Exact match</span>
+                                        <MudTooltip Text="Exact match">
+                                            <MudIcon Icon="@Icons.Material.Filled.Star" Style="color: goldenrod;" />
+                                        </MudTooltip>
                                     }
                                 </div>
                             </div>
