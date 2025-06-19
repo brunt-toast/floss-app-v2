@@ -73,12 +73,8 @@ public partial class FindSimilarColorsViewModel : ViewModelBase, IFindSimilarCol
     public string TargetColorString
     {
         get => TargetColor.AsHex();
-        set
-        {
-            SetProperty(ref field, value);
-            TargetColor = ColorUtils.FromHexCode(value);
-        }
-    } = "";
+        set => TargetColor = ColorUtils.FromHexCode(value);
+    } 
 
     [ObservableProperty] public partial Color TargetColor { get; set; }
     [ObservableProperty] public partial int NumberOfMatches { get; set; } = 5;
@@ -92,7 +88,7 @@ public partial class FindSimilarColorsViewModel : ViewModelBase, IFindSimilarCol
 
         foreach (var x in colors)
         {
-            ColorsForInputSchema.Add(new ColorModel(InputSchema, x.Name, x.Number, Color.FromArgb(255, x.Red, x.Green, x.Blue)));
+            ColorsForInputSchema.Add(new ColorModel(InputSchema, x.Name, x.Number, x.AsSysDrawingColor()));
             await Task.Yield();
         }
     }

@@ -24,7 +24,7 @@ public class ColorProviderService : IColorProviderService
     public async Task<IEnumerable<Color>> GetColorsAsync(ColorSchema schema)
     {
         var clrs = await GetRichColorsAsync(schema);
-        return clrs.Select(x => Color.FromArgb(255, x.Red, x.Green, x.Blue));
+        return clrs.Select(x => x.AsSysDrawingColor());
     }
 
     [Time]
@@ -50,6 +50,18 @@ public class ColorProviderService : IColorProviderService
             _ => throw new ArgumentOutOfRangeException(nameof(schema), schema, null)
         };
         var richColors = fromFile.Select(x => x.AsRichColor()).ToArray();
+
+        richColors = richColors.GroupBy(x => (x.Red, x.Green, x.Blue))
+            .Select(r => new RichColor
+                {
+                    Name = string.Join(", ", r.Select(x => x.Name).Distinct()),
+                    Number = string.Join(", ", r.Select(x => x.Number).Distinct()),
+                    Red = r.First().Red,
+                    Green = r.First().Green,
+                    Blue = r.First().Blue
+                })
+            .ToArray();
+
         _cache.Add(schema, richColors);
     }
 

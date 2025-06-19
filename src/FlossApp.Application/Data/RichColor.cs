@@ -6,16 +6,21 @@ using System.Threading.Tasks;
 
 namespace FlossApp.Application.Data;
 
-public record struct RichColor 
+public readonly record struct RichColor 
 {
-    public byte Red { get; set; }
-    public byte Green { get; set; }
-    public byte Blue { get; set; }
-    public string Name { get; set; }
-    public string Number { get; set; }
+    public byte Red { get; init; }
+    public byte Green { get; init; }
+    public byte Blue { get; init; }
+    public string Name { get; init; }
+    public string Number { get; init; }
 
     public string AsHex()
     {
         return $"{Red:X}{Green:X}{Blue:X}";
+    }
+
+    public System.Drawing.Color AsSysDrawingColor()
+    {
+        return System.Drawing.Color.FromArgb(255, Red, Green, Blue);
     }
 }
