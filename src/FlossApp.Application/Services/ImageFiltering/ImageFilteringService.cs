@@ -6,6 +6,7 @@ using FlossApp.Application.Extensions.System.Drawing;
 using FlossApp.Application.Services.ColorProvider;
 using MethodTimer;
 using Microsoft.Extensions.DependencyInjection;
+using SixLabors.ImageSharp.Processing.Processors.Quantization;
 
 namespace FlossApp.Application.Services.ImageFiltering;
 
@@ -75,5 +76,14 @@ public class ImageFilteringService : IImageFilteringService
         });
 
         return newImage;
+    }
+
+    [Time]
+    public Image<Rgba32> ReduceColors(Image<Rgba32> input, int maxColors)
+    {
+        IQuantizer quantizer = new WuQuantizer(new QuantizerOptions { MaxColors = maxColors, Dither = null });
+        var ret = input.Clone();
+        ret.Mutate(c => c.Quantize(quantizer));
+        return ret;
     }
 }

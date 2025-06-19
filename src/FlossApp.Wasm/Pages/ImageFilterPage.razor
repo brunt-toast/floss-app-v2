@@ -71,7 +71,13 @@
 
 <MudStack>
     <div class="row">
-        <EnumPicker Label="Target schema" T="ColorSchema" @bind-Value="ViewModel.TargetSchema" />
+        <div class="col">
+            <EnumPicker Label="Target schema" T="ColorSchema" @bind-Value="ViewModel.TargetSchema" />
+        </div>
+        <div class="col col-auto">
+            <MudNumericField Label="Fidelity" @bind-Value="ViewModel.TargetDistinctColours"
+                             T="int" Min="1" />
+        </div>
     </div>
 
     <div class="row">

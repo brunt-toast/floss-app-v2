@@ -33,16 +33,10 @@ public partial class ImageFilterViewModel : ViewModelBase, IImageFilterViewModel
     [ObservableProperty] public partial ColorSchema TargetSchema { get; set; }
     [ObservableProperty] public partial IDictionary<RichColor, int> Palette { get; private set; } = new Dictionary<RichColor, int>();
 
-    public float PixelRatio
-    {
-        get;
-        set
-        {
-            SetProperty(ref field, value);
-            OnPropertyChanged(nameof(TargetWidth));
-            OnPropertyChanged(nameof(TargetHeight));
-        }
-    } = (float)0.01;
+    [NotifyPropertyChangedFor(nameof(TargetHeight))]
+    [NotifyPropertyChangedFor(nameof(TargetWidth))]
+    [ObservableProperty]
+    public partial float PixelRatio { get; set; } = (float)0.01;
 
     public int TargetWidth
     {
@@ -60,6 +54,8 @@ public partial class ImageFilterViewModel : ViewModelBase, IImageFilterViewModel
             PixelRatio = (float)value / ImageIn.Height;
         }
     }
+
+    [ObservableProperty] public partial int TargetDistinctColours { get; set; } = 100;
 
     public ImageFilterViewModel(IServiceProvider services) : base(services)
     {
@@ -88,11 +84,12 @@ public partial class ImageFilterViewModel : ViewModelBase, IImageFilterViewModel
         try
         {
             var pixelated = _imageFilteringService.PixelateImage(ImageIn, PixelRatio);
-            var colored = await _imageFilteringService.ReduceToSchemaColorsAsync(pixelated, TargetSchema);
+            var reduced = _imageFilteringService.ReduceColors(pixelated, TargetDistinctColours);
+            var colored = await _imageFilteringService.ReduceToSchemaColorsAsync(reduced, TargetSchema);
 
             ImageOut = colored;
             await using var stream = new MemoryStream();
-            await pixelated.SaveAsPngAsync(stream);
+            await colored.SaveAsPngAsync(stream);
             stream.Position = 0;
             byte[] bytes = stream.ToArray();
             ImageOutBase64 = Convert.ToBase64String(bytes);
@@ -115,6 +112,8 @@ public interface IImageFilterViewModel
     public Image<Rgba32> ImageIn { get; }
     public Image<Rgba32> ImageOut { get; }
     public IDictionary<RichColor, int> Palette { get; }
+
+    public int TargetDistinctColours { get; set; }
 
     public float PixelRatio { get; set; }
     public int TargetWidth { get; set; }

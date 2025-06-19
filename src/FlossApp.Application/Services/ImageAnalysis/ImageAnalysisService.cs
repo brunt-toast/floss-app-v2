@@ -8,6 +8,7 @@ using FlossApp.Application.Enums;
 using FlossApp.Application.Services.ColorProvider;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.PixelFormats;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace FlossApp.Application.Services.ImageAnalysis;
 
@@ -43,6 +44,24 @@ public class ImageAnalysisService : IImageAnalysisService
             }
         });
 
+        return ret;
+    }
+
+    public IEnumerable<System.Drawing.Color> GetDistinctColors(Image<Rgba32> image)
+    {
+        HashSet<System.Drawing.Color> ret = [];
+        image.ProcessPixelRows(accessor =>
+        {
+            for (int y = 0; y < accessor.Height; y++)
+            {
+                var rowSpan = accessor.GetRowSpan(y);
+                for (int x = 0; x < rowSpan.Length; x++)
+                {
+                    var color = System.Drawing.Color.FromArgb(rowSpan[x].A, rowSpan[x].R, rowSpan[x].G, rowSpan[x].B);
+                    ret.Add(color);
+                }
+            }
+        });
         return ret;
     }
 
