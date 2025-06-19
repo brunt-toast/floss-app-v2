@@ -101,21 +101,7 @@
             }
             else
             {
-                <MudSelect T="RichColor" ToStringFunc="t => t.Name" Label="Color" @bind-Value="ViewModel.TargetColor">
-                    @foreach (RichColor cm in ViewModel.ColorsForInputSchema)
-                    {
-                        <MudSelectItem Value="cm">
-                            <div class="row p-1">
-                                <div class="col col-auto color-sample-container">
-                                    <div class="color-sample" style="width: 1em; height: 1em; background-color: #@cm.AsHex();"></div>
-                                </div>
-                                <div class="col">
-                                    @cm.Name (@cm.Number)
-                                </div>
-                            </div>
-                        </MudSelectItem>
-                    }
-                </MudSelect>
+                <RichColorPicker Label="Target Color" Schema="@ViewModel.InputSchema" @bind-Value="ViewModel.TargetColor" />
             }
         </MudPaper>
     </div>
