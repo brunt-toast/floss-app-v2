@@ -7,20 +7,32 @@
 
 @if (Schema is ColorSchema.Rgb)
 {
-    <MudColorPicker Label="Color" @bind-Text="ViewModel.SelectedColorString" ShowAlpha="false" />
+    <MudColorPicker Label="Color" @bind-Text="ViewModel.SelectedColorString" ShowAlpha="false" ValueChanged="SelectedColorString_ValueChanged"
+                    ColorPickerMode="ColorPickerMode.RGB" ShowModeSwitch="true" />
+}
+else if (Schema is ColorSchema.RgbHex)
+{
+    <MudColorPicker Label="Color" @bind-Text="ViewModel.SelectedColorString" ShowAlpha="false" ValueChanged="SelectedColorString_ValueChanged"
+                    ColorPickerMode="ColorPickerMode.HEX" ShowModeSwitch="false" />
+}
+else if (Schema is ColorSchema.Hsl)
+{
+    <MudColorPicker Label="Color" @bind-Text="ViewModel.SelectedColorString" ValueChanged="SelectedColorString_ValueChanged"
+                    ShowAlpha="false"
+                    ColorPickerMode="ColorPickerMode.HSL" ShowModeSwitch="false" />
 }
 else
 {
-    <MudAutocomplete T="RichColorModel" Label="@Label" @bind-Value="Value" 
+    <MudAutocomplete T="RichColorModel" Label="@Label" @bind-Value="Value"
                      SearchFunc="@ViewModel.RichColorSearch" ToStringFunc="ViewModel.RichColorToString">
-        <ItemTemplate Context="e">                          
+        <ItemTemplate Context="e">
             <MudText>
-                <MudIcon Icon="@Icons.Material.Filled.Circle" Style="@($"color: #{e.AsHex()};")" Class="mb-n1 mr-3"/>@e.Number @e.Name
+                <MudIcon Icon="@Icons.Material.Filled.Circle" Style="@($"color: #{e.AsHex()};")" Class="mb-n1 mr-3" />@e.Number @e.Name
             </MudText>
         </ItemTemplate>
-        <ItemSelectedTemplate Context="e">                
+        <ItemSelectedTemplate Context="e">
             <MudText>
-                <MudIcon Icon="@Icons.Material.Filled.Circle" Style="@($"color: #{e.AsHex()};")" Class="mb-n1 mr-3"/>@e.Number @e.Name
+                <MudIcon Icon="@Icons.Material.Filled.Circle" Style="@($"color: #{e.AsHex()};")" Class="mb-n1 mr-3" />@e.Number @e.Name
             </MudText>
         </ItemSelectedTemplate>
     </MudAutocomplete>

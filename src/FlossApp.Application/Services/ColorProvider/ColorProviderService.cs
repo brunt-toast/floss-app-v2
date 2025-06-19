@@ -46,6 +46,7 @@ public class ColorProviderService : IColorProviderService
         IColorFromJson[] fromFile = schema switch
         {
             ColorSchema.Rgb => [],
+            ColorSchema.RgbHex => [],
             ColorSchema.Hsl => [],
             ColorSchema.Dmc => (await GetFromFileAsync<DmcColor>("Dmc.json")).Cast<IColorFromJson>().ToArray(),
             ColorSchema.Html => (await GetFromFileAsync<HtmlColor>("Html.json")).Cast<IColorFromJson>().ToArray(),

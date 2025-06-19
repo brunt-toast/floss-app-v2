@@ -3,6 +3,7 @@ using FlossApp.Application.Enums;
 using FlossApp.Application.Models.RichColor;
 using FlossApp.Application.Services.ColorProvider;
 using Microsoft.AspNetCore.Components;
+using MudBlazor.Utilities;
 
 namespace FlossApp.Wasm.Components;
 
@@ -61,4 +62,9 @@ public partial class RichColorPicker
     }
 
     [Parameter] public EventCallback<ColorSchema> SchemaChanged { get; set; }
+
+    private async void SelectedColorString_ValueChanged(MudColor color)
+    {
+        await ValueChanged.InvokeAsync(Value);
+    }
 }

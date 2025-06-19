@@ -9,10 +9,13 @@ namespace FlossApp.Application.Enums;
 
 public enum ColorSchema
 {
-    [Display(Name="Red/Green/Blue (RGB)")]
+    [Display(Name= "RGB (Red/Green/Blue)")]
     Rgb,
 
-    [Display(Name = "Hue/Saturation/Lightness (HSL)")]
+    [Display(Name = "Hex (Hexadecimal RGB)")]
+    RgbHex,
+
+    [Display(Name = "HSL (Hue/Saturation/Lightness)")]
     Hsl,
 
     [Display(Name= "DMC (Dollfus-Mieg et Compagnie)")]
