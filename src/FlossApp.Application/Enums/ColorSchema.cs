@@ -28,5 +28,8 @@ public enum ColorSchema
     Copic,
 
     [Display(Name = "Anchor")]
-    Anchor
+    Anchor,
+
+    [Display(Name = "Pantone")]
+    Pantone,
 }
