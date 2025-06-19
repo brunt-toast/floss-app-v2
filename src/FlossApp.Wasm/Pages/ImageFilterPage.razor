@@ -43,21 +43,27 @@
     {
         <MudExpansionPanels Class="my-2">
             <MudExpansionPanel Text="Palette">
-                @foreach (var color in ViewModel.Palette)
-                {
-                    <div class="row">
-                        <div class="col col-auto color-sample-container">
-                            <div class="color-sample" style="background-color: #@color.Key.AsHex();"></div>
-                        </div>
-                        <div class="col">
-                            <strong>@color.Key.Name</strong><br />
-                            @color.Key.Number
-                        </div>
-                        <div class="col col-auto p-1">
-                            @(color.Value)x
-                        </div>
-                    </div>
-                }
+                <MudSimpleTable>
+                    <thead>
+                        <tr>
+                            <th>Sample</th>
+                            <th>Number</th>
+                            <th>Name</th>
+                            <th>Count</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var color in ViewModel.Palette)
+                        {
+                            <tr>
+                                <td><MudIcon Icon="@Icons.Material.Filled.Circle" Style="@($"color: #{color.Key.AsHex()};")" /></td>
+                                <td>@color.Key.Number</td>
+                                <td>@color.Key.Name</td>
+                                <td>@color.Value</td>
+                            </tr>
+                        }
+                    </tbody>
+                </MudSimpleTable>
             </MudExpansionPanel>
         </MudExpansionPanels>
     }
