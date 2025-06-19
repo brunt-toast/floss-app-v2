@@ -11,7 +11,7 @@ using FlossApp.Application.ViewModels.Colors;
 namespace FlossApp.Application.Tests.ViewModels.Colors;
 
 [TestClass]
-public class FinsSimilarColorsViewModelTests
+public class FindSimilarColorsViewModelTests
 {
     [TestMethod]
     public void TargetColor_ShouldMatch_TargetColorString()

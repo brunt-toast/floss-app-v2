@@ -3,9 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using FlossApp.Application.Services.ImageAnalysis;
+using FlossApp.Application.Services.ImageFiltering;
 using FlossApp.Application.Tests.Mock;
+using FlossApp.Application.Tests.Utils;
 using FlossApp.Application.ViewModels.Colors;
 using FlossApp.Application.ViewModels.Images;
+using Microsoft.Extensions.DependencyInjection;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.PixelFormats;
 
@@ -24,7 +28,7 @@ public class ImageFilterViewModelTests
         const int initHeight = 100;
         const float pixelRatio = 0.5f;
 
-        var imageIn = new Image<Rgba32>(initWidth, initHeight, new Rgba32(255, 255, 255));
+        var imageIn = ImageTestUtils.GetRandomNoise(initWidth, initHeight);
         await using var inStream = new MemoryStream();
         await imageIn.SaveAsPngAsync(inStream);
         inStream.Position = 0;
@@ -36,5 +40,35 @@ public class ImageFilterViewModelTests
 
         Assert.AreEqual(initWidth * pixelRatio, imageOut.Width);
         Assert.AreEqual(initHeight * pixelRatio, imageOut.Height);
+    }
+
+    [TestMethod]
+    public async Task OutputImage_ShouldMatch_RequestedFidelity()
+    {
+        var services = new MockServiceProvider();
+        IImageAnalysisService imageAnalysisService = services.GetRequiredService<IImageAnalysisService>();
+        IImageFilterViewModel viewModel = new ImageFilterViewModel(services);
+
+        const int targetFidelity = 10;
+
+        var imageIn = ImageTestUtils.GetRandomNoise();
+
+        int nInputColors = imageAnalysisService.GetDistinctColors(imageIn).Count();
+        if (nInputColors <= targetFidelity)
+        {
+            Assert.Inconclusive("Generated an image whose default fidelity was less than or equal to our test case");
+        }
+
+        await using var inStream = new MemoryStream();
+        await imageIn.SaveAsPngAsync(inStream);
+        inStream.Position = 0;
+
+        await viewModel.LoadFileStreamAsync(inStream);
+        viewModel.TargetDistinctColours = targetFidelity;
+        await viewModel.ProcessImageAsync();
+        var imageOut = viewModel.ImageOut;
+
+        int nOutputColors = imageAnalysisService.GetDistinctColors(imageOut).Count();
+        Assert.IsTrue(nOutputColors <= targetFidelity);
     }
 }
