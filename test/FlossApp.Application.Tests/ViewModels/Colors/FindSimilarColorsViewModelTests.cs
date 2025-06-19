@@ -20,6 +20,6 @@ public class FinsSimilarColorsViewModelTests
         IFindSimilarColorsViewModel viewModel = new FindSimilarColorsViewModel(services);
 
         viewModel.TargetColorString = "#010101";
-        Assert.AreEqual(viewModel.TargetColor, Color.FromArgb(255, 1, 1, 1));
+        Assert.AreEqual(viewModel.TargetColor.AsSysDrawingColor(), Color.FromArgb(255, 1, 1, 1));
     }
 }

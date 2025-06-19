@@ -19,5 +19,8 @@ public enum ColorSchema
     Html,
 
     [Display(Name = "COPIC (\u30b3\u30d4\u30c3\u30af)")]
-    Copic
+    Copic,
+
+    [Display(Name = "Anchor")]
+    Anchor
 }

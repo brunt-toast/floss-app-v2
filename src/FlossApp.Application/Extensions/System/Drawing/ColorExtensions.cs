@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using FlossApp.Application.Data;
 
 namespace FlossApp.Application.Extensions.System.Drawing;
 
@@ -31,6 +32,6 @@ public static class ColorExtensions
 
     public static string AsHex(this Color color)
     {
-        return $"{color.R:X}{color.G:X}{color.B:X}";
+        return $"{color.R:X2}{color.G:X2}{color.B:X2}";
     }
 }
