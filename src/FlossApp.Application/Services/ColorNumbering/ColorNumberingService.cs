@@ -1,6 +1,7 @@
 ﻿using System.Drawing;
 using FlossApp.Application.Data;
 using FlossApp.Application.Enums;
+using FlossApp.Application.Extensions.System.Drawing;
 using FlossApp.Application.Services.ColorProvider;
 using MethodTimer;
 
@@ -20,7 +21,7 @@ public class ColorNumberingService : IColorNumberingService
     {
         if (schema is ColorSchema.Rgb)
         {
-            return $"{color.R:X}{color.G:X}{color.B:X}";
+            return color.AsHex();
         }
 
         var colors = await _colorProviderService.GetRichColorsAsync(schema);
