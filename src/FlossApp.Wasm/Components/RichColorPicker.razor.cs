@@ -11,15 +11,15 @@ public partial class RichColorPicker
     [Parameter]
     public RichColorModel Value
     {
-        get;
+        get => ViewModel.SelectedColor;
         set
         {
-            if (EqualityComparer<RichColorModel>.Default.Equals(field, value))
+            if (EqualityComparer<RichColorModel>.Default.Equals(ViewModel.SelectedColor, value))
             {
                 return;
             }
 
-            field = value;
+            ViewModel.SelectedColor = value;
             ValueChanged.InvokeAsync(value);
         }
     }
@@ -47,41 +47,18 @@ public partial class RichColorPicker
     [Parameter]
     public ColorSchema Schema
     {
-        get;
+        get => ViewModel.Schema;
         set
         {
-            if (EqualityComparer<ColorSchema>.Default.Equals(field, value))
+            if (EqualityComparer<ColorSchema>.Default.Equals(ViewModel.Schema, value))
             {
                 return;
             }
 
-            field = value;
+            ViewModel.Schema = value;
             SchemaChanged.InvokeAsync(value);
         }
     }
 
     [Parameter] public EventCallback<ColorSchema> SchemaChanged { get; set; }
-
-    [Inject] private IColorProviderService ColorProviderService { get; set; } = null!;
-
-    private async Task<IEnumerable<RichColorModel>>? RichColorSearch(string? arg1, CancellationToken arg2)
-    {
-        if (arg1 is null)
-        {
-            return [];
-        }
-
-        var allColors = await ColorProviderService.GetRichColorsAsync(Schema);
-        return allColors
-            .Select(x => new { SearchString = RichColorToString(x), Value = x })
-            .Where(x => x.SearchString.Contains(arg1, StringComparison.InvariantCultureIgnoreCase))
-            .OrderBy(x => x.SearchString.IndexOf(arg1, StringComparison.InvariantCultureIgnoreCase))
-            .ThenBy(x => x.SearchString)
-            .Select(x => x.Value);
-    }
-
-    private static string RichColorToString(RichColorModel arg)
-    {
-        return $"{arg.Number} {arg.Name}";
-    }
 }

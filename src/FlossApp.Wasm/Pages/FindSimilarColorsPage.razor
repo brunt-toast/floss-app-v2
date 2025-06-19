@@ -92,14 +92,7 @@
 
             <EnumPicker Label="Input schema" T="ColorSchema" @bind-Value="ViewModel.InputSchema" />
 
-            @if (ViewModel.InputSchema is ColorSchema.Rgb)
-            {
-                <MudColorPicker Label="Color" @bind-Text="ViewModel.TargetColorString" ShowAlpha="false" />
-            }
-            else
-            {
-                <RichColorPicker Label="Target Color" Schema="@ViewModel.InputSchema" @bind-Value="ViewModel.TargetColor" />
-            }
+            <RichColorPicker Label="Target Color" Schema="@ViewModel.InputSchema" @bind-Value="ViewModel.TargetColor" />
         </MudPaper>
     </div>
 </nav>

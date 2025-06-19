@@ -1,4 +1,5 @@
 ﻿using FlossApp.Application.Extensions.System.Drawing;
+using FlossApp.Application.Utils;
 
 namespace FlossApp.Application.Models.RichColor;
 

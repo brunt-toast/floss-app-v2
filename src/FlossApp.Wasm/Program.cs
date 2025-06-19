@@ -6,6 +6,7 @@ using FlossApp.Application.Services.ImageFiltering;
 using FlossApp.Application.Telemetry;
 using FlossApp.Application.ViewModels.Colors;
 using FlossApp.Application.ViewModels.Images;
+using FlossApp.Application.ViewModels.Pickers;
 using FlossApp.Wasm;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
@@ -27,6 +28,7 @@ builder.Services.AddSingleton<IImageAnalysisService, ImageAnalysisService>();
 
 builder.Services.AddScoped<IFindSimilarColorsViewModel, FindSimilarColorsViewModel>();
 builder.Services.AddScoped<IImageFilterViewModel, ImageFilterViewModel>();
+builder.Services.AddScoped<IRichColorPickerViewModel, RichColorPickerViewModel>();
 
 await builder.Build().RunAsync();
 

@@ -2,17 +2,27 @@
 @using FlossApp.Application.Enums
 @using FlossApp.Application.Models.RichColor
 @using FlossApp.Application.Services.ColorProvider
+@using FlossApp.Application.ViewModels.Pickers
+@inject IRichColorPickerViewModel ViewModel
 
-<MudAutocomplete T="RichColorModel" Label="@Label" @bind-Value="Value" 
-SearchFunc="@RichColorSearch" ToStringFunc="RichColorToString">
-    <ItemTemplate Context="e">                          
-        <MudText>
-            <MudIcon Icon="@Icons.Material.Filled.Circle" Style="@($"color: #{e.AsHex()};")" Class="mb-n1 mr-3"/>@e.Number @e.Name
-        </MudText>
-    </ItemTemplate>
-    <ItemSelectedTemplate Context="e">                
-        <MudText>
-            <MudIcon Icon="@Icons.Material.Filled.Circle" Style="@($"color: #{e.AsHex()};")" Class="mb-n1 mr-3"/>@e.Number @e.Name
-        </MudText>
-    </ItemSelectedTemplate>
-</MudAutocomplete>
+@if (Schema is ColorSchema.Rgb)
+{
+    <MudColorPicker Label="Color" @bind-Text="ViewModel.SelectedColorString" ShowAlpha="false" />
+}
+else
+{
+    <MudAutocomplete T="RichColorModel" Label="@Label" @bind-Value="Value" 
+                     SearchFunc="@ViewModel.RichColorSearch" ToStringFunc="ViewModel.RichColorToString">
+        <ItemTemplate Context="e">                          
+            <MudText>
+                <MudIcon Icon="@Icons.Material.Filled.Circle" Style="@($"color: #{e.AsHex()};")" Class="mb-n1 mr-3"/>@e.Number @e.Name
+            </MudText>
+        </ItemTemplate>
+        <ItemSelectedTemplate Context="e">                
+            <MudText>
+                <MudIcon Icon="@Icons.Material.Filled.Circle" Style="@($"color: #{e.AsHex()};")" Class="mb-n1 mr-3"/>@e.Number @e.Name
+            </MudText>
+        </ItemSelectedTemplate>
+    </MudAutocomplete>
+}
+
