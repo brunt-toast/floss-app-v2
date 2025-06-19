@@ -2,13 +2,10 @@
 @inject IFindSimilarColorsViewModel ViewModel
 @using System.Collections.ObjectModel
 @using FlossApp.Application.Enums
-@using FlossApp.Application.Extensions.System.Drawing;
+@using FlossApp.Application.Models.RichColor
 @using FlossApp.Application.ViewModels.Colors
-@using System.Drawing
-@using FlossApp.Application.Data
 @using FlossApp.Wasm.Extensions.System
 @using FlossApp.Wasm.Components
-@using Color = System.Drawing.Color
 
 <style>
     div.color-sample-container {
@@ -53,14 +50,14 @@
     }
 
     <MudExpansionPanels>
-        @foreach (KeyValuePair<ColorSchema, ObservableCollection<RichColor>> kvp in ViewModel.Matches)
+        @foreach (KeyValuePair<ColorSchema, ObservableCollection<RichColorModel>> kvp in ViewModel.Matches)
         {
             <MudExpansionPanel>
                 <TitleContent>
                     <h3>@kvp.Key.ToDisplayName()</h3>
                 </TitleContent>
                 <ChildContent>
-                    @foreach (RichColor color in kvp.Value)
+                    @foreach (RichColorModel color in kvp.Value)
                     {
                         <MudPaper Class="my-1">
                             <div class="row">

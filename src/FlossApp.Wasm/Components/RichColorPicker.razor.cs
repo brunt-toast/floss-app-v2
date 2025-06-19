@@ -1,5 +1,6 @@
 ﻿using FlossApp.Application.Data;
 using FlossApp.Application.Enums;
+using FlossApp.Application.Models.RichColor;
 using FlossApp.Application.Services.ColorProvider;
 using Microsoft.AspNetCore.Components;
 
@@ -8,12 +9,12 @@ namespace FlossApp.Wasm.Components;
 public partial class RichColorPicker
 {
     [Parameter]
-    public RichColor Value
+    public RichColorModel Value
     {
         get;
         set
         {
-            if (EqualityComparer<RichColor>.Default.Equals(field, value))
+            if (EqualityComparer<RichColorModel>.Default.Equals(field, value))
             {
                 return;
             }
@@ -23,7 +24,7 @@ public partial class RichColorPicker
         }
     }
 
-    [Parameter] public EventCallback<RichColor> ValueChanged { get; set; }
+    [Parameter] public EventCallback<RichColorModel> ValueChanged { get; set; }
 
     [Parameter]
     public string Label
@@ -63,7 +64,7 @@ public partial class RichColorPicker
 
     [Inject] private IColorProviderService ColorProviderService { get; set; } = null!;
 
-    private async Task<IEnumerable<RichColor>>? RichColorSearch(string? arg1, CancellationToken arg2)
+    private async Task<IEnumerable<RichColorModel>>? RichColorSearch(string? arg1, CancellationToken arg2)
     {
         if (arg1 is null)
         {
@@ -79,7 +80,7 @@ public partial class RichColorPicker
             .Select(x => x.Value);
     }
 
-    private static string RichColorToString(RichColor arg)
+    private static string RichColorToString(RichColorModel arg)
     {
         return $"{arg.Number} {arg.Name}";
     }

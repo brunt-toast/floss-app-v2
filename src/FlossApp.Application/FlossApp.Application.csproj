@@ -30,4 +30,8 @@
     <PackageReference Include="MethodTimer.Fody" Version="3.2.2" PrivateAssets="All" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\FlossApp.Core\FlossApp.Core.csproj" PrivateAssets="All" />
+  </ItemGroup>
+
 </Project>

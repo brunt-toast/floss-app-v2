@@ -1,8 +1,10 @@
 ﻿using System.Drawing;
 using FlossApp.Application.Data;
 using FlossApp.Application.Enums;
+using FlossApp.Application.Models.RichColor;
 using FlossApp.Application.Services.ColorProvider;
 using FlossApp.Application.Utils;
+using FlossApp.Core;
 using MethodTimer;
 namespace FlossApp.Application.Services.ColorNaming;
 
@@ -19,7 +21,7 @@ public class ColorNamingService : IColorNamingService
     public async Task<string> GetNameAsync(Color color, ColorSchema schema)
     {
         var colors = await _colorProviderService.GetRichColorsAsync(schema);
-        RichColor target = colors.FirstOrDefault(x => x.Red == color.R && x.Green == color.G && x.Blue == color.B);
+        RichColorModel target = colors.FirstOrDefault(x => x.Red == color.R && x.Green == color.G && x.Blue == color.B);
         return target.Name;
     }
 }

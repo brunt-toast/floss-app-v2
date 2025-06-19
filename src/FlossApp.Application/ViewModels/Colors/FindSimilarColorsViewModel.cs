@@ -9,10 +9,12 @@ using FlossApp.Application.Enums;
 using FlossApp.Application.Extensions.FlossApp.Application.Data;
 using FlossApp.Application.Extensions.System.Collections.ObjectModel;
 using FlossApp.Application.Extensions.System.Drawing;
+using FlossApp.Application.Models.RichColor;
 using FlossApp.Application.Services.ColorNaming;
 using FlossApp.Application.Services.ColorNumbering;
 using FlossApp.Application.Services.ColorProvider;
 using FlossApp.Application.Utils;
+using FlossApp.Core;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace FlossApp.Application.ViewModels.Colors;
@@ -64,30 +66,30 @@ public partial class FindSimilarColorsViewModel : ViewModelBase, IFindSimilarCol
         {
             var clr = ColorUtils.FromHexCode(value);
             string hex = clr.AsHex();
-            TargetColor = new RichColor
+            TargetColor = new RichColorModel(new RichColor
             {
                 Red = clr.R,
                 Green = clr.G,
                 Blue = clr.B,
                 Name = hex,
                 Number = hex
-            };
+            });
         }
     } 
 
-    [ObservableProperty] public partial RichColor TargetColor { get; set; }
+    [ObservableProperty] public partial RichColorModel TargetColor { get; set; }
     [ObservableProperty] public partial int NumberOfMatches { get; set; } = 5;
     [ObservableProperty] public partial ColorSchema InputSchema { get; set; }
-    public Dictionary<ColorSchema, ObservableCollection<RichColor>> Matches { get; } = [];
-    public ObservableCollection<RichColor> ColorsForInputSchema { get; } = [];
+    public Dictionary<ColorSchema, ObservableCollection<RichColorModel>> Matches { get; } = [];
+    public ObservableCollection<RichColorModel> ColorsForInputSchema { get; } = [];
 
     private async Task OnInputSchemaChangedAsync()
     {
-        IEnumerable<RichColor> colors = (await _colorProviderService.GetRichColorsAsync(InputSchema));
+        IEnumerable<RichColorModel> colors = (await _colorProviderService.GetRichColorsAsync(InputSchema));
         await ColorsForInputSchema.ReplaceRangeAsync(colors);
     }
 
-    public bool IsExactMatch(RichColor c)
+    public bool IsExactMatch(RichColorModel c)
     {
         return c.Red == TargetColor.Red
             && c.Green == TargetColor.Green
@@ -97,12 +99,12 @@ public partial class FindSimilarColorsViewModel : ViewModelBase, IFindSimilarCol
 
 public interface IFindSimilarColorsViewModel
 {
-    public RichColor TargetColor { get; set; }
+    public RichColorModel TargetColor { get; set; }
     public string TargetColorString { get; set; }
     public int NumberOfMatches { get; set; }
     public ColorSchema InputSchema { get; set; }
-    public Dictionary<ColorSchema, ObservableCollection<RichColor>> Matches { get; }
-    public ObservableCollection<RichColor> ColorsForInputSchema { get; }
+    public Dictionary<ColorSchema, ObservableCollection<RichColorModel>> Matches { get; }
+    public ObservableCollection<RichColorModel> ColorsForInputSchema { get; }
 
-    public bool IsExactMatch(RichColor c);
+    public bool IsExactMatch(RichColorModel c);
 }

@@ -1,7 +1,10 @@
 ﻿using System.Drawing;
 using FlossApp.Application.Data;
 using FlossApp.Application.Enums;
+using FlossApp.Application.Extensions.FlossApp.Application.Data;
+using FlossApp.Application.Models.RichColor;
 using FlossApp.Application.Utils;
+using FlossApp.Core;
 using MethodTimer;
 using Newtonsoft.Json;
 
@@ -9,7 +12,7 @@ namespace FlossApp.Application.Services.ColorProvider;
 
 public class ColorProviderService : IColorProviderService
 {
-    private readonly Dictionary<ColorSchema, RichColor[]> _cache = [];
+    private readonly Dictionary<ColorSchema, RichColorModel[]> _cache = [];
 
     [Time]
     public async Task PopulateCacheAsync()
@@ -28,7 +31,7 @@ public class ColorProviderService : IColorProviderService
     }
 
     [Time]
-    public async Task<IEnumerable<RichColor>> GetRichColorsAsync(ColorSchema schema)
+    public async Task<IEnumerable<RichColorModel>> GetRichColorsAsync(ColorSchema schema)
     {
         if (!_cache.ContainsKey(schema))
         {
@@ -49,9 +52,10 @@ public class ColorProviderService : IColorProviderService
             ColorSchema.Anchor => (await GetFromFileAsync<AnchorColor>("Anchor.json")).Cast<IColorFromJson>().ToArray(),
             _ => throw new ArgumentOutOfRangeException(nameof(schema), schema, null)
         };
-        var richColors = fromFile.Select(x => x.AsRichColor()).ToArray();
-
-        richColors = richColors.GroupBy(x => (x.Red, x.Green, x.Blue))
+        var richColors = fromFile
+            .Select(x => x.AsRichColor())
+            .ToArray()
+            .GroupBy(x => (x.Red, x.Green, x.Blue))
             .Select(r => new RichColor
                 {
                     Name = string.Join(", ", r.Select(x => x.Name).Distinct()),
@@ -60,6 +64,7 @@ public class ColorProviderService : IColorProviderService
                     Green = r.First().Green,
                     Blue = r.First().Blue
                 })
+            .Select(x => new RichColorModel(x))
             .ToArray();
 
         _cache.Add(schema, richColors);

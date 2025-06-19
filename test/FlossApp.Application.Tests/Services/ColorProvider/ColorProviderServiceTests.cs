@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using FlossApp.Application.Data;
 using FlossApp.Application.Enums;
+using FlossApp.Application.Extensions.FlossApp.Application.Data;
 using FlossApp.Application.Services.ColorProvider;
 using FlossApp.Application.Tests.Mock;
 using Microsoft.Extensions.DependencyInjection;

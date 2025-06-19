@@ -11,6 +11,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{02EA681E
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlossApp.Application.Tests", "test\FlossApp.Application.Tests\FlossApp.Application.Tests.csproj", "{18DFABC0-2EAA-4348-1347-C05F97E45CFE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlossApp.Core", "src\FlossApp.Core\FlossApp.Core.csproj", "{32D01B67-002F-41AC-8122-F97FC4CA7C9C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +31,10 @@ Global
 		{18DFABC0-2EAA-4348-1347-C05F97E45CFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{18DFABC0-2EAA-4348-1347-C05F97E45CFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{18DFABC0-2EAA-4348-1347-C05F97E45CFE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32D01B67-002F-41AC-8122-F97FC4CA7C9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32D01B67-002F-41AC-8122-F97FC4CA7C9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32D01B67-002F-41AC-8122-F97FC4CA7C9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32D01B67-002F-41AC-8122-F97FC4CA7C9C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

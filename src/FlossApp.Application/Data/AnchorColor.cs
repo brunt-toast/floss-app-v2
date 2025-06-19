@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using FlossApp.Core;
+using Newtonsoft.Json;
 
 namespace FlossApp.Application.Data;
 

@@ -1,8 +1,9 @@
 ﻿@using FlossApp.Application.Data
 @using FlossApp.Application.Enums
+@using FlossApp.Application.Models.RichColor
 @using FlossApp.Application.Services.ColorProvider
 
-<MudAutocomplete T="RichColor" Label="@Label" @bind-Value="Value" 
+<MudAutocomplete T="RichColorModel" Label="@Label" @bind-Value="Value" 
 SearchFunc="@RichColorSearch" ToStringFunc="RichColorToString">
     <ItemTemplate Context="e">                          
         <MudText>

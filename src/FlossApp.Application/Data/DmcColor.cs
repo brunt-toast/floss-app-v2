@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using FlossApp.Application.Utils;
+using FlossApp.Core;
 using Newtonsoft.Json;
 
 namespace FlossApp.Application.Data;

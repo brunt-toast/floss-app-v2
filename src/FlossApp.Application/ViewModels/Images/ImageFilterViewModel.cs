@@ -8,9 +8,11 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using FlossApp.Application.Data;
 using FlossApp.Application.Enums;
 using FlossApp.Application.Extensions.System.Collections.ObjectModel;
+using FlossApp.Application.Models.RichColor;
 using FlossApp.Application.Services.ImageAnalysis;
 using FlossApp.Application.Services.ImageFiltering;
 using FlossApp.Application.Utils;
+using FlossApp.Core;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using SixLabors.ImageSharp;
@@ -31,7 +33,7 @@ public partial class ImageFilterViewModel : ViewModelBase, IImageFilterViewModel
 
     [ObservableProperty] public partial string ImageOutBase64 { get; private set; } = "";
     [ObservableProperty] public partial ColorSchema TargetSchema { get; set; }
-    [ObservableProperty] public partial IDictionary<RichColor, int> Palette { get; private set; } = new Dictionary<RichColor, int>();
+    [ObservableProperty] public partial IDictionary<RichColorModel, int> Palette { get; private set; } = new Dictionary<RichColorModel, int>();
 
     [NotifyPropertyChangedFor(nameof(TargetHeight))]
     [NotifyPropertyChangedFor(nameof(TargetWidth))]
@@ -111,7 +113,7 @@ public interface IImageFilterViewModel
     public string ImageOutBase64 { get; }
     public Image<Rgba32> ImageIn { get; }
     public Image<Rgba32> ImageOut { get; }
-    public IDictionary<RichColor, int> Palette { get; }
+    public IDictionary<RichColorModel, int> Palette { get; }
 
     public int TargetDistinctColours { get; set; }
 

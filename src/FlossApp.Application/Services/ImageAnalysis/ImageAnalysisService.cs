@@ -5,7 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using FlossApp.Application.Data;
 using FlossApp.Application.Enums;
+using FlossApp.Application.Models.RichColor;
 using FlossApp.Application.Services.ColorProvider;
+using FlossApp.Core;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.PixelFormats;
 using static System.Net.Mime.MediaTypeNames;
@@ -21,9 +23,9 @@ public class ImageAnalysisService : IImageAnalysisService
         _colorProviderService = colorProviderService;
     }
 
-    public async Task<Dictionary<RichColor, int>> GetPaletteAsync(Image<Rgba32> image, ColorSchema schema)
+    public async Task<Dictionary<RichColorModel, int>> GetPaletteAsync(Image<Rgba32> image, ColorSchema schema)
     {
-        Dictionary<RichColor, int> ret = [];
+        Dictionary<RichColorModel, int> ret = [];
 
         var set = (await _colorProviderService.GetRichColorsAsync(schema)).ToList();
 
@@ -65,7 +67,7 @@ public class ImageAnalysisService : IImageAnalysisService
         return ret;
     }
 
-    private static bool ColorEquals(System.Drawing.Color left, RichColor right)
+    private static bool ColorEquals(System.Drawing.Color left, RichColorModel right)
     {
         return left.R == right.Red
                && left.G == right.Green
