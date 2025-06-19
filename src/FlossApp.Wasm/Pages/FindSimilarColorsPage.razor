@@ -50,7 +50,7 @@
     }
 
     <MudExpansionPanels>
-        @foreach (KeyValuePair<ColorSchema, ObservableCollection<RichColorModel>> kvp in ViewModel.Matches)
+        @foreach (KeyValuePair<ColorSchema, ObservableCollection<RichColorModel>> kvp in ViewModel.Matches.Where(x => x.Value.Any()))
         {
             <MudExpansionPanel>
                 <TitleContent>
