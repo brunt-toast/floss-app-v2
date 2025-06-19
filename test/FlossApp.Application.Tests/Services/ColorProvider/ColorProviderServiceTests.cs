@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using FlossApp.Application.Data;
 using FlossApp.Application.Enums;
 using FlossApp.Application.Extensions.FlossApp.Application.Data;
+using FlossApp.Application.Models.RichColor;
 using FlossApp.Application.Services.ColorProvider;
 using FlossApp.Application.Tests.Mock;
 using Microsoft.Extensions.DependencyInjection;
@@ -79,7 +80,7 @@ public class ColorProviderServiceTests
         IServiceProvider services = new MockServiceProvider();
         var colorProviderService = services.GetRequiredService<IColorProviderService>();
 
-        Dictionary<ColorSchema, List<RichColor>> offenders = [];
+        Dictionary<ColorSchema, List<RichColorModel>> offenders = [];
         foreach (var colorSchema in Enum.GetValues<ColorSchema>())
         {
             offenders.Add(colorSchema, []);
@@ -104,9 +105,9 @@ public class ColorProviderServiceTests
             }
         }
 
-        foreach (KeyValuePair<ColorSchema, List<RichColor>> duplicate in offenders)
+        foreach (KeyValuePair<ColorSchema, List<RichColorModel>> duplicate in offenders)
         {
-            foreach (RichColor s in duplicate.Value)
+            foreach (RichColorModel s in duplicate.Value)
             {
                 Console.WriteLine($"{duplicate.Key}: #{s.AsHex()} is not a valid hex code");
             }

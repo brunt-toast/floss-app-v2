@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\FlossApp.Application\FlossApp.Application.csproj" />
+    <ProjectReference Include="..\..\src\FlossApp.Core\FlossApp.Core.csproj" />
   </ItemGroup>
 
   <ItemGroup>
