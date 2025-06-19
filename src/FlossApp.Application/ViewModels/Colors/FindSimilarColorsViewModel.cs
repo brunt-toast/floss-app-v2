@@ -2,12 +2,12 @@
 using System.ComponentModel;
 using System.Drawing;
 using System.Security.Cryptography.X509Certificates;
+using System.Xml.Linq;
 using CommunityToolkit.Mvvm.ComponentModel;
 using FlossApp.Application.Data;
 using FlossApp.Application.Enums;
 using FlossApp.Application.Extensions.System.Collections.ObjectModel;
 using FlossApp.Application.Extensions.System.Drawing;
-using FlossApp.Application.Models;
 using FlossApp.Application.Services.ColorNaming;
 using FlossApp.Application.Services.ColorNumbering;
 using FlossApp.Application.Services.ColorProvider;
@@ -50,65 +50,58 @@ public partial class FindSimilarColorsViewModel : ViewModelBase, IFindSimilarCol
         Matches.Clear();
         foreach (var schema in Enum.GetValues<ColorSchema>())
         {
-            var schemaColors = await _colorProviderService.GetColorsAsync(schema);
+            var schemaColors = await _colorProviderService.GetRichColorsAsync(schema);
             var similarColors = TargetColor.GetMostSimilarColors(schemaColors.ToList(), NumberOfMatches);
-
-            List<ColorModel> similarColorModels = [];
-            foreach (var x in similarColors)
-            {
-                string name = await _colorNamingService.GetNameAsync(x, schema);
-                string number = await _colorNumberingService.GetNumberAsync(x, schema);
-                similarColorModels.Add(new ColorModel(schema, name, number, x));
-            }
-
-            if (!similarColorModels.Any())
-            {
-                continue;
-            }
-
-            Matches.TryAdd(schema, new ObservableCollection<ColorModel>(similarColorModels));
+            Matches.TryAdd(schema, [..similarColors]);
         }
     }
 
     public string TargetColorString
     {
         get => TargetColor.AsHex();
-        set => TargetColor = ColorUtils.FromHexCode(value);
+        set
+        {
+            var clr = ColorUtils.FromHexCode(value);
+            string hex = clr.AsHex();
+            TargetColor = new RichColor
+            {
+                Red = clr.R,
+                Green = clr.G,
+                Blue = clr.B,
+                Name = hex,
+                Number = hex
+            };
+        }
     } 
 
-    [ObservableProperty] public partial Color TargetColor { get; set; }
+    [ObservableProperty] public partial RichColor TargetColor { get; set; }
     [ObservableProperty] public partial int NumberOfMatches { get; set; } = 5;
     [ObservableProperty] public partial ColorSchema InputSchema { get; set; }
-    public Dictionary<ColorSchema, ObservableCollection<ColorModel>> Matches { get; } = [];
-    public ObservableCollection<ColorModel> ColorsForInputSchema { get; } = [];
+    public Dictionary<ColorSchema, ObservableCollection<RichColor>> Matches { get; } = [];
+    public ObservableCollection<RichColor> ColorsForInputSchema { get; } = [];
 
     private async Task OnInputSchemaChangedAsync()
     {
         IEnumerable<RichColor> colors = (await _colorProviderService.GetRichColorsAsync(InputSchema));
-
-        foreach (var x in colors)
-        {
-            ColorsForInputSchema.Add(new ColorModel(InputSchema, x.Name, x.Number, x.AsSysDrawingColor()));
-            await Task.Yield();
-        }
+        await ColorsForInputSchema.ReplaceRangeAsync(colors);
     }
 
-    public bool IsExactMatch(Color c)
+    public bool IsExactMatch(RichColor c)
     {
-        return c.R == TargetColor.R
-            && c.G == TargetColor.G
-            && c.B == TargetColor.B;
+        return c.Red == TargetColor.Red
+            && c.Green == TargetColor.Green
+            && c.Blue == TargetColor.Blue;
     }
 }
 
 public interface IFindSimilarColorsViewModel
 {
-    public Color TargetColor { get; set; }
+    public RichColor TargetColor { get; set; }
     public string TargetColorString { get; set; }
     public int NumberOfMatches { get; set; }
     public ColorSchema InputSchema { get; set; }
-    public Dictionary<ColorSchema, ObservableCollection<ColorModel>> Matches { get; }
-    public ObservableCollection<ColorModel> ColorsForInputSchema { get; }
+    public Dictionary<ColorSchema, ObservableCollection<RichColor>> Matches { get; }
+    public ObservableCollection<RichColor> ColorsForInputSchema { get; }
 
-    public bool IsExactMatch(Color c);
+    public bool IsExactMatch(RichColor c);
 }

@@ -2,10 +2,10 @@
 @inject IFindSimilarColorsViewModel ViewModel
 @using System.Collections.ObjectModel
 @using FlossApp.Application.Enums
-@using FlossApp.Application.Models
 @using FlossApp.Application.Extensions.System.Drawing;
 @using FlossApp.Application.ViewModels.Colors
 @using System.Drawing
+@using FlossApp.Application.Data
 @using FlossApp.Wasm.Extensions.System
 @using FlossApp.Wasm.Components
 @using Color = System.Drawing.Color
@@ -53,26 +53,26 @@
     }
 
     <MudExpansionPanels>
-        @foreach (KeyValuePair<ColorSchema, ObservableCollection<ColorModel>> kvp in ViewModel.Matches)
+        @foreach (KeyValuePair<ColorSchema, ObservableCollection<RichColor>> kvp in ViewModel.Matches)
         {
             <MudExpansionPanel>
                 <TitleContent>
                     <h3>@kvp.Key.ToDisplayName()</h3>
                 </TitleContent>
                 <ChildContent>
-                    @foreach (ColorModel color in kvp.Value)
+                    @foreach (RichColor color in kvp.Value)
                     {
                         <MudPaper Class="my-1">
                             <div class="row">
                                 <div class="col col-auto color-sample-container">
-                                    <div class="color-sample" style="background-color: #@color.Color.AsHex();"></div>
+                                    <div class="color-sample" style="background-color: #@color.AsHex();"></div>
                                 </div>
                                 <div class="col">
                                     <h4>@color.Name</h4>
                                     @color.Number
                                 </div>
                                 <div class="col col-auto">
-                                    @if (ViewModel.IsExactMatch(color.Color))
+                                    @if (ViewModel.IsExactMatch(color))
                                     {
                                         <MudTooltip Text="Exact match">
                                             <MudIcon Icon="@Icons.Material.Filled.Star" Style="color: goldenrod;" />
@@ -101,13 +101,13 @@
             }
             else
             {
-                <MudSelect T="System.Drawing.Color" ToStringFunc="t => t.Name" Label="Color" @bind-Value="ViewModel.TargetColor">
-                    @foreach (ColorModel cm in ViewModel.ColorsForInputSchema)
+                <MudSelect T="RichColor" ToStringFunc="t => t.Name" Label="Color" @bind-Value="ViewModel.TargetColor">
+                    @foreach (RichColor cm in ViewModel.ColorsForInputSchema)
                     {
-                        <MudSelectItem Value="cm.Color">
+                        <MudSelectItem Value="cm">
                             <div class="row p-1">
                                 <div class="col col-auto color-sample-container">
-                                    <div class="color-sample" style="width: 1em; height: 1em; background-color: #@cm.Color.AsHex();"></div>
+                                    <div class="color-sample" style="width: 1em; height: 1em; background-color: #@cm.AsHex();"></div>
                                 </div>
                                 <div class="col">
                                     @cm.Name (@cm.Number)
