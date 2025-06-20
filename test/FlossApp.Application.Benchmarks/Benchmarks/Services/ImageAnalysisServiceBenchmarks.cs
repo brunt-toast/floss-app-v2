@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using BenchmarkDotNet.Attributes;
 using FlossApp.Application.Benchmarks.Config;
+using FlossApp.Application.Benchmarks.Generators;
 using FlossApp.Application.Enums;
 using FlossApp.Application.Mock;
 using FlossApp.Application.Services.ImageAnalysis;
@@ -19,6 +20,9 @@ public class ImageAnalysisServiceBenchmarks
 {
     private static IImageAnalysisService s_analysisService = null!;
 
+    [ParamsSource(typeof(ColorSchemaGenerator), nameof(ColorSchemaGenerator.GetColorSchemas))]
+    public ColorSchema Schema;
+
     [GlobalSetup]
     public void Init()
     {
@@ -26,14 +30,11 @@ public class ImageAnalysisServiceBenchmarks
     }
 
     [Benchmark]
-    [ArgumentsSource(nameof(ColorSchemaValues))]
-    public async Task GetPalette(ColorSchema schema)
+    public async Task GetPalette()
     {
         var image = ImageMockup.GetRandomNoise();
-        await s_analysisService.GetPaletteAsync(image, schema);
+        await s_analysisService.GetPaletteAsync(image, Schema);
     }
-
-    public IEnumerable<ColorSchema> ColorSchemaValues() => Enum.GetValues<ColorSchema>();
 
     [Benchmark]
     public void GetDistinctColors()
