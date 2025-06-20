@@ -1,0 +1,52 @@
+﻿@page "/ImageUpscaler"
+@using FlossApp.Application.ViewModels.Images
+@inject IImageUpscalerViewModel ViewModel
+
+@if (!string.IsNullOrWhiteSpace(ViewModel.ImageOutBase64))
+{
+    <MudPaper style="max-width: 100%" Class="m-1 p-2 pb-5">
+        <img style="width: 100%; height: auto; image-rendering: pixelated;"
+             src="data:image/png;base64,@(ViewModel.ImageOutBase64)"/>
+        <p style="text-align: center">
+            @(ViewModel.ImageInWidth)x@(ViewModel.ImageInHeight)
+            ->
+            @(ViewModel.TargetWidth)x@(ViewModel.TargetHeight)
+        </p>
+    </MudPaper>
+}
+
+<div class="row">
+    <div class="col">
+        <MudNumericField T="int" Label="Scale" Min="2" @bind-Value="ViewModel.ScaleFactor" />
+    </div>
+    <div class="col">
+        <MudNumericField ReadOnly="true" T="int" Label="Target width" Value="ViewModel.TargetWidth" />
+    </div>
+    <div class="col">
+        <MudNumericField ReadOnly="true" T="int" Label="Target height" Value="ViewModel.TargetHeight" />
+    </div>
+</div>
+<div class="row">
+    <div class="col" style="text-align: center;">
+        <MudFileUpload T="IBrowserFile" FilesChanged="UploadFiles" MaximumFileCount="1">
+            <ActivatorContent>
+                <MudButton Variant="Variant.Filled"
+                           StartIcon="@Icons.Material.Filled.FileOpen">
+                    Choose File
+                </MudButton>
+            </ActivatorContent>
+        </MudFileUpload>
+    </div>
+    <div class="col" style="text-align: center;">
+        <MudButton OnClick="ViewModel.ProcessImageAsync" Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.Refresh">
+            Process
+        </MudButton>
+    </div>
+    <div class="col" style="text-align: center;">
+        <MudButton Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.Save">
+            <a href="data:image/png;base64,@(ViewModel.ImageOutBase64)" download="@(Guid.NewGuid()).png">
+                Save
+            </a>
+        </MudButton>
+    </div>
+</div>

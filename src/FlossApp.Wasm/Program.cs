@@ -28,6 +28,7 @@ builder.Services.AddSingleton<IImageAnalysisService, ImageAnalysisService>();
 
 builder.Services.AddScoped<IFindSimilarColorsViewModel, FindSimilarColorsViewModel>();
 builder.Services.AddScoped<IImageFilterViewModel, ImageFilterViewModel>();
+builder.Services.AddScoped<IImageUpscalerViewModel, ImageUpscalerViewModel>();
 builder.Services.AddScoped<IRichColorPickerViewModel, RichColorPickerViewModel>();
 builder.Services.AddScoped<ICmykPickerViewModel, CmykPickerViewModel>();
 

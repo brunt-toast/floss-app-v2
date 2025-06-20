@@ -8,6 +8,7 @@ using MethodTimer;
 using Microsoft.Extensions.DependencyInjection;
 using SixLabors.ImageSharp.Processing.Processors.Quantization;
 using FlossApp.Application.Extensions.FlossApp.Application.Enums;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace FlossApp.Application.Services.ImageFiltering;
 
@@ -86,5 +87,12 @@ public class ImageFilteringService : IImageFilteringService
         var ret = input.Clone();
         ret.Mutate(c => c.Quantize(quantizer));
         return ret;
+    }
+
+    public Image<Rgba32> Upscale(Image<Rgba32> input, int scale)
+    {
+        var newImage = input.Clone();
+        newImage.Mutate(x => x.Resize(input.Width * scale, input.Height * scale));
+        return newImage;
     }
 }
