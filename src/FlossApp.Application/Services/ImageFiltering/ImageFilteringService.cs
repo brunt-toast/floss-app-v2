@@ -7,6 +7,7 @@ using FlossApp.Application.Services.ColorProvider;
 using MethodTimer;
 using Microsoft.Extensions.DependencyInjection;
 using SixLabors.ImageSharp.Processing.Processors.Quantization;
+using FlossApp.Application.Extensions.FlossApp.Application.Enums;
 
 namespace FlossApp.Application.Services.ImageFiltering;
 
@@ -20,7 +21,7 @@ public class ImageFilteringService : IImageFilteringService
     }
 
     [Time]
-    public Image<Rgba32> PixelateImage(Image<Rgba32> input, float scale)
+    public Image<Rgba32> PixelateImage(Image<Rgba32> input, float scale, ImageSharpKnownResamplers resampler = ImageSharpKnownResamplers.NearestNeighbor)
     {
         if (scale is <= 0 or > 1)
         {
@@ -34,7 +35,7 @@ public class ImageFilteringService : IImageFilteringService
         {
             Size = new Size(newWidth, newHeight),
             Mode = ResizeMode.Stretch,
-            Sampler = KnownResamplers.NearestNeighbor
+            Sampler = resampler.AsKnownResampler()
         }));
 
         return resized;
@@ -79,9 +80,9 @@ public class ImageFilteringService : IImageFilteringService
     }
 
     [Time]
-    public Image<Rgba32> ReduceColors(Image<Rgba32> input, int maxColors)
+    public Image<Rgba32> ReduceColors(Image<Rgba32> input, int maxColors, ImageSharpKnownDitherings? dither = null)
     {
-        IQuantizer quantizer = new WuQuantizer(new QuantizerOptions { MaxColors = maxColors, Dither = null });
+        IQuantizer quantizer = new WuQuantizer(new QuantizerOptions { MaxColors = maxColors, Dither = dither.AsKnownDithering() });
         var ret = input.Clone();
         ret.Mutate(c => c.Quantize(quantizer));
         return ret;
