@@ -4,7 +4,7 @@ using SixLabors.ImageSharp.PixelFormats;
 
 namespace FlossApp.Application.Services.ImageFiltering;
 
-public interface IImageFilteringService
+internal interface IImageFilteringService
 {
     public Task<Image<Rgba32>> ReduceToSchemaColorsAsync(Image<Rgba32> image, ColorSchema schema);
     public Image<Rgba32> PixelateImage(Image<Rgba32> input, float scale, ImageSharpKnownResamplers resampler = ImageSharpKnownResamplers.NearestNeighbor);

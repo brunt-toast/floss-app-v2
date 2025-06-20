@@ -7,7 +7,7 @@ using MethodTimer;
 
 namespace FlossApp.Application.Services.ColorNumbering;
 
-public class ColorNumberingService : IColorNumberingService
+internal class ColorNumberingService : IColorNumberingService
 {
     private readonly IColorProviderService _colorProviderService;
 

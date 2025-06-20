@@ -10,7 +10,7 @@ using Newtonsoft.Json;
 
 namespace FlossApp.Application.Services.ColorProvider;
 
-public class ColorProviderService : IColorProviderService
+internal class ColorProviderService : IColorProviderService
 {
     private readonly Dictionary<ColorSchema, RichColorModel[]> _cache = [];
 

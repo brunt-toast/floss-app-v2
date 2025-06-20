@@ -6,7 +6,7 @@ using FlossApp.Core;
 
 namespace FlossApp.Application.Services.ColorProvider;
 
-public interface IColorProviderService
+internal interface IColorProviderService
 {
     public Task<IEnumerable<Color>> GetColorsAsync(ColorSchema schema);
     public Task<IEnumerable<RichColorModel>> GetRichColorsAsync(ColorSchema schema);

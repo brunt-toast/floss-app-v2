@@ -8,7 +8,7 @@ using Color = System.Drawing.Color;
 
 namespace FlossApp.Application.Services.ImageAnalysis;
 
-public interface IImageAnalysisService
+internal interface IImageAnalysisService
 {
     public Task<Dictionary<RichColorModel, int>> GetPaletteAsync(Image<Rgba32> image, ColorSchema schema);
     public IEnumerable<System.Drawing.Color> GetDistinctColors(Image<Rgba32> image);

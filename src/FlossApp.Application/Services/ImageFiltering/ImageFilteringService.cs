@@ -12,7 +12,7 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace FlossApp.Application.Services.ImageFiltering;
 
-public class ImageFilteringService : IImageFilteringService
+internal class ImageFilteringService : IImageFilteringService
 {
     private readonly IColorProviderService _colorProviderService;
 

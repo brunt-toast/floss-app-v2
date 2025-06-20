@@ -1,3 +1,4 @@
+using FlossApp.Application.Services;
 using FlossApp.Application.Services.ColorNaming;
 using FlossApp.Application.Services.ColorNumbering;
 using FlossApp.Application.Services.ColorProvider;
@@ -20,19 +21,17 @@ builder.RootComponents.Add<HeadOutlet>("head::after");
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 builder.Services.AddMudServices();
 
-builder.Services.AddSingleton<ILoggerFactory, FlossAppLoggerFactory>();
-builder.Services.AddSingleton<IColorNamingService, ColorNamingService>();
-builder.Services.AddSingleton<IColorNumberingService, ColorNumberingService>();
-builder.Services.AddSingleton<IColorProviderService, ColorProviderService>();
-builder.Services.AddSingleton<IImageFilteringService, ImageFilteringService>();
-builder.Services.AddSingleton<IImageAnalysisService, ImageAnalysisService>();
-builder.Services.AddSingleton<ISnackbarService, FlossApp.Application.Services.Snackbar.SnackbarService>();
-
 builder.Services.AddScoped<IFindSimilarColorsViewModel, FindSimilarColorsViewModel>();
 builder.Services.AddScoped<IImageFilterViewModel, ImageFilterViewModel>();
 builder.Services.AddScoped<IImageUpscalerViewModel, ImageUpscalerViewModel>();
 builder.Services.AddScoped<IRichColorPickerViewModel, RichColorPickerViewModel>();
 builder.Services.AddScoped<ICmykPickerViewModel, CmykPickerViewModel>();
+
+IServiceCollection sc = ServiceHelper.GetInternalServiceDescriptors();
+foreach (var s in sc)
+{
+    builder.Services.Add(s);
+}
 
 await builder.Build().RunAsync();
 

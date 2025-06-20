@@ -4,7 +4,7 @@ using FlossApp.Application.Messages;
 
 namespace FlossApp.Application.Services.Snackbar;
 
-public class SnackbarService : ISnackbarService
+internal class SnackbarService : ISnackbarService
 {
     public void ShowSnackbar(string message, SnackbarSeverity? severity = null, string? key = null)
     {

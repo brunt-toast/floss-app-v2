@@ -8,7 +8,7 @@ using FlossApp.Application.Enums;
 
 namespace FlossApp.Application.Services.ColorNumbering;
 
-public interface IColorNumberingService
+internal interface IColorNumberingService
 {
     public Task<string> GetNumberAsync(Color color, ColorSchema schema);
 }

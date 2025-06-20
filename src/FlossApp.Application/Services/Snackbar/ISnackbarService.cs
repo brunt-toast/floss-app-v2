@@ -7,7 +7,7 @@ using FlossApp.Application.Enums;
 
 namespace FlossApp.Application.Services.Snackbar;
 
-public interface ISnackbarService
+internal interface ISnackbarService
 {
     void ShowSnackbar(string message, SnackbarSeverity? severity = null, string? key = null);
 }

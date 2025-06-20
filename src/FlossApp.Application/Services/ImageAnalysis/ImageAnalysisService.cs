@@ -14,7 +14,7 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace FlossApp.Application.Services.ImageAnalysis;
 
-public class ImageAnalysisService : IImageAnalysisService
+internal class ImageAnalysisService : IImageAnalysisService
 {
     private readonly IColorProviderService _colorProviderService;
 
