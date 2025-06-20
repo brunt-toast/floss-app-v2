@@ -32,6 +32,8 @@ public partial class ImageFilterViewModel : ViewModelBase, IImageFilterViewModel
     public partial Image<Rgba32> ImageOut { get; private set; }
 
     [ObservableProperty] public partial string ImageOutBase64 { get; private set; } = "";
+    [ObservableProperty] public partial ImageSharpKnownDitherings? DitherKind { get; set; }
+    [ObservableProperty] public partial ImageSharpKnownResamplers ResamplerKind { get; set; }
     [ObservableProperty] public partial ColorSchema TargetSchema { get; set; }
     [ObservableProperty] public partial IDictionary<RichColorModel, int> Palette { get; private set; } = new Dictionary<RichColorModel, int>();
 
@@ -67,6 +69,7 @@ public partial class ImageFilterViewModel : ViewModelBase, IImageFilterViewModel
 
         ImageIn = new Image<Rgba32>(1, 1, new Rgba32(255, 255, 255));
         ImageOut = new Image<Rgba32>(1, 1, new Rgba32(255, 255, 255));
+        ResamplerKind = ImageSharpKnownResamplers.NearestNeighbor;
     }
 
     public async Task LoadFileStreamAsync(Stream stream)
@@ -85,8 +88,8 @@ public partial class ImageFilterViewModel : ViewModelBase, IImageFilterViewModel
     {
         try
         {
-            var pixelated = _imageFilteringService.PixelateImage(ImageIn, PixelRatio);
-            var reduced = _imageFilteringService.ReduceColors(pixelated, TargetDistinctColours);
+            var pixelated = _imageFilteringService.PixelateImage(ImageIn, PixelRatio, ResamplerKind);
+            var reduced = _imageFilteringService.ReduceColors(pixelated, TargetDistinctColours, DitherKind);
             var colored = await _imageFilteringService.ReduceToSchemaColorsAsync(reduced, TargetSchema);
 
             ImageOut = colored;
@@ -121,4 +124,6 @@ public interface IImageFilterViewModel
     public int TargetWidth { get; set; }
     public int TargetHeight { get; set; }
     public ColorSchema TargetSchema { get; set; }
+    public ImageSharpKnownResamplers ResamplerKind { get; set; }
+    public ImageSharpKnownDitherings? DitherKind { get; set; }
 }
