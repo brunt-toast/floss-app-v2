@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using SixLabors.ImageSharp;
+﻿using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.PixelFormats;
 
-namespace FlossApp.Application.Tests.Utils;
+namespace FlossApp.Application.Mock;
 
-internal static class ImageTestUtils
+public static class ImageMockup
 {
     public static Image<Rgba32> GetRandomNoise(int width = 255, int height = 255)
     {

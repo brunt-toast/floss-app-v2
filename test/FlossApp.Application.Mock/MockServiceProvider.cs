@@ -7,9 +7,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Abstractions;
 
-namespace FlossApp.Application.Tests.Mock;
+namespace FlossApp.Application.Mock;
 
-internal class MockServiceProvider : IServiceProvider
+public class MockServiceProvider : IServiceProvider
 {
     private readonly IServiceProvider _services;
 

@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using FlossApp.Application.Mock;
 using FlossApp.Application.Services.ImageAnalysis;
 using FlossApp.Application.Services.ImageFiltering;
-using FlossApp.Application.Tests.Mock;
-using FlossApp.Application.Tests.Utils;
 using FlossApp.Application.ViewModels.Colors;
 using FlossApp.Application.ViewModels.Images;
 using Microsoft.Extensions.DependencyInjection;
@@ -28,7 +27,7 @@ public class ImageFilterViewModelTests
         const int initHeight = 100;
         const float pixelRatio = 0.5f;
 
-        var imageIn = ImageTestUtils.GetRandomNoise(initWidth, initHeight);
+        var imageIn = ImageMockup.GetRandomNoise(initWidth, initHeight);
         await using var inStream = new MemoryStream();
         await imageIn.SaveAsPngAsync(inStream);
         inStream.Position = 0;
@@ -51,7 +50,7 @@ public class ImageFilterViewModelTests
 
         const int targetFidelity = 10;
 
-        var imageIn = ImageTestUtils.GetRandomNoise();
+        var imageIn = ImageMockup.GetRandomNoise();
 
         int nInputColors = imageAnalysisService.GetDistinctColors(imageIn).Count();
         if (nInputColors <= targetFidelity)

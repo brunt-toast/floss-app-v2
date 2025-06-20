@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -15,8 +15,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\FlossApp.Application\FlossApp.Application.csproj" />
     <ProjectReference Include="..\..\src\FlossApp.Core\FlossApp.Core.csproj" />
+    <ProjectReference Include="..\..\src\FlossApp.Wasm\FlossApp.Wasm.csproj" />
+    <ProjectReference Include="..\FlossApp.Application.Mock\FlossApp.Application.Mock.csproj" />
   </ItemGroup>
 
   <ItemGroup>
