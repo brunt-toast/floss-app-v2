@@ -44,7 +44,7 @@ public class ImageFilteringService : IImageFilteringService
     [Time]
     public async Task<Image<Rgba32>> ReduceToSchemaColorsAsync(Image<Rgba32> image, ColorSchema schema)
     {
-        if (schema is ColorSchema.Rgb)
+        if (schema.IsRgbSuperset())
         {
             return image;
         }
@@ -68,7 +68,7 @@ public class ImageFilteringService : IImageFilteringService
                     {
                         var similarColor = color.GetMostSimilarColors(set, 1).FirstOrDefault();
                         newColor = Color.FromRgba(similarColor.R, similarColor.G, similarColor.B, similarColor.A);
-
+                        cache.Add(color, newColor);
                     }
 
                     rowSpan[x] = newColor;
