@@ -5,7 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CommunityToolkit.Mvvm.ComponentModel;
+using FlossApp.Application.Enums;
 using FlossApp.Application.Services.ImageFiltering;
+using FlossApp.Application.Services.Snackbar;
 using Microsoft.Extensions.DependencyInjection;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.ColorSpaces;
@@ -16,12 +18,15 @@ namespace FlossApp.Application.ViewModels.Images;
 public partial class ImageUpscalerViewModel : ViewModelBase, IImageUpscalerViewModel
 {
     private readonly IImageFilteringService _imageFilteringService;
+    private readonly ISnackbarService _snackbarService;
 
     private Image<Rgba32>? _imageIn;
 
     public ImageUpscalerViewModel(IServiceProvider services) : base(services)
     {
         _imageFilteringService = services.GetRequiredService<IImageFilteringService>();
+        _snackbarService = services.GetRequiredService<ISnackbarService>();
+
         ImageOutBase64 = "";
         ScaleFactor = 2;
     }
@@ -49,6 +54,7 @@ public partial class ImageUpscalerViewModel : ViewModelBase, IImageUpscalerViewM
     {
         if (_imageIn is null)
         {
+            _snackbarService.ShowSnackbar("Select an image", SnackbarSeverity.Error);
             return;
         }
 

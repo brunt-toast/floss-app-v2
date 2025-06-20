@@ -3,6 +3,7 @@ using FlossApp.Application.Services.ColorNumbering;
 using FlossApp.Application.Services.ColorProvider;
 using FlossApp.Application.Services.ImageAnalysis;
 using FlossApp.Application.Services.ImageFiltering;
+using FlossApp.Application.Services.Snackbar;
 using FlossApp.Application.Telemetry;
 using FlossApp.Application.ViewModels.Colors;
 using FlossApp.Application.ViewModels.Images;
@@ -25,6 +26,7 @@ builder.Services.AddSingleton<IColorNumberingService, ColorNumberingService>();
 builder.Services.AddSingleton<IColorProviderService, ColorProviderService>();
 builder.Services.AddSingleton<IImageFilteringService, ImageFilteringService>();
 builder.Services.AddSingleton<IImageAnalysisService, ImageAnalysisService>();
+builder.Services.AddSingleton<ISnackbarService, FlossApp.Application.Services.Snackbar.SnackbarService>();
 
 builder.Services.AddScoped<IFindSimilarColorsViewModel, FindSimilarColorsViewModel>();
 builder.Services.AddScoped<IImageFilterViewModel, ImageFilterViewModel>();
