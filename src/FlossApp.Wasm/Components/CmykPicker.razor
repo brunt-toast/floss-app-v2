@@ -1,0 +1,42 @@
+﻿@using FlossApp.Application.Models.RichColor
+@using FlossApp.Application.ViewModels.Pickers
+@inject ICmykPickerViewModel ViewModel
+
+<div class="container">
+    <div class="row">
+        <div class="col col-auto">
+            <MudNumericField Label="C" T="double" Min="0" Max="1" @bind-Value="ViewModel.Cyan" />
+        </div>
+        <div class="col">
+            <MudSlider T="double" Min="0" Max="1" Step="0.01" @bind-Value="ViewModel.Cyan" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col col-auto">
+            <MudNumericField Label="M" T="double" Min="0" Max="1" @bind-Value="ViewModel.Magenta" />
+        </div>
+        <div class="col">
+            <MudSlider T="double" Min="0" Max="1" Step="0.01" @bind-Value="ViewModel.Magenta" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col col-auto">
+            <MudNumericField Label="Y" T="double" Min="0" Max="1" @bind-Value="ViewModel.Yellow" />
+        </div>
+        <div class="col">
+            <MudSlider T="double" Min="0" Max="1" Step="0.01" @bind-Value="ViewModel.Yellow" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col col-auto">
+            <MudNumericField Label="K" T="double" Min="0" Max="1" @bind-Value="ViewModel.Black" />
+        </div>
+        <div class="col">
+            <MudSlider T="double" Min="0" Max="1" Step="0.01" @bind-Value="ViewModel.Black" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="my-1 rounded" style="width: 100%; height: 2em; border: 1px solid gray; background-color: #@(ViewModel.RichColor.AsHex());">
+        </div>
+    </div>
+</div>

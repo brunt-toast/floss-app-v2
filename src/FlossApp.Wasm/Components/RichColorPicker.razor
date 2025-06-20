@@ -21,6 +21,10 @@ else if (Schema is ColorSchema.Hsl)
                     ShowAlpha="false"
                     ColorPickerMode="ColorPickerMode.HSL" ShowModeSwitch="false" />
 }
+else if (Schema is ColorSchema.Cmyk)
+{
+    <CmykPicker @bind-Value="ViewModel.SelectedColor" />
+}
 else
 {
     <MudAutocomplete T="RichColorModel" Label="@Label" @bind-Value="Value"

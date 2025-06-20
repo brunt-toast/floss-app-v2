@@ -32,4 +32,7 @@ public enum ColorSchema
 
     [Display(Name = "Pantone")]
     Pantone,
+
+    [Display(Name="CMYK (Cyan/Magenta/Yellow/Black)")]
+    Cmyk,
 }

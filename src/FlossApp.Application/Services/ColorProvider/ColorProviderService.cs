@@ -48,6 +48,7 @@ public class ColorProviderService : IColorProviderService
             ColorSchema.Rgb => [],
             ColorSchema.RgbHex => [],
             ColorSchema.Hsl => [],
+            ColorSchema.Cmyk => [],
             ColorSchema.Dmc => (await GetFromFileAsync<DmcColor>("Dmc.json")).Cast<IColorFromJson>().ToArray(),
             ColorSchema.Html => (await GetFromFileAsync<HtmlColor>("Html.json")).Cast<IColorFromJson>().ToArray(),
             ColorSchema.Copic => (await GetFromFileAsync<CopicColor>("Copic.json")).Cast<IColorFromJson>().ToArray(),

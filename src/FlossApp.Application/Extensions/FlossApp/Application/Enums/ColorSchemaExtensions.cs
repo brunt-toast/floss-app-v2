@@ -16,6 +16,7 @@ internal static class ColorSchemaExtensions
             case ColorSchema.Rgb:
             case ColorSchema.RgbHex:
             case ColorSchema.Hsl:
+            case ColorSchema.Cmyk:
                 return true;
             case ColorSchema.Html:
             case ColorSchema.Copic:
