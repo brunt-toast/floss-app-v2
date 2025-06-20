@@ -35,5 +35,47 @@ public class ImageFilteringServiceBenchmarks
         _ = await s_imageFilteringService.ReduceToSchemaColorsAsync(s_image, schema);
     }
 
+    [Benchmark]
+    [ArgumentsSource(nameof(PixelateImageScaleValues))]
+    public void PixelateImageVariesByScale(float scale)
+    {
+        _ = s_imageFilteringService.PixelateImage(s_image, scale);
+    }
+
+    [Benchmark]
+    [ArgumentsSource(nameof(ImageSharpKnownResamplersValues))]
+    public void PixelateImageVariesByResampler(ImageSharpKnownResamplers resampler)
+    {
+        _ = s_imageFilteringService.PixelateImage(s_image, 0.01f, resampler);
+    }
+
+    [Benchmark]
+    [ArgumentsSource(nameof(ReduceColorsMaxColorsValues))]
+    public void ReduceColorsVariesByMaxColors(int maxColors)
+    {
+        _ = s_imageFilteringService.ReduceColors(s_image, maxColors);
+    }
+
+    [Benchmark]
+    [ArgumentsSource(nameof(ImageSharpKnownDitheringsNullableValues))]
+    public void ReduceColorsVariesByDither(ImageSharpKnownDitherings? dither)
+    {
+        _ = s_imageFilteringService.ReduceColors(s_image, 10, dither);
+    }
+
+    public IEnumerable<ImageSharpKnownDitherings?> ImageSharpKnownDitheringsNullableValues()
+    {
+        return Enum.GetValues<ImageSharpKnownDitherings>()
+            .Select(x =>
+            {
+                ImageSharpKnownDitherings? ret = x;
+                return ret;
+            }).Concat([null]);
+    }
+
+    public IEnumerable<ImageSharpKnownResamplers> ImageSharpKnownResamplersValues() => Enum.GetValues<ImageSharpKnownResamplers>();
     public IEnumerable<ColorSchema> ColorSchemaValues() => Enum.GetValues<ColorSchema>();
+
+    public IEnumerable<int> ReduceColorsMaxColorsValues() => [5, 10, 20, 50, 100];
+    public IEnumerable<float> PixelateImageScaleValues() => [0.01f, 0.1f, 0.5f];
 }

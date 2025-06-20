@@ -1,3 +1,3 @@
 ﻿using BenchmarkDotNet.Running;
 
-BenchmarkSwitcher.FromAssembly(typeof(Program).Assembly).Run(["--filter", "*ImageFilteringServiceBenchmarks*"]);
+BenchmarkSwitcher.FromAssembly(typeof(Program).Assembly).Run(["--filter", "*ReduceColorsVariesByDither*"]);
