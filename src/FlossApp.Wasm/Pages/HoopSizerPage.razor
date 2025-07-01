@@ -1,0 +1,9 @@
+﻿@page "/HoopSizer"
+@using FlossApp.Application.ViewModels.Scaling
+@inject IHoopSizerViewModel ViewModel
+
+<h1>Hoop sizer</h1>
+
+<MudNumericField T="int" Min="1" Label="Width/Height (px)" @bind-Value="ViewModel.WidthOrHeightPx" />
+<MudNumericField T="int" Min="1" Label="@($"Thread count (per In)")" @bind-Value="ViewModel.ThreadCountPerInch" />
+<MudNumericField T="int" ReadOnly="true" Label="@($"Min hoop size (In)")" Value="@ViewModel.HoopDiameterInches" />
