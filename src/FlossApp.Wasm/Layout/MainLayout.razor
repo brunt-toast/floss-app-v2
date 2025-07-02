@@ -1,7 +1,6 @@
-﻿@using CommunityToolkit.Mvvm.Messaging
-@using FlossApp.Application.Enums
-@using FlossApp.Application.Messages
+﻿@using FlossApp.Wasm.Components
 @inherits LayoutComponentBase
+
 <div class="page">
     <div class="sidebar">
         <NavMenu />
@@ -9,7 +8,49 @@
 
     <main>
         <article class="px-4 py-2">
-            @Body
+            <GlobalErrorBoundary @ref="_errorBoundary">
+                <ChildContent>
+                    @Body
+                </ChildContent>
+                <ErrorContent>
+                    <MudPaper Class="p-3">
+                        <h1>Something went wrong.</h1>
+                        <p>
+                            An error went uncaught, and the process couldn't continue.
+                            Details follow.
+                        </p>
+                        <hr />
+                        <p>
+                            <b>@context.GetType().FullName</b>:
+                            <span>@context.Message</span>
+                        </p>
+                        <hr />
+
+                        <MudExpansionPanels Class="mb-3">
+                            <MudExpansionPanel Text="Details">
+                                <p>TODO exception details component</p>
+                            </MudExpansionPanel>
+                        </MudExpansionPanels>
+
+                        <div class="row">
+                            <div class="col">
+                                <MudButton Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.CopyAll"
+                                           OnClick="CopyErrorAsJson">
+                                    Copy details as JSON
+                                </MudButton>
+                            </div>
+                            <div class="col">
+                                
+                                <MudButton Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.Refresh"
+                                           OnClick="AttemptRecovery">
+                                    Attempt Recovery
+                                </MudButton>
+                            </div>
+                        </div>
+
+                    </MudPaper>
+                </ErrorContent>
+            </GlobalErrorBoundary>
         </article>
     </main>
 </div>
@@ -18,30 +59,3 @@
 <MudPopoverProvider />
 <MudDialogProvider />
 <MudSnackbarProvider />
-
-@code
-{
-    [Inject] private ISnackbar Snackbar { get; set; } = null!;
-
-    protected override void OnInitialized()
-    {
-        base.OnInitialized();
-        WeakReferenceMessenger.Default.Register<SnackbarMessage>(this, OnSnackbarMessage);
-    }
-
-    private void OnSnackbarMessage(object recipient, SnackbarMessage message)
-    {
-        Severity severity = message.Severity switch
-        {
-            SnackbarSeverity.Normal => Severity.Normal,
-            SnackbarSeverity.Info => Severity.Info,
-            SnackbarSeverity.Success => Severity.Success,
-            SnackbarSeverity.Warn => Severity.Warning,
-            SnackbarSeverity.Error => Severity.Error,
-            null => Severity.Normal,
-            _ => throw new ArgumentOutOfRangeException()
-        };
-
-        Snackbar.Add(message.Message, severity, key: message.Key);
-    }
-}
