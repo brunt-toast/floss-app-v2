@@ -22,13 +22,6 @@ builder.RootComponents.Add<HeadOutlet>("head::after");
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 builder.Services.AddMudServices();
 
-builder.Services.AddScoped<IFindSimilarColorsViewModel, FindSimilarColorsViewModel>();
-builder.Services.AddScoped<IImageFilterViewModel, ImageFilterViewModel>();
-builder.Services.AddScoped<IImageUpscalerViewModel, ImageUpscalerViewModel>();
-builder.Services.AddScoped<IRichColorPickerViewModel, RichColorPickerViewModel>();
-builder.Services.AddScoped<ICmykPickerViewModel, CmykPickerViewModel>();
-builder.Services.AddScoped<IHoopSizerViewModel, HoopSizerViewModel>();
-
 IServiceCollection sc = ServiceHelper.GetInternalServiceDescriptors();
 foreach (var s in sc)
 {
