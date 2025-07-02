@@ -1,9 +1,24 @@
 ﻿@page "/HoopSizer"
+@using FlossApp.Application.Enums
 @using FlossApp.Application.ViewModels.Scaling
+@using FlossApp.Wasm.Components
 @inject IHoopSizerViewModel ViewModel
 
 <h1>Hoop sizer</h1>
 
-<MudNumericField T="int" Min="1" Label="Width/Height (px)" @bind-Value="ViewModel.WidthOrHeightPx" />
-<MudNumericField T="int" Min="1" Label="@($"Thread count (per In)")" @bind-Value="ViewModel.ThreadCountPerInch" />
-<MudNumericField T="int" ReadOnly="true" Label="@($"Min hoop size (In)")" Value="@ViewModel.HoopDiameterInches" />
+<EnumPicker Label="Target" T="HoopSizeCalculationMode" @bind-Value="ViewModel.Target" />
+
+<div class="row">
+    <div class="col">
+        <MudNumericField T="int" Min="1" Label="Width or Height (px,st)" @bind-Value="ViewModel.WidthOrHeightPx"
+                         ReadOnly="@(ViewModel.Target == HoopSizeCalculationMode.WidthOrHeightPx)" />
+    </div>
+    <div class="col">
+        <MudNumericField T="int" Min="1" Label="Thread Count (/in)" @bind-Value="ViewModel.ThreadCountPerInch"
+                         ReadOnly="@(ViewModel.Target == HoopSizeCalculationMode.ThreadCountPerInch)" />
+    </div>
+    <div class="col">
+        <MudNumericField T="int" Label="Hoop Diameter (in)" @bind-Value="ViewModel.HoopDiameterInches"
+                         ReadOnly="@(ViewModel.Target == HoopSizeCalculationMode.HoopDiameterInches)" />
+    </div>
+</div>
