@@ -65,6 +65,12 @@ internal class ImageFilteringService : IImageFilteringService
                 for (int x = 0; x < rowSpan.Length; x++)
                 {
                     var color = System.Drawing.Color.FromArgb(rowSpan[x].A, rowSpan[x].R, rowSpan[x].G, rowSpan[x].B);
+
+                    if (color.A == 0)
+                    {
+                        continue;
+                    }
+
                     if (!cache.TryGetValue(color, out Color newColor))
                     {
                         var similarColor = color.GetMostSimilarColors(set, 1).FirstOrDefault();
