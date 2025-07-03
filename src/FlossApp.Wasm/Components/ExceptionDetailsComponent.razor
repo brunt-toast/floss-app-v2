@@ -1,0 +1,73 @@
+﻿<MudSimpleTable>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Value</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <th>HResult</th>
+            <td>@Ex.HResult</td>
+        </tr>
+        <tr>
+            <th>Message</th>
+            <td>@Ex.Message</td>
+        </tr>
+        <tr>
+            <th>Source</th>
+            <td>@Ex.Source</td>
+        </tr>
+        <tr>
+            <th>Target Site</th>
+            <td>@Ex.TargetSite</td>
+        </tr>
+        <tr>
+            <th>Help Link</th>
+            <td><a href="@Ex.HelpLink">@Ex.HelpLink</a></td>
+        </tr>
+
+        <tr>
+            <th>Data</th>
+            <td>
+                <MudSimpleTable>
+                    <thead>
+                        <tr>
+                            <th>Key</th>
+                            <th>Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                            @foreach (var data in Ex.Data)
+                            {
+                                if (data is KeyValuePair<object, object> kvp)
+                                {
+                                <tr>
+                                    <td>@kvp.Key</td>
+                                    <td>@kvp.Value</td>
+                                </tr>
+                                }
+                                else
+                                {
+                                <tr>
+                                    <td colspan="2">@data</td>
+                                </tr>
+                                }
+                            }
+                    </tbody>
+                </MudSimpleTable>
+            </td>
+        </tr>
+
+        <tr>
+            <th>Stack Trace</th>
+            <td>@Ex.StackTrace</td>
+        </tr>
+    </tbody>
+</MudSimpleTable>
+
+@if (Ex.InnerException is not null)
+{
+    <ExceptionDetailsComponent Ex="@Ex.InnerException" />
+}
