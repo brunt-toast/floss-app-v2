@@ -1,4 +1,5 @@
 ﻿@using FlossApp.Wasm.Components
+@using FlossApp.Wasm.Themes
 @inherits LayoutComponentBase
 
 <div class="page">
@@ -55,7 +56,7 @@
     </main>
 </div>
 
-<MudThemeProvider />
+<MudThemeProvider Theme="CustomTheme1.Instance" />
 <MudPopoverProvider />
 <MudDialogProvider />
 <MudSnackbarProvider />
