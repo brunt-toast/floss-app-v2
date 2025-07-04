@@ -1,28 +1,7 @@
 # README
 
-## Getting Started
+## Quick Start
 
-### App
+Prerequisite: install [nektos/act](https://github.com/nektos/act). Installation instructions for a variety of platforms and package managers can be found [here](https://nektosact.com/installation/index.html). 
 
-You'll need the .NET 9 SDK. While the projects target .NET 8, the .NET 9 SDK is required to compile preview C# language features. 
-
-To run:
-```bash
-dotnet run --project src/FlossApp.Wasm/FlossApp.Wasm.csproj
-```
-
-### Tests 
-
-Todo
-
-### Benchmarks
-
-For exporters to work, you'll need R installed and Rscript(.exe) available in PATH. 
-
-To run: 
-```bash
-dotnet run \
-    --project test/FlossApp.Application.Benchmarks/FlossApp.Application.Benchmarks.csproj \
-    -- \
-    --filter *
-```
+Run `act`. The default configuration (`/.actrc`) should start the program with a debug configuration. 
