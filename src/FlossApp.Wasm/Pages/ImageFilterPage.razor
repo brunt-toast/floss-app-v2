@@ -145,3 +145,8 @@
         </div>
     </div>
 </MudStack>
+
+@if (ViewModel.IsBusy) 
+{
+    <MudProgressCircular Color="Color.Default" Indeterminate="true" />
+}

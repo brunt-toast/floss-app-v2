@@ -106,10 +106,35 @@ public partial class ImageFilterViewModel : ViewModelBase, IImageFilterViewModel
             _logger.LogError(ex, "Unexpected exception while processing an image");
         }
     }
+
+        public bool IsBusy { get; private set; }
+    public IDisposable SetBusy() 
+    {
+        IsBusy = true;
+        return new Disposer(this);
+    }
+
+    private class Disposer : IDisposable
+    {
+        private readonly ImageFilterViewModel _ifvm; 
+
+        public Disposer(ImageFilterViewModel ifvm) 
+        {
+            _ifvm = ifvm;
+        }
+
+        public void Dispose() 
+        {
+            _ifvm.IsBusy = false;
+        }
+    }
 }
 
 public interface IImageFilterViewModel
 {
+    public bool IsBusy {get;}
+    public IDisposable SetBusy();
+
     public Task LoadFileStreamAsync(Stream stream);
     public Task ProcessImageAsync();
 
