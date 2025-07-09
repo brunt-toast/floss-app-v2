@@ -3,6 +3,7 @@ using FlossApp.Application.Services.ColorNumbering;
 using FlossApp.Application.Services.ColorProvider;
 using FlossApp.Application.Services.ImageAnalysis;
 using FlossApp.Application.Services.ImageFiltering;
+using FlossApp.Application.ViewModels.Images;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Abstractions;
@@ -22,6 +23,9 @@ public class MockServiceProvider : IServiceProvider
         builder.AddSingleton<IImageFilteringService, ImageFilteringService>();
         builder.AddSingleton<ILoggerFactory, NullLoggerFactory>();
         builder.AddSingleton<IImageAnalysisService, ImageAnalysisService>();
+
+        builder.AddSingleton<IImageFilterViewModel, ImageFilterViewModel>();
+
         _services = builder.BuildServiceProvider();
     }
 
