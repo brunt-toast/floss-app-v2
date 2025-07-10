@@ -1,6 +1,9 @@
 ﻿@using FlossApp.Wasm.Components
+@using FlossApp.Wasm.Consts
 @using FlossApp.Wasm.Themes
 @inherits LayoutComponentBase
+
+<PageTitle>@AppConsts.ApplicationName</PageTitle>
 
 <div class="page">
     <div class="sidebar">
@@ -41,7 +44,7 @@
                                 </MudButton>
                             </div>
                             <div class="col">
-                                
+
                                 <MudButton Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.Refresh"
                                            OnClick="AttemptRecovery">
                                     Attempt Recovery
