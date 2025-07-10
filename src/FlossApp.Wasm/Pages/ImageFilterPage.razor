@@ -116,6 +116,14 @@
                         <NullableEnumPicker T="ImageSharpKnownDitherings" Label="Dither" @bind-Value="ViewModel.DitherKind" />
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col">
+                        <MudNumericField T="byte" Min="0" Max="255" @bind-Value="ViewModel.TransparencyThreshold" Label="Transparency Threshold" />
+                    </div>
+                    <div class="col col-auto">
+                        <MudSlider T="byte" Min="0" Max="255" @bind-Value="ViewModel.TransparencyThreshold" />
+                    </div>
+                </div>
             </MudExpansionPanel>
         </MudExpansionPanels>
     </div>

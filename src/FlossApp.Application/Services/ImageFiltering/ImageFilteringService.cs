@@ -43,7 +43,7 @@ internal class ImageFilteringService : IImageFilteringService
     }
 
     [Time]
-    public async Task<Image<Rgba32>> ReduceToSchemaColorsAsync(Image<Rgba32> image, ColorSchema schema)
+    public async Task<Image<Rgba32>> ReduceToSchemaColorsAsync(Image<Rgba32> image, ColorSchema schema, byte transparencyThreshold)
     {
         if (schema.IsRgbSuperset())
         {
@@ -66,8 +66,9 @@ internal class ImageFilteringService : IImageFilteringService
                 {
                     var color = System.Drawing.Color.FromArgb(rowSpan[x].A, rowSpan[x].R, rowSpan[x].G, rowSpan[x].B);
 
-                    if (color.A == 0)
+                    if (color.A <= transparencyThreshold)
                     {
+                        rowSpan[x] = Color.FromRgba(color.R, color.G, color.B, 0);
                         continue;
                     }
 

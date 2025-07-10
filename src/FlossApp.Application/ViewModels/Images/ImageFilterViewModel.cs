@@ -35,6 +35,7 @@ public partial class ImageFilterViewModel : ViewModelBase, IImageFilterViewModel
     [ObservableProperty] public partial ImageSharpKnownDitherings? DitherKind { get; set; }
     [ObservableProperty] public partial ImageSharpKnownResamplers ResamplerKind { get; set; }
     [ObservableProperty] public partial ColorSchema TargetSchema { get; set; }
+    [ObservableProperty] public partial byte TransparencyThreshold { get; set; }
     [ObservableProperty] public partial IDictionary<RichColorModel, int> Palette { get; private set; } = new Dictionary<RichColorModel, int>();
 
     [NotifyPropertyChangedFor(nameof(TargetHeight))]
@@ -90,7 +91,7 @@ public partial class ImageFilterViewModel : ViewModelBase, IImageFilterViewModel
         {
             var pixelated = _imageFilteringService.PixelateImage(ImageIn, PixelRatio, ResamplerKind);
             var reduced = _imageFilteringService.ReduceColors(pixelated, TargetDistinctColours, DitherKind);
-            var colored = await _imageFilteringService.ReduceToSchemaColorsAsync(reduced, TargetSchema);
+            var colored = await _imageFilteringService.ReduceToSchemaColorsAsync(reduced, TargetSchema, TransparencyThreshold);
 
             ImageOut = colored;
             await using var stream = new MemoryStream();
@@ -126,4 +127,5 @@ public interface IImageFilterViewModel
     public ColorSchema TargetSchema { get; set; }
     public ImageSharpKnownResamplers ResamplerKind { get; set; }
     public ImageSharpKnownDitherings? DitherKind { get; set; }
+    public byte TransparencyThreshold { get; set; }
 }
