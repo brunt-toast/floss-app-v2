@@ -9,6 +9,6 @@ public class CustomTheme1 : MudTheme
 
     private CustomTheme1()
     {
-        PaletteLight = new PaletteLight { Primary = Colors.LightGreen.Default };
+        PaletteLight = new PaletteLight { Primary = "#1ec8a5" };
     }
 }
