@@ -35,7 +35,7 @@ public class ImageFilteringServiceBenchmarks
     [Benchmark]
     public async Task ReduceToSchemaColorsAsync()
     {
-        _ = await s_imageFilteringService.ReduceToSchemaColorsAsync(s_image, Schema);
+        _ = await s_imageFilteringService.ReduceToSchemaColorsAsync(s_image, Schema, 0);
     }
 
     [Benchmark]
