@@ -1,5 +1,6 @@
 ﻿@using FlossApp.Wasm.Components
 @using FlossApp.Wasm.Consts
+@using FlossApp.Wasm.Navigation
 @using FlossApp.Wasm.Themes
 @inherits LayoutComponentBase
 
@@ -23,11 +24,16 @@
 
                 <MudNavMenu>
                     <MudDivider Class="my-2" />
-                    <MudNavLink Href="/">Home</MudNavLink>
-                    <MudNavLink Href="/FindSimilarColorsPage">Color Convert</MudNavLink>
-                    <MudNavLink Href="/ImageFilter">Image Filtering</MudNavLink>
-                    <MudNavLink Href="/HoopSizer">Hoop Sizer</MudNavLink>
-                    <MudNavLink Href="/ImageUpscaler">Upscaler</MudNavLink>
+                    <MudNavLink Icon="@Icons.Material.Filled.Home" Href="/">Home</MudNavLink>
+
+                    @foreach (var page in NamedPages.AllNamedPages)
+                    {
+                        <MudNavLink
+                            Icon="@(page.Icon)"
+                            Href="@(page.Href)">
+                            @(page.Name)
+                        </MudNavLink>
+                    }
                 </MudNavMenu>
             </MudDrawer>
 

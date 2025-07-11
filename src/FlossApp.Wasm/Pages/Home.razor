@@ -1,4 +1,5 @@
 ﻿@page "/"
+@using FlossApp.Wasm.Navigation
 @inject NavigationManager Navigation
 
 <style>
@@ -38,24 +39,11 @@
 </style>
 
 <div class="masonry-container">
-    <MudPaper Class="masonry-item" Elevation="3" @onclick="@(() => Navigation.NavigateTo("/FindSimilarColorsPage"))">
-        <MudIcon Icon="@Icons.Material.Filled.Compare" Size="Size.Large" />
-        <div class="button-text">Color Convert</div>
-    </MudPaper>
-
-
-    <MudPaper Class="masonry-item" Elevation="3" @onclick="@(() => Navigation.NavigateTo("/ImageFilter"))">
-        <MudIcon Icon="@Icons.Material.Filled.FilterHdr" Size="Size.Large" />
-        <div class="button-text">Image Filtering</div>
-    </MudPaper>
-
-    <MudPaper Class="masonry-item" Elevation="3" @onclick="@(() => Navigation.NavigateTo("/ImageUpscaler"))">
-        <MudIcon Icon="@Icons.Material.Filled.LinearScale" Size="Size.Large" />
-        <div class="button-text">Upscaler</div>
-    </MudPaper>
-
-    <MudPaper Class="masonry-item" Elevation="3" @onclick="@(() => Navigation.NavigateTo("/HoopSizer"))">
-        <MudIcon Icon="@Icons.Material.Filled.FormatSize" Size="Size.Large" />
-        <div class="button-text">Hoop sizer</div>
-    </MudPaper>
+    @foreach (var page in NamedPages.AllNamedPages)
+    {
+        <MudPaper Class="masonry-item" Elevation="3" @onclick="@(() => Navigation.NavigateTo(page.Href))">
+            <MudIcon Icon="@(page.Icon)" Size="Size.Large" />
+            <div class="button-text">@(page.Name)</div>
+        </MudPaper>
+    }
 </div>
