@@ -1,5 +1,6 @@
 {
     "files.associations": {
-        ".actrc": "shellscript"
+        ".actrc": "shellscript",
+        "nuget.config": "xml"
     }
 }
