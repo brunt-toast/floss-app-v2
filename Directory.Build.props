@@ -3,4 +3,15 @@
     <LangVersion>preview</LangVersion>
     <WarningsAsErrors>CA2017</WarningsAsErrors>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>$(MSBuildThisFileDirectory)strongname.snk</AssemblyOriginatorKeyFile>
+    <PublicKey>
+      002400000480000094000000060200000024000052534131000400000100010029e9bc9e3a6b97
+      497af9d56a235713b90ea53005e905923615bfbe13efa821910542752afaa1ea04128d8ae5012c
+      09b81f9dc7a38a0b28e1c96ca83ee44117caa7fa99481ebf73b95cf4849b8aaffbd43f199315a0
+      9ba4f57d412735845288d2899ddd02042412fcfc979cdad8cba780c2ef94425e7e8fc3c60810ef
+      dcdf1cd2
+    </PublicKey>
+  </PropertyGroup>
 </Project>
