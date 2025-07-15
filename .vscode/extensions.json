@@ -1,5 +1,9 @@
 {
     "recommendations": [
-        "csharpier.csharpier-vscode"
+        "csharpier.csharpier-vscode",
+        "yzhang.markdown-all-in-one",
+        "jetbrains.resharper-code",
+        "jasonnutter.vscode-codeowners",
+        "github.vscode-github-actions"
     ]
 }
