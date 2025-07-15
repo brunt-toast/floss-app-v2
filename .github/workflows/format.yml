@@ -1,0 +1,20 @@
+name: autofix.ci
+
+on: [pull_request]
+
+jobs:
+  autofix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.0.x'
+
+      - run: dotnet tool install csharpier
+
+      - run: dotnet csharpier format .
+
+      - uses: autofix-ci/action@635ffb0c9798bd160680f18fd73371e355b85f27
+
