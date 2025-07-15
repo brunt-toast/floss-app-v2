@@ -3,5 +3,11 @@
         ".actrc": "shellscript",
         "nuget.config": "xml",
         "*.rsp": "shellscript"
-    }
+    },
+    "[csharp]": {
+        "editor.defaultFormatter": "csharpier.csharpier-vscode"
+    },
+    "[xml]": {
+        "editor.defaultFormatter": "csharpier.csharpier-vscode"
+    },
 }

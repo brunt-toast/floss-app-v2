@@ -140,30 +140,6 @@ csharp_style_prefer_index_operator = false:none
 csharp_style_prefer_range_operator = false:none
 csharp_style_pattern_local_over_anonymous_function = false:none
 
-# Space preferences
-csharp_space_after_cast = false
-csharp_space_after_colon_in_inheritance_clause = true
-csharp_space_after_comma = true
-csharp_space_after_dot = false
-csharp_space_after_keywords_in_control_flow_statements = true
-csharp_space_after_semicolon_in_for_statement = true
-csharp_space_around_binary_operators = before_and_after
-csharp_space_around_declaration_statements = do_not_ignore
-csharp_space_before_colon_in_inheritance_clause = true
-csharp_space_before_comma = false
-csharp_space_before_dot = false
-csharp_space_before_open_square_brackets = false
-csharp_space_before_semicolon_in_for_statement = false
-csharp_space_between_empty_square_brackets = false
-csharp_space_between_method_call_empty_parameter_list_parentheses = false
-csharp_space_between_method_call_name_and_opening_parenthesis = false
-csharp_space_between_method_call_parameter_list_parentheses = false
-csharp_space_between_method_declaration_empty_parameter_list_parentheses = false
-csharp_space_between_method_declaration_name_and_open_parenthesis = false
-csharp_space_between_method_declaration_parameter_list_parentheses = false
-csharp_space_between_parentheses = false
-csharp_space_between_square_brackets = false
-
 # License header
 csharp_style_namespace_declarations = file_scoped:silent
 csharp_style_prefer_method_group_conversion = true:silent
@@ -207,3 +183,18 @@ indent_size = 2
 end_of_line = lf
 [*.{cmd,bat}]
 end_of_line = crlf
+
+# Custom user preferences
+[*.cs]
+# Allow attributes on the same line as the thing they decorate
+csharp_prefer_attribute_on_same_line = true:suggestion
+
+# Don't automatically add trailing commas
+dotnet_style_allow_trailing_comma = false:suggestion
+
+# Don't add spaces around operators
+csharp_space_around_binary_operators = ignore
+
+# Disable line length enforcement
+max_line_length = 0
+
