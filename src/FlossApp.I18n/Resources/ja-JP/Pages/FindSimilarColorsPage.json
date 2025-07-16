@@ -1,0 +1,11 @@
+{
+    "pageTitle": "色の比較",
+    "maxMatchesField.Label": "結果の最大数",
+    "noResultsHeader": "結果はありません",
+    "noResultsMessage": "このクエリに一致するものは見つかりませんでした。",
+    "exactMatchLabel": "完全一致",
+    "inputSchemaPicker.Label": "入力モード",
+    "targetColorPicker.Label": "ターゲットカラー",
+    "advancedExpansionPanel.Text": "詳細設定",
+    "comparisonKindPicker.Label": "アルゴリズム"
+}
