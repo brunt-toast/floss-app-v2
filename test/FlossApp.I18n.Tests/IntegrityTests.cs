@@ -11,8 +11,7 @@ public sealed class IntegrityTests
     [TestMethod]
     public void AllFolders_Have_SameFiles()
     {
-        const string defaultLangKey = "en-US";
-        var defaultLangResources = GetAllResourceFileNamesForLanguage(defaultLangKey).ToList();
+        var defaultLangResources = GetAllResourceFileNamesForLanguage(I18nConsts.DefaultLanguage).ToList();
 
         Dictionary<string, string> extras = [];
         Dictionary<string, string> missing = [];
@@ -39,12 +38,12 @@ public sealed class IntegrityTests
 
         foreach (var kvp in extras)
         {
-            Console.Error.WriteLine($"Default language {defaultLangKey} contains no definition for {kvp.Value}, but {kvp.Key} does.");
+            Console.Error.WriteLine($"Default language {I18nConsts.DefaultLanguage} contains no definition for {kvp.Value}, but {kvp.Key} does.");
         }
 
         foreach (var kvp in missing)
         {
-            Console.Error.WriteLine($"Default language {defaultLangKey} contains a definition for {kvp.Value}, but {kvp.Key} does not.");
+            Console.Error.WriteLine($"Default language {I18nConsts.DefaultLanguage} contains a definition for {kvp.Value}, but {kvp.Key} does not.");
         }
 
         Assert.AreEqual(0, missing.Count);
@@ -54,13 +53,12 @@ public sealed class IntegrityTests
     [TestMethod]
     public void AllFiles_Have_SameKeys()
     {
-        const string defaultLangKey = "en-US";
-        var defaultLangResources = GetAllResourceFileNamesForLanguage(defaultLangKey).ToList();
+        var defaultLangResources = GetAllResourceFileNamesForLanguage(I18nConsts.DefaultLanguage).ToList();
 
         List<string> keys = [];
         foreach (var file in defaultLangResources)
         {
-            string ident = _anchorType.Namespace! + ".Resources." + defaultLangKey.Replace("-", "_") + file;
+            string ident = _anchorType.Namespace! + ".Resources." + I18nConsts.DefaultLanguage.Replace("-", "_") + file;
             string content = ReadResourceFile(ident);
             Dictionary<string, object> dict = JsonConvert.DeserializeObject<Dictionary<string, object>>(content);
             keys.AddRange(dict.Keys);
@@ -91,12 +89,12 @@ public sealed class IntegrityTests
 
         foreach (var kvp in extras)
         {
-            Console.Error.WriteLine($"Default language {defaultLangKey} contains no definition for {kvp.Value}, but {kvp.Key} does.");
+            Console.Error.WriteLine($"Default language {I18nConsts.DefaultLanguage} contains no definition for {kvp.Value}, but {kvp.Key} does.");
         }
 
         foreach (var kvp in missing)
         {
-            Console.Error.WriteLine($"Default language {defaultLangKey} contains a definition for {kvp.Value}, but {kvp.Key} does not.");
+            Console.Error.WriteLine($"Default language {I18nConsts.DefaultLanguage} contains a definition for {kvp.Value}, but {kvp.Key} does not.");
         }
 
         Assert.AreEqual(0, missing.Count);
