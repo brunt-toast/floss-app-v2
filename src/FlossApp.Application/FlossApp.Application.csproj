@@ -34,6 +34,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\FlossApp.Core\FlossApp.Core.csproj" PrivateAssets="All" />
+    <ProjectReference Include="..\FlossApp.I18n\FlossApp.I18n.csproj" />
   </ItemGroup>
 
 </Project>

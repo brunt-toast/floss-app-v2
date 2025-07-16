@@ -1,8 +1,10 @@
 ﻿@page "/FindSimilarColorsPage"
 @inject IFindSimilarColorsViewModel ViewModel
+@inject II18nService Localizer
 @using System.Collections.ObjectModel
 @using FlossApp.Application.Enums
 @using FlossApp.Application.Models.RichColor
+@using FlossApp.Application.Services.I18n
 @using FlossApp.Application.ViewModels.Colors
 @using FlossApp.Wasm.Extensions.System
 @using FlossApp.Wasm.Components
@@ -42,9 +44,9 @@
     @if (!ViewModel.Matches.Any())
     {
         <MudPaper Style="text-align: center;">
-            <strong>No results</strong>
+            <strong>@Localizer.GetResource("noResultsHeader")</strong>
             <p>
-                Nothing came up for this query.
+                @Localizer.GetResource("noResultsMessage")
             </p>
         </MudPaper>
     }
@@ -88,7 +90,7 @@
 <nav class="navbar navbar-expand navbar-sticky-bottom">
     <div class="container justify-content-around">
         <MudPaper Class="p-2 w-100">
-            <MudNumericField T="int" @bind-Value="ViewModel.NumberOfMatches" Label="Max matches" />
+            <MudNumericField T="int" @bind-Value="ViewModel.NumberOfMatches" @attributes="@(Localizer.GetResources("FindSimilarColorsPage.MaxMatchesField.Label"))" />
 
             <EnumPicker Label="Input schema" T="ColorSchema" @bind-Value="ViewModel.InputSchema" />
 

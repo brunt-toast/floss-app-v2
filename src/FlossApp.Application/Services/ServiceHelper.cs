@@ -1,6 +1,7 @@
 ﻿using FlossApp.Application.Services.ColorNaming;
 using FlossApp.Application.Services.ColorNumbering;
 using FlossApp.Application.Services.ColorProvider;
+using FlossApp.Application.Services.I18n;
 using FlossApp.Application.Services.ImageAnalysis;
 using FlossApp.Application.Services.ImageFiltering;
 using FlossApp.Application.Services.Snackbar;
@@ -27,6 +28,7 @@ public static class ServiceHelper
         services.AddScoped<ICmykPickerViewModel, CmykPickerViewModel>();
         services.AddScoped<ICieLabPickerViewModel, CieLabPickerViewModel>();
         services.AddScoped<IHoopSizerViewModel, HoopSizerViewModel>();
+        services.AddScoped<II18nService, I18nService>();
 
         services.AddSingleton<ILoggerFactory, FlossAppLoggerFactory>();
         services.AddSingleton<IColorNamingService, ColorNamingService>();
