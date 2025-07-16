@@ -35,4 +35,7 @@ public enum ColorSchema
 
     [Display(Name="CMYK", Description="Cyan/Magenta/Yellow/Black")]
     Cmyk,
+
+    [Display(Name = "CIE L*a*b*", Description = "Commission Internationale de l'\u00c9clairage: Lightness, Green-Red, Blue-Yellow")]
+    CieLab,
 }

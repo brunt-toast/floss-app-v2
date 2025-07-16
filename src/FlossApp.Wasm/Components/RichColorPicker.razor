@@ -25,6 +25,10 @@ else if (Schema is ColorSchema.Cmyk)
 {
     <CmykPicker @bind-Value="ViewModel.SelectedColor" />
 }
+else if (Schema is ColorSchema.CieLab)
+{
+    <CieLabPicker @bind-Value="ViewModel.SelectedColor" />
+}
 else
 {
     <MudAutocomplete T="RichColorModel" Label="@Label" @bind-Value="Value"

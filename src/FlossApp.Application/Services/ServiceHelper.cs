@@ -25,6 +25,7 @@ public static class ServiceHelper
         services.AddScoped<IImageUpscalerViewModel, ImageUpscalerViewModel>();
         services.AddScoped<IRichColorPickerViewModel, RichColorPickerViewModel>();
         services.AddScoped<ICmykPickerViewModel, CmykPickerViewModel>();
+        services.AddScoped<ICieLabPickerViewModel, CieLabPickerViewModel>();
         services.AddScoped<IHoopSizerViewModel, HoopSizerViewModel>();
 
         services.AddSingleton<ILoggerFactory, FlossAppLoggerFactory>();

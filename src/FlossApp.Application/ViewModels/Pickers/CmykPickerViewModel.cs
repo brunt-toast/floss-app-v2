@@ -8,6 +8,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using FlossApp.Application.Data;
 using FlossApp.Application.Models.RichColor;
 using FlossApp.Application.Utils;
+using FlossApp.Core;
 
 namespace FlossApp.Application.ViewModels.Pickers;
 
