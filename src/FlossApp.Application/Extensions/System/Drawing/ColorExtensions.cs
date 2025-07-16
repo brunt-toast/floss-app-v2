@@ -5,26 +5,37 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using FlossApp.Application.Data;
+using FlossApp.Application.Enums;
+using FlossApp.Application.Models.RichColor;
+using FlossApp.Application.Utils;
+using FlossApp.Core;
 using SixLabors.ImageSharp.ColorSpaces;
 
 namespace FlossApp.Application.Extensions.System.Drawing;
 
 public static class ColorExtensions
 {
-    public static IEnumerable<Color> GetMostSimilarColors(this Color targetColor, IList<Color> set, int nMatches = 5)
+    public static IEnumerable<Color> GetMostSimilarColors(this Color targetColor, IList<Color> set, int nMatches = 5, ColorComparisonAlgorithms comparisonAlgorithm = default)
     {
-        const double weightR = 0.299;
-        const double weightG = 0.587;
-        const double weightB = 0.114;
+        var func = ColorComparisonFuncs.GetComparisonAlgorithm(comparisonAlgorithm);
+
+        var targetColorModel = new RichColorModel(new RichColor
+        {
+            Red = targetColor.R,
+            Green = targetColor.G,
+            Blue = targetColor.B,
+        });
 
         return set
             .Select(color => new
             {
                 Color = color,
-                Distance = Math.Sqrt(
-                    weightR * Math.Pow(color.R - targetColor.R, 2) +
-                    weightG * Math.Pow(color.G - targetColor.G, 2) +
-                    weightB * Math.Pow(color.B - targetColor.B, 2))
+                Distance = func(new RichColorModel(new RichColor
+                {
+                    Red = color.R,
+                    Green = color.G,
+                    Blue = color.B,
+                }), targetColorModel)
             })
             .OrderBy(x => x.Distance)
             .Take(nMatches)

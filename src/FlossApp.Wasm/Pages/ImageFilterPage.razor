@@ -124,6 +124,9 @@
                         <MudSlider T="byte" Min="0" Max="255" @bind-Value="ViewModel.TransparencyThreshold" />
                     </div>
                 </div>
+                <div class="row">
+                    <EnumPicker Label="Comparison Kind" T="ColorComparisonAlgorithms" @bind-Value="ViewModel.ComparisonAlgorithm" />
+                </div>
             </MudExpansionPanel>
         </MudExpansionPanels>
     </div>

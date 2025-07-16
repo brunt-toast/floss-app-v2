@@ -43,7 +43,7 @@ internal class ImageFilteringService : IImageFilteringService
     }
 
     [Time]
-    public async Task<Image<Rgba32>> ReduceToSchemaColorsAsync(Image<Rgba32> image, ColorSchema schema, byte transparencyThreshold)
+    public async Task<Image<Rgba32>> ReduceToSchemaColorsAsync(Image<Rgba32> image, ColorSchema schema, byte transparencyThreshold, ColorComparisonAlgorithms comparisonAlgorithm = default)
     {
         if (schema.IsRgbSuperset())
         {
@@ -74,7 +74,7 @@ internal class ImageFilteringService : IImageFilteringService
 
                     if (!cache.TryGetValue(color, out Color newColor))
                     {
-                        var similarColor = color.GetMostSimilarColors(set, 1).FirstOrDefault();
+                        var similarColor = color.GetMostSimilarColors(set, 1, comparisonAlgorithm).FirstOrDefault();
                         newColor = Color.FromRgba(similarColor.R, similarColor.G, similarColor.B, similarColor.A);
                         cache.Add(color, newColor);
                     }

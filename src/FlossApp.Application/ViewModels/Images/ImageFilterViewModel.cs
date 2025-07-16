@@ -31,6 +31,7 @@ public partial class ImageFilterViewModel : ViewModelBase, IImageFilterViewModel
     [ObservableProperty]
     public partial Image<Rgba32> ImageOut { get; private set; }
 
+    [ObservableProperty] public partial ColorComparisonAlgorithms ComparisonAlgorithm { get; set; }
     [ObservableProperty] public partial string ImageOutBase64 { get; private set; } = "";
     [ObservableProperty] public partial ImageSharpKnownDitherings? DitherKind { get; set; }
     [ObservableProperty] public partial ImageSharpKnownResamplers ResamplerKind { get; set; }
@@ -91,7 +92,7 @@ public partial class ImageFilterViewModel : ViewModelBase, IImageFilterViewModel
         {
             var pixelated = _imageFilteringService.PixelateImage(ImageIn, PixelRatio, ResamplerKind);
             var reduced = _imageFilteringService.ReduceColors(pixelated, TargetDistinctColours, DitherKind);
-            var colored = await _imageFilteringService.ReduceToSchemaColorsAsync(reduced, TargetSchema, TransparencyThreshold);
+            var colored = await _imageFilteringService.ReduceToSchemaColorsAsync(reduced, TargetSchema, TransparencyThreshold, ComparisonAlgorithm);
 
             ImageOut = colored;
             await using var stream = new MemoryStream();
@@ -121,6 +122,7 @@ public interface IImageFilterViewModel
 
     public int TargetDistinctColours { get; set; }
 
+    public ColorComparisonAlgorithms ComparisonAlgorithm { get; set; }
     public float PixelRatio { get; set; }
     public int TargetWidth { get; set; }
     public int TargetHeight { get; set; }
