@@ -9,22 +9,22 @@ namespace FlossApp.Application.Enums;
 
 public enum ColorSchema
 {
-    [Display(Name= "RGB (Red/Green/Blue)")]
+    [Display(Name= "RGB", Description="Red/Green/Blue")]
     Rgb,
 
-    [Display(Name = "Hex (Hexadecimal RGB)")]
+    [Display(Name = "Hex", Description="Hexadecimal RGB")]
     RgbHex,
 
-    [Display(Name = "HSL (Hue/Saturation/Lightness)")]
+    [Display(Name = "HSL", Description="Hue/Saturation/Lightness")]
     Hsl,
 
-    [Display(Name= "DMC (Dollfus-Mieg et Compagnie)")]
+    [Display(Name= "DMC", Description="Dollfus-Mieg et Compagnie")]
     Dmc,
 
-    [Display(Name = "HTML (HyperText Markup Language)")]
+    [Display(Name = "HTML", Description="HyperText Markup Language")]
     Html,
 
-    [Display(Name = "COPIC (\u30b3\u30d4\u30c3\u30af)")]
+    [Display(Name = "COPIC", Description="\u30b3\u30d4\u30c3\u30af")]
     Copic,
 
     [Display(Name = "Anchor")]
@@ -33,6 +33,6 @@ public enum ColorSchema
     [Display(Name = "Pantone")]
     Pantone,
 
-    [Display(Name="CMYK (Cyan/Magenta/Yellow/Black)")]
+    [Display(Name="CMYK", Description="Cyan/Magenta/Yellow/Black")]
     Cmyk,
 }
