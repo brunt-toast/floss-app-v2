@@ -93,6 +93,12 @@
             <EnumPicker Label="Input schema" T="ColorSchema" @bind-Value="ViewModel.InputSchema" />
 
             <RichColorPicker Label="Target Color" Schema="@ViewModel.InputSchema" @bind-Value="ViewModel.TargetColor" />
+
+            <MudExpansionPanels>
+                <MudExpansionPanel Text="Advanced">
+                    <EnumPicker Label="Comparison Kind" T="ColorComparisonAlgorithms" @bind-Value="ViewModel.ComparisonAlgorithm" />
+                </MudExpansionPanel>
+            </MudExpansionPanels>
         </MudPaper>
     </div>
 </nav>

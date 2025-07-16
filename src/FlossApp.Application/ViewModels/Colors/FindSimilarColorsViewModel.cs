@@ -54,7 +54,7 @@ public partial class FindSimilarColorsViewModel : ViewModelBase, IFindSimilarCol
         foreach (var schema in Enum.GetValues<ColorSchema>())
         {
             var schemaColors = await _colorProviderService.GetRichColorsAsync(schema);
-            var similarColors = TargetColor.GetMostSimilarColors(schemaColors.ToList(), NumberOfMatches);
+            var similarColors = TargetColor.GetMostSimilarColors(schemaColors.ToList(), NumberOfMatches, ComparisonAlgorithm);
             Matches.TryAdd(schema, [..similarColors]);
         }
     }
@@ -75,8 +75,9 @@ public partial class FindSimilarColorsViewModel : ViewModelBase, IFindSimilarCol
                 Number = hex
             });
         }
-    } 
+    }
 
+    [ObservableProperty] public partial ColorComparisonAlgorithms ComparisonAlgorithm { get; set; }
     [ObservableProperty] public partial RichColorModel TargetColor { get; set; }
     [ObservableProperty] public partial int NumberOfMatches { get; set; } = 5;
     [ObservableProperty] public partial ColorSchema InputSchema { get; set; }
@@ -99,6 +100,7 @@ public partial class FindSimilarColorsViewModel : ViewModelBase, IFindSimilarCol
 
 public interface IFindSimilarColorsViewModel
 {
+    public ColorComparisonAlgorithms ComparisonAlgorithm { get; set; }
     public RichColorModel TargetColor { get; set; }
     public string TargetColorString { get; set; }
     public int NumberOfMatches { get; set; }
