@@ -8,7 +8,7 @@ namespace FlossApp.Application.Services.I18n;
 // ReSharper disable once InconsistentNaming
 public class I18nService : II18nService
 {
-    public string Language { get; set; } = "en-GB";
+    public string Language { get; set; } = "en-US";
     public Type AnchorType { get; init; } = typeof(I18nLibTypeAnchor);
 
     public Dictionary<string, object> GetResources(string identifier) => GetResources(identifier, true);

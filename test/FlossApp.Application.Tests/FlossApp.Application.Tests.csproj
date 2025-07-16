@@ -8,11 +8,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Resources\en-GB\I18nServiceTests.json" />
+    <None Remove="Resources\en-US\I18nServiceTests.json" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Resources\en-GB\I18nServiceTests.json" />
+    <EmbeddedResource Include="Resources\en-US\I18nServiceTests.json" />
   </ItemGroup>
 
   <ItemGroup>

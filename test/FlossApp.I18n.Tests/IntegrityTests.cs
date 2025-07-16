@@ -11,7 +11,7 @@ public sealed class IntegrityTests
     [TestMethod]
     public void AllFolders_Have_SameFiles()
     {
-        const string defaultLangKey = "en-GB";
+        const string defaultLangKey = "en-US";
         var defaultLangResources = GetAllResourceFileNamesForLanguage(defaultLangKey).ToList();
 
         Dictionary<string, string> extras = [];
@@ -54,7 +54,7 @@ public sealed class IntegrityTests
     [TestMethod]
     public void AllFiles_Have_SameKeys()
     {
-        const string defaultLangKey = "en-GB";
+        const string defaultLangKey = "en-US";
         var defaultLangResources = GetAllResourceFileNamesForLanguage(defaultLangKey).ToList();
 
         List<string> keys = [];
