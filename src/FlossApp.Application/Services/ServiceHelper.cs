@@ -28,8 +28,8 @@ public static class ServiceHelper
         services.AddScoped<ICmykPickerViewModel, CmykPickerViewModel>();
         services.AddScoped<ICieLabPickerViewModel, CieLabPickerViewModel>();
         services.AddScoped<IHoopSizerViewModel, HoopSizerViewModel>();
-        services.AddScoped<II18nService, I18nService>();
 
+        services.AddSingleton<II18nService, I18nService>();
         services.AddSingleton<ILoggerFactory, FlossAppLoggerFactory>();
         services.AddSingleton<IColorNamingService, ColorNamingService>();
         services.AddSingleton<IColorNumberingService, ColorNumberingService>();
