@@ -1,5 +1,11 @@
 {
+    "pageTitle": "Color Comparison",
     "maxMatchesField.Label": "Max results",
     "noResultsHeader": "No results",
-    "noResultsMessage": "Nothing came up for this query."
+    "noResultsMessage": "Nothing came up for this query.",
+    "exactMatchLabel": "Exact match",
+    "inputSchemaPicker.Label": "Input schema",
+    "targetColorPicker.Label": "Target color",
+    "advancedExpansionPanel.Text": "Advanced",
+    "comparisonKindPicker.Label": "Comparison kind"
 }

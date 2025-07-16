@@ -39,7 +39,7 @@
 </style>
 
 <main>
-    <h1>Color Similarity</h1>
+    <h1>@Localizer.GetResource("pageTitle")</h1>
 
     @if (!ViewModel.Matches.Any())
     {
@@ -73,7 +73,7 @@
                                 <div class="col col-auto">
                                     @if (ViewModel.IsExactMatch(color))
                                     {
-                                        <MudTooltip Text="Exact match">
+                                        <MudTooltip Text="@Localizer.GetResource("exactMatchLabel")">
                                             <MudIcon Icon="@Icons.Material.Filled.Star" Style="color: goldenrod;" />
                                         </MudTooltip>
                                     }
@@ -90,15 +90,15 @@
 <nav class="navbar navbar-expand navbar-sticky-bottom">
     <div class="container justify-content-around">
         <MudPaper Class="p-2 w-100">
-            <MudNumericField T="int" @bind-Value="ViewModel.NumberOfMatches" @attributes="@(Localizer.GetResources("FindSimilarColorsPage.MaxMatchesField.Label"))" />
+            <MudNumericField T="int" @bind-Value="ViewModel.NumberOfMatches" @attributes="@(Localizer.GetResources("maxMatchesField"))" />
 
-            <EnumPicker Label="Input schema" T="ColorSchema" @bind-Value="ViewModel.InputSchema" />
+            <EnumPicker @attributes="@(Localizer.GetResources("inputSchemaPicker"))" T="ColorSchema" @bind-Value="ViewModel.InputSchema" />
 
-            <RichColorPicker Label="Target Color" Schema="@ViewModel.InputSchema" @bind-Value="ViewModel.TargetColor" />
+            <RichColorPicker @attributes="@(Localizer.GetResources("targetColorPicker"))" Schema="@ViewModel.InputSchema" @bind-Value="ViewModel.TargetColor" />
 
             <MudExpansionPanels>
-                <MudExpansionPanel Text="Advanced">
-                    <EnumPicker Label="Comparison Kind" T="ColorComparisonAlgorithms" @bind-Value="ViewModel.ComparisonAlgorithm" />
+                <MudExpansionPanel @attributes="@(Localizer.GetResources("advancedExpansionPanel"))">
+                    <EnumPicker @attributes="@(Localizer.GetResources("comparisonKindPicker"))" T="ColorComparisonAlgorithms" @bind-Value="ViewModel.ComparisonAlgorithm" />
                 </MudExpansionPanel>
             </MudExpansionPanels>
         </MudPaper>
