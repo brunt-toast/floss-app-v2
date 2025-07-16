@@ -73,7 +73,7 @@ public sealed class IntegrityTests
             var langResources = GetAllResourceFileNamesForLanguage(langName).ToList();
             foreach (var file in langResources)
             {
-                string ident = _anchorType.Namespace! + ".Resources." + defaultLangKey.Replace("-", "_") + file;
+                string ident = _anchorType.Namespace! + ".Resources." + langName.Replace("-", "_") + file;
                 string content = ReadResourceFile(ident);
                 Dictionary<string, object> dict = JsonConvert.DeserializeObject<Dictionary<string, object>>(content);
 
