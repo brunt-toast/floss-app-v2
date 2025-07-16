@@ -4,6 +4,9 @@
 <MudSelect T="T" @bind-Value="Value" Label="@Label">
     @foreach (var val in Enum.GetValues<T>())
     {
-        <MudSelectItem T="T" Value="val">@val.ToDisplayName()</MudSelectItem>
+        <MudSelectItem T="T" Value="val">
+            @val.ToDisplayName()<br />
+            <span class="text-secondary" style="font-size: .75em;">@val.GetDescription()</span>
+        </MudSelectItem>
     }
 </MudSelect>
