@@ -6,6 +6,10 @@ namespace FlossApp.Application.Enums;
 
 public enum ImageSharpKnownResamplers
 {
+    /// <inheritdoc cref="SixLabors.ImageSharp.Processing.KnownResamplers.Lanczos8" />
+    [Display(Name = "Lanczos 8px", Description = "Slightly slower and higher quality than lower Lanczos options.")]
+    Lanczos8,
+
     /// <inheritdoc cref="SixLabors.ImageSharp.Processing.KnownResamplers.Bicubic" />
     [Display(Description = "Slow but high quality. Best for retaining quality in photos.")]
     Bicubic,
@@ -33,10 +37,6 @@ public enum ImageSharpKnownResamplers
     /// <inheritdoc cref="SixLabors.ImageSharp.Processing.KnownResamplers.Lanczos5" />
     [Display(Name="Lanczos 5px", Description = "Slightly slower and higher quality than lower Lanczos options.")]
     Lanczos5,
-
-    /// <inheritdoc cref="SixLabors.ImageSharp.Processing.KnownResamplers.Lanczos8" />
-    [Display(Name="Lanczos 8px", Description = "Slightly slower and higher quality than lower Lanczos options.")]
-    Lanczos8,
 
     /// <inheritdoc cref="SixLabors.ImageSharp.Processing.KnownResamplers.MitchellNetravali" />
     [Display(Name = "Mitchell-Netravali", Description = "Balanced speed and quality.")]

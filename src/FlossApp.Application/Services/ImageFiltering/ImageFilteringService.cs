@@ -22,7 +22,7 @@ internal class ImageFilteringService : IImageFilteringService
     }
 
     [Time]
-    public Image<Rgba32> PixelateImage(Image<Rgba32> input, float scale, ImageSharpKnownResamplers resampler = ImageSharpKnownResamplers.NearestNeighbor)
+    public Image<Rgba32> PixelateImage(Image<Rgba32> input, float scale, ImageSharpKnownResamplers resampler = default)
     {
         if (scale is <= 0 or > 1)
         {

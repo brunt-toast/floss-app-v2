@@ -10,6 +10,10 @@ namespace FlossApp.Application.Enums;
 
 public enum ImageSharpKnownDitherings
 {
+    /// <inheritdoc cref="SixLabors.ImageSharp.Processing.KnownDitherings.FloydSteinberg" />
+    [Display(Name = "Floyd-Steinberg", Description = "Balanced speed and quality.")]
+    FloydSteinberg,
+
     /// <inheritdoc cref="SixLabors.ImageSharp.Processing.KnownDitherings.Bayer2x2" />
     [Display(Name="Bayer 2x2", Description = "Very fast, but low quality.")]
     Bayer2x2,
@@ -37,10 +41,6 @@ public enum ImageSharpKnownDitherings
     /// <inheritdoc cref="SixLabors.ImageSharp.Processing.KnownDitherings.Burks" />
     [Display(Description = "Slightly slower and smoother than Atkinson.")]
     Burks,
-
-    /// <inheritdoc cref="SixLabors.ImageSharp.Processing.KnownDitherings.FloydSteinberg" />
-    [Display(Name="Floyd-Steinberg", Description = "Balanced speed and quality.")]
-    FloydSteinberg,
 
     /// <inheritdoc cref="SixLabors.ImageSharp.Processing.KnownDitherings.JarvisJudiceNinke" />
     [Display(Name="Jarvis-Judice-Ninke", Description = "Slightly slower and smoother than Floyd-Steinberg.")]

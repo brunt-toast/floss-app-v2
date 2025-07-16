@@ -4,6 +4,9 @@ namespace FlossApp.Application.Enums;
 
 public enum ColorComparisonAlgorithms
 {
+    [Display(Name = "CIEDE2000", Description = "The slowest but best option. A.K.A. \u0394E\u2080\u2080.")]
+    CIEDE2000,
+
     [Display(Name="Weighted Euclidean RGB", Description = "A strong balance between speed and accuracy.")]
     EuclideanWeightedRgb,
 
@@ -20,8 +23,5 @@ public enum ColorComparisonAlgorithms
     CIE94Graphics,
 
     [Display(Name = "CIE94 for Textiles", Description = "Slower and better than CIE76. Weights optimised for textile arts, but struggles in blue, gray, and low-chroma regions.")]
-    CIE94Textiles,
-
-    [Display(Name="CIEDE2000", Description = "The slowest but best option. A.K.A. \u0394E\u2080\u2080.")]
-    CIEDE2000
+    CIE94Textiles
 }
