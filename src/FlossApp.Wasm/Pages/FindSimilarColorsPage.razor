@@ -90,15 +90,17 @@
 <nav class="navbar navbar-expand navbar-sticky-bottom">
     <div class="container justify-content-around">
         <MudPaper Class="p-2 w-100">
-            <MudNumericField T="int" @bind-Value="ViewModel.NumberOfMatches" @attributes="@(Localizer.GetResources("maxMatchesField"))" />
+            <LanguagePicker />
 
-            <EnumPicker @attributes="@(Localizer.GetResources("inputSchemaPicker"))" T="ColorSchema" @bind-Value="ViewModel.InputSchema" />
+            <MudNumericField T="int" @bind-Value="ViewModel.NumberOfMatches" @attributes="@(Localizer.GetResources("maxMatchesField"))"/>
 
-            <RichColorPicker @attributes="@(Localizer.GetResources("targetColorPicker"))" Schema="@ViewModel.InputSchema" @bind-Value="ViewModel.TargetColor" />
+            <EnumPicker @attributes="@(Localizer.GetResources("inputSchemaPicker"))" T="ColorSchema" @bind-Value="ViewModel.InputSchema"/>
+
+            <RichColorPicker @attributes="@(Localizer.GetResources("targetColorPicker"))" Schema="@ViewModel.InputSchema" @bind-Value="ViewModel.TargetColor"/>
 
             <MudExpansionPanels>
                 <MudExpansionPanel @attributes="@(Localizer.GetResources("advancedExpansionPanel"))">
-                    <EnumPicker @attributes="@(Localizer.GetResources("comparisonKindPicker"))" T="ColorComparisonAlgorithms" @bind-Value="ViewModel.ComparisonAlgorithm" />
+                    <EnumPicker @attributes="@(Localizer.GetResources("comparisonKindPicker"))" T="ColorComparisonAlgorithms" @bind-Value="ViewModel.ComparisonAlgorithm"/>
                 </MudExpansionPanel>
             </MudExpansionPanels>
         </MudPaper>

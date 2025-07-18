@@ -1,0 +1,13 @@
+﻿@using FlossApp.Application.ViewModels.Colors
+@inject ILanguagePickerViewModel ViewModel
+
+<MudTextField Label="Language" @bind-Value="ViewModel.Language" />
+
+@code
+{
+    protected override async Task OnInitializedAsync()
+    {
+        await ViewModel.InitAsync();
+        await base.OnInitializedAsync();
+    }
+}
