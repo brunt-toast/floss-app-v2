@@ -1,7 +1,8 @@
-﻿@using FlossApp.Application.ViewModels.Colors
+﻿@using FlossApp.Application.Enums
+@using FlossApp.Application.ViewModels.Colors
 @inject ILanguagePickerViewModel ViewModel
 
-<MudTextField Label="Language" @bind-Value="ViewModel.Language" />
+<EnumPicker T="SupportedLanguage" Label="Language" @bind-Value="ViewModel.Language" />
 
 @code
 {

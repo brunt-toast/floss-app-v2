@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.Runtime.InteropServices.JavaScript;
 using CommunityToolkit.Mvvm.ComponentModel;
+using FlossApp.Application.Enums;
 using FlossApp.Application.Services.Cookies;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -13,7 +14,7 @@ public partial class LanguagePickerViewModel : ViewModelBase, ILanguagePickerVie
     private readonly ICookieService _cookieService;
     private readonly ILogger _logger;
 
-    [ObservableProperty] public partial string Language { get; set; } = "";
+    [ObservableProperty] public partial SupportedLanguage Language { get; set; } 
 
     public LanguagePickerViewModel(IServiceProvider services) : base(services)
     {
@@ -26,7 +27,7 @@ public partial class LanguagePickerViewModel : ViewModelBase, ILanguagePickerVie
     {
         try
         {
-            Language = await _cookieService.GetCookieAsync("Language") ?? "";
+            Language = StringToSupportedLanguage(await _cookieService.GetCookieAsync("Language") ?? "");
         }
         catch (Exception ex)
         {
@@ -38,13 +39,18 @@ public partial class LanguagePickerViewModel : ViewModelBase, ILanguagePickerVie
     {
         if (e.PropertyName == nameof(Language))
         {
-            await _cookieService.SetCookieAsync("Language", Language);
+            await _cookieService.SetCookieAsync("Language", Language.ToString());
         }
+    }
+
+    private SupportedLanguage StringToSupportedLanguage(string s)
+    {
+        return Enum.GetValues<SupportedLanguage>().First(x => x.ToString() == s);
     }
 }
 
 public interface ILanguagePickerViewModel
 {
     public Task InitAsync();
-    public string Language { get; set; }
+    public SupportedLanguage Language { get; set; }
 }
