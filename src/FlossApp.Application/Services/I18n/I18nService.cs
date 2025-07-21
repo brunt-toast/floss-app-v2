@@ -1,6 +1,8 @@
 ﻿using System.Diagnostics;
 using System.Text;
+using CommunityToolkit.Mvvm.Messaging;
 using FlossApp.Application.Enums;
+using FlossApp.Application.Messages;
 using FlossApp.Application.Services.Cookies;
 using FlossApp.I18n;
 using Microsoft.Extensions.DependencyInjection;
@@ -36,6 +38,7 @@ public class I18nService : II18nService
     {
         await _cookieService.SetCookieAsync(NamedCookies.Language, value.ToString());
         await RefreshLanguage();
+        WeakReferenceMessenger.Default.Send<LanguageChangedMessage>();
     }
 
     public async Task<SupportedLanguage> GetLanguageAsync()

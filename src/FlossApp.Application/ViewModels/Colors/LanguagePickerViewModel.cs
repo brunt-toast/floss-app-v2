@@ -14,6 +14,7 @@ public partial class LanguagePickerViewModel : ViewModelBase, ILanguagePickerVie
 {
     private readonly II18nService _i18nService;
     private readonly ILogger _logger;
+    private bool _isInitialised;
 
     [ObservableProperty] public partial SupportedLanguage Language { get; set; } 
 
@@ -34,11 +35,15 @@ public partial class LanguagePickerViewModel : ViewModelBase, ILanguagePickerVie
         {
             _logger.LogError(ex, "Failed to get Language cookie");
         }
+        finally
+        {
+            _isInitialised = true;
+        }
     }
 
     private async void LanguagePickerViewModel_OnPropertyChanged(object? sender, PropertyChangedEventArgs e)
     {
-        if (e.PropertyName == nameof(Language))
+        if (e.PropertyName == nameof(Language) && _isInitialised)
         {
             await _i18nService.SetLanguageAsync(Language);
         }

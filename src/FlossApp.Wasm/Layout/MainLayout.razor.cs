@@ -12,11 +12,18 @@ public partial class MainLayout
     private GlobalErrorBoundary? _errorBoundary;
 
     [Inject] private ISnackbar Snackbar { get; set; } = null!;
+    [Inject] private NavigationManager Navigation { get; set; } = null!;
 
     protected override void OnInitialized()
     {
         base.OnInitialized();
         WeakReferenceMessenger.Default.Register<SnackbarMessage>(this, OnSnackbarMessage);
+        WeakReferenceMessenger.Default.Register<LanguageChangedMessage>(this, OnLanguageChangedMessage);
+    }
+
+    private void OnLanguageChangedMessage(object recipient, LanguageChangedMessage message)
+    {
+        Navigation.NavigateTo(Navigation.Uri, forceLoad: true);
     }
 
     private void AttemptRecovery()
