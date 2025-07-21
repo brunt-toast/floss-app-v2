@@ -1,6 +1,9 @@
 ﻿using System.Diagnostics;
 using System.Text;
+using FlossApp.Application.Enums;
+using FlossApp.Application.Services.Cookies;
 using FlossApp.I18n;
+using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
 
 namespace FlossApp.Application.Services.I18n;
@@ -8,8 +11,43 @@ namespace FlossApp.Application.Services.I18n;
 // ReSharper disable once InconsistentNaming
 public class I18nService : II18nService
 {
-    public string Language { get; set; } = I18nConsts.DefaultLanguage;
+    private readonly ICookieService _cookieService;
+
+    private string _language = I18nConsts.DefaultLanguage;
+
     public Type AnchorType { get; init; } = typeof(I18nLibTypeAnchor);
+
+    public I18nService(IServiceProvider services)
+    {
+        _cookieService = services.GetRequiredService<ICookieService>();
+    }
+
+    public async Task InitAsync()
+    {
+        await RefreshLanguage();
+    }
+
+    private async Task RefreshLanguage()
+    {
+        _language = (await GetLanguageAsync()).ToString().Replace('_', '-');
+    }
+
+    public async Task SetLanguageAsync(SupportedLanguage value)
+    {
+        await _cookieService.SetCookieAsync(NamedCookies.Language, value.ToString());
+        await RefreshLanguage();
+    }
+
+    public async Task<SupportedLanguage> GetLanguageAsync()
+    {
+        return StringToSupportedLanguage(await _cookieService.GetCookieAsync(NamedCookies.Language));
+    }
+
+    private SupportedLanguage StringToSupportedLanguage(string? s)
+    {
+        s ??= I18nConsts.DefaultLanguage;
+        return Enum.GetValues<SupportedLanguage>().First(x => x.ToString() == s);
+    }
 
     public Dictionary<string, object> GetResources(string identifier) => GetResources(identifier, true);
 
@@ -73,7 +111,7 @@ public class I18nService : II18nService
     private string ReadResourceFile(string fileIdentifier)
     {
         var assembly = AnchorType.Assembly;
-        string folderPrefix = AnchorType.Namespace! + ".Resources." + Language.Replace('-', '_');
+        string folderPrefix = AnchorType.Namespace! + ".Resources." + _language.Replace('-', '_');
         string resourceName = folderPrefix + "." + fileIdentifier + ".json";
 
         using var stream = assembly.GetManifestResourceStream(resourceName);
@@ -84,7 +122,7 @@ public class I18nService : II18nService
     private IEnumerable<string> GetResourceNamesForCurrentCulture()
     {
         var assembly = AnchorType.Assembly;
-        string folderPrefix = AnchorType.Namespace! + ".Resources." + Language.Replace('-', '_');
+        string folderPrefix = AnchorType.Namespace! + ".Resources." + _language.Replace('-', '_');
         string[] rNames = assembly.GetManifestResourceNames();
 
         return rNames.Where(name => name.StartsWith(folderPrefix))

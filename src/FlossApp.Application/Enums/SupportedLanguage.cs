@@ -8,5 +8,5 @@ public enum SupportedLanguage
     en_US,
         
     [Display(Name = "日本語（日本）", Description = "Japanese (Japan)")]
-    ja_JA,
+    ja_JP,
 }

@@ -30,7 +30,12 @@ public static class ServiceHelper
         services.AddScoped<IHoopSizerViewModel, HoopSizerViewModel>();
         services.AddScoped<ILanguagePickerViewModel, LanguagePickerViewModel>();
 
-        services.AddSingleton<II18nService, I18nService>();
+        services.AddSingleton<II18nService, I18nService>(s =>
+        {
+            var ret = new I18nService(s);
+            ret.InitAsync();
+            return ret;
+        });
         services.AddSingleton<ILoggerFactory, FlossAppLoggerFactory>();
         services.AddSingleton<IColorNamingService, ColorNamingService>();
         services.AddSingleton<IColorNumberingService, ColorNumberingService>();
