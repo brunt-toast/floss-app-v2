@@ -30,6 +30,10 @@ jobs:
       with:
         dotnet-version: 8.x
 
+    - name: Use wasm-tools for treeshake
+      run: |
+        dotnet workload install wasm-tools
+
     - name: Publish Blazor WASM project
       run: |
         dotnet publish src/FlossApp.Wasm/FlossApp.Wasm.csproj -c Release -o publish
