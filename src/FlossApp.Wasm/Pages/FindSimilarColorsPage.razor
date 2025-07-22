@@ -90,8 +90,6 @@
 <nav class="navbar navbar-expand navbar-sticky-bottom">
     <div class="container justify-content-around">
         <MudPaper Class="p-2 w-100">
-            <LanguagePicker />
-
             <MudNumericField T="int" @bind-Value="ViewModel.NumberOfMatches" @attributes="@(Localizer.GetResources("maxMatchesField"))"/>
 
             <EnumPicker @attributes="@(Localizer.GetResources("inputSchemaPicker"))" T="ColorSchema" @bind-Value="ViewModel.InputSchema"/>
