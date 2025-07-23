@@ -22,15 +22,15 @@ public static class ServiceHelper
     {
         var services = new ServiceCollection();
 
-        services.AddScoped<IFindSimilarColorsViewModel, FindSimilarColorsViewModel>();
-        services.AddScoped<IImageFilterViewModel, ImageFilterViewModel>();
-        services.AddScoped<IImageUpscalerViewModel, ImageUpscalerViewModel>();
-        services.AddScoped<IRichColorPickerViewModel, RichColorPickerViewModel>();
-        services.AddScoped<ICmykPickerViewModel, CmykPickerViewModel>();
-        services.AddScoped<ICieLabPickerViewModel, CieLabPickerViewModel>();
-        services.AddScoped<IHoopSizerViewModel, HoopSizerViewModel>();
-        services.AddScoped<ILanguagePickerViewModel, LanguagePickerViewModel>();
-        services.AddScoped<IAppInfoViewModel, AppInfoViewModel>();
+        services.AddTransient<IFindSimilarColorsViewModel, FindSimilarColorsViewModel>();
+        services.AddTransient<IImageFilterViewModel, ImageFilterViewModel>();
+        services.AddTransient<IImageUpscalerViewModel, ImageUpscalerViewModel>();
+        services.AddTransient<IRichColorPickerViewModel, RichColorPickerViewModel>();
+        services.AddTransient<ICmykPickerViewModel, CmykPickerViewModel>();
+        services.AddTransient<ICieLabPickerViewModel, CieLabPickerViewModel>();
+        services.AddTransient<IHoopSizerViewModel, HoopSizerViewModel>();
+        services.AddTransient<ILanguagePickerViewModel, LanguagePickerViewModel>();
+        services.AddTransient<IAppInfoViewModel, AppInfoViewModel>();
 
         services.AddSingleton<II18nService, I18nService>(s =>
         {
