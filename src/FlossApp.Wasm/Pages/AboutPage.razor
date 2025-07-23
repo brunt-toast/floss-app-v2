@@ -1,0 +1,23 @@
+﻿@page "/About"
+@using FlossApp.Application.ViewModels.Info
+@inject IAppInfoViewModel ViewModel
+
+<h1>About</h1>
+
+<p>
+    @ViewModel.ApplicationName is a completely free-to-use, open-source application.
+    <a href="@ViewModel.GitRepoUri">Get the complete source code &amp; contribute to the project here</a>.
+</p>
+
+<h2>App Information</h2>
+
+<ul style="list-style-type: none;">
+    <li>Version @ViewModel.AppVersion</li>
+    <li>Assembly @(ViewModel.IsSigned ? "signed" : "unsigned")</li>
+    <li>Powered by @ViewModel.DotnetVersion</li>
+</ul>
+
+<h2>Credits &amp; 3<sup>rd</sup> Party Notices</h2>
+
+This project relies on other open-source software and free data.
+Their licences and other notices can be found <a href="@ViewModel.ThirdPartyNoticesUri">here</a>.

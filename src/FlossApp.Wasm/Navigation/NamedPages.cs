@@ -10,5 +10,6 @@ internal static class NamedPages
         new(Icons.Material.Filled.FilterHdr, "Image Filtering", "/ImageFilter"),
         new(Icons.Material.Filled.LinearScale, "Upscaler", "/ImageUpscaler"),
         new(Icons.Material.Filled.FormatSize, "Hoop sizer", "/HoopSizer"),
+        new(Icons.Material.Filled.Info, "App Info", "/About"),
     ];
 }

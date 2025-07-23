@@ -8,6 +8,7 @@ using FlossApp.Application.Services.Snackbar;
 using FlossApp.Application.Telemetry;
 using FlossApp.Application.ViewModels.Colors;
 using FlossApp.Application.ViewModels.Images;
+using FlossApp.Application.ViewModels.Info;
 using FlossApp.Application.ViewModels.Pickers;
 using FlossApp.Application.ViewModels.Scaling;
 using Microsoft.Extensions.DependencyInjection;
@@ -29,6 +30,7 @@ public static class ServiceHelper
         services.AddScoped<ICieLabPickerViewModel, CieLabPickerViewModel>();
         services.AddScoped<IHoopSizerViewModel, HoopSizerViewModel>();
         services.AddScoped<ILanguagePickerViewModel, LanguagePickerViewModel>();
+        services.AddScoped<IAppInfoViewModel, AppInfoViewModel>();
 
         services.AddSingleton<II18nService, I18nService>(s =>
         {
