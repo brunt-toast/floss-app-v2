@@ -1,6 +1,7 @@
 ﻿using FlossApp.Application.Services.ColorNaming;
 using FlossApp.Application.Services.ColorNumbering;
 using FlossApp.Application.Services.ColorProvider;
+using FlossApp.Application.Services.Cookies;
 using FlossApp.Application.Services.I18n;
 using FlossApp.Application.Services.ImageAnalysis;
 using FlossApp.Application.Services.ImageFiltering;
@@ -25,6 +26,7 @@ public class MockServiceProvider : IServiceProvider
         builder.AddSingleton<ILoggerFactory, NullLoggerFactory>();
         builder.AddSingleton<IImageAnalysisService, ImageAnalysisService>();
         builder.AddSingleton<II18nService, I18nService>();
+        builder.AddSingleton<ICookieService, MockCookieService>();
 
         builder.AddSingleton<IImageFilterViewModel, ImageFilterViewModel>();
 

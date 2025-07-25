@@ -8,7 +8,7 @@ using FlossApp.Application.Enums;
 using FlossApp.Application.Mock;
 using FlossApp.Application.ViewModels.Colors;
 
-namespace FlossApp.Application.Tests.ViewModels.Colors;
+namespace FlossApp.Application.Tests.Tests.ViewModels.Colors;
 
 [TestClass]
 public class FindSimilarColorsViewModelTests

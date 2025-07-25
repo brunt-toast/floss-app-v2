@@ -12,7 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.PixelFormats;
 
-namespace FlossApp.Application.Tests.ViewModels.Images;
+namespace FlossApp.Application.Tests.Tests.ViewModels.Images;
 
 [TestClass]
 public class ImageFilterViewModelTests
