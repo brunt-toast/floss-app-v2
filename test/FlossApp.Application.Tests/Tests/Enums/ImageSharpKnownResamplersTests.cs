@@ -1,8 +1,7 @@
-﻿using System.Reflection;
-using FlossApp.Application.Enums;
+﻿using FlossApp.Application.Enums;
 using FlossApp.Application.Extensions.FlossApp.Application.Enums;
 using FlossApp.Application.Tests.Generators;
-using SixLabors.ImageSharp.Processing;
+using FlossApp.Application.Tests.Generators.Generic;
 using SixLabors.ImageSharp.Processing.Processors.Transforms;
 
 namespace FlossApp.Application.Tests.Tests.Enums;
@@ -11,8 +10,7 @@ namespace FlossApp.Application.Tests.Tests.Enums;
 public class ImageSharpKnownResamplersTests
 {
     [TestMethod]
-    [DynamicData(nameof(ImageSharpKnownResamplersGenerator.GenerateImageSharpKnownResamplers),
-        typeof(ImageSharpKnownResamplersGenerator), DynamicDataSourceType.Method)]
+    [DynamicData(nameof(EnumGenerator<ImageSharpKnownResamplers>.Generate), typeof(EnumGenerator<ImageSharpKnownResamplers>), DynamicDataSourceType.Method)]
     public void EnumMapsToClass(ImageSharpKnownResamplers val)
     {
         _ = val.AsKnownResampler();

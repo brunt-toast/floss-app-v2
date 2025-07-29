@@ -1,16 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using FlossApp.Application.Mock;
+﻿using FlossApp.Application.Mock;
 using FlossApp.Application.Services.ImageAnalysis;
-using FlossApp.Application.Services.ImageFiltering;
-using FlossApp.Application.ViewModels.Colors;
 using FlossApp.Application.ViewModels.Images;
 using Microsoft.Extensions.DependencyInjection;
 using SixLabors.ImageSharp;
-using SixLabors.ImageSharp.PixelFormats;
 
 namespace FlossApp.Application.Tests.Tests.ViewModels.Images;
 

@@ -3,7 +3,7 @@ using FlossApp.Application.Enums;
 using FlossApp.Application.Mock;
 using FlossApp.Application.Models.RichColor;
 using FlossApp.Application.Services.ColorProvider;
-using FlossApp.Application.Tests.Generators;
+using FlossApp.Application.Tests.Generators.Generic;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace FlossApp.Application.Tests.Tests.Services.ColorProvider;
@@ -12,7 +12,7 @@ namespace FlossApp.Application.Tests.Tests.Services.ColorProvider;
 public class ColorProviderServiceTests
 {
     [TestMethod]
-    [DynamicData(nameof(ColorSchemaGenerator.GenerateColorSchemas), typeof(ColorSchemaGenerator), DynamicDataSourceType.Method)]
+    [DynamicData(nameof(EnumGenerator<ColorSchema>.Generate), typeof(EnumGenerator<ColorSchema>), DynamicDataSourceType.Method)]
     public async Task ColorsUniqueByFloss(ColorSchema colorSchema)
     {
         IServiceProvider services = new MockServiceProvider();
@@ -33,7 +33,7 @@ public class ColorProviderServiceTests
     }
 
     [TestMethod]
-    [DynamicData(nameof(ColorSchemaGenerator.GenerateColorSchemas), typeof(ColorSchemaGenerator), DynamicDataSourceType.Method)]
+    [DynamicData(nameof(EnumGenerator<ColorSchema>.Generate), typeof(EnumGenerator<ColorSchema>), DynamicDataSourceType.Method)]
     public async Task ColorsUniqueByRgb(ColorSchema colorSchema)
     {
         IServiceProvider services = new MockServiceProvider();
@@ -56,7 +56,7 @@ public class ColorProviderServiceTests
     }
 
     [TestMethod]
-    [DynamicData(nameof(ColorSchemaGenerator.GenerateColorSchemas), typeof(ColorSchemaGenerator), DynamicDataSourceType.Method)]
+    [DynamicData(nameof(EnumGenerator<ColorSchema>.Generate), typeof(EnumGenerator<ColorSchema>), DynamicDataSourceType.Method)]
     public async Task ColorsHaveValidHex(ColorSchema colorSchema)
     {
         IServiceProvider services = new MockServiceProvider();
@@ -95,7 +95,7 @@ public class ColorProviderServiceTests
     }
 
     [TestMethod]
-    [DynamicData(nameof(ColorSchemaGenerator.GenerateColorSchemas), typeof(ColorSchemaGenerator), DynamicDataSourceType.Method)]
+    [DynamicData(nameof(EnumGenerator<ColorSchema>.Generate), typeof(EnumGenerator<ColorSchema>), DynamicDataSourceType.Method)]
     public async Task CanGetRichColorsForSchema(ColorSchema schema)
     {
         IServiceProvider services = new MockServiceProvider();
@@ -104,7 +104,7 @@ public class ColorProviderServiceTests
     }
 
     [TestMethod]
-    [DynamicData(nameof(ColorSchemaGenerator.GenerateColorSchemas), typeof(ColorSchemaGenerator), DynamicDataSourceType.Method)]
+    [DynamicData(nameof(EnumGenerator<ColorSchema>.Generate), typeof(EnumGenerator<ColorSchema>), DynamicDataSourceType.Method)]
     public async Task CanGetColorsForSchema(ColorSchema schema)
     {
         IServiceProvider services = new MockServiceProvider();

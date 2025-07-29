@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using FlossApp.Application.Enums;
+﻿using FlossApp.Application.Enums;
 using FlossApp.Application.Extensions.FlossApp.Application.Enums;
 using FlossApp.Application.Tests.Generators;
-using SixLabors.ImageSharp.Processing;
+using FlossApp.Application.Tests.Generators.Generic;
 using SixLabors.ImageSharp.Processing.Processors.Dithering;
 
 namespace FlossApp.Application.Tests.Tests.Enums;
@@ -16,8 +10,7 @@ namespace FlossApp.Application.Tests.Tests.Enums;
 public class ImageSharpKnownDitheringsTests
 {
     [TestMethod]
-    [DynamicData(nameof(ImageSharpKnownDitheringsGenerator.GenerateImageSharpKnownDitherings),
-        typeof(ImageSharpKnownDitheringsGenerator), DynamicDataSourceType.Method)]
+    [DynamicData(nameof(EnumGenerator<ImageSharpKnownDitherings>.Generate), typeof(EnumGenerator<ImageSharpKnownDitherings>), DynamicDataSourceType.Method)]
     public void EnumMapsToClass(ImageSharpKnownDitherings val)
     {
         ImageSharpKnownDitherings? nullable = val;

@@ -1,5 +1,5 @@
 ﻿using FlossApp.Application.Enums;
-using FlossApp.Application.Tests.Generators;
+using FlossApp.Application.Tests.Generators.Generic;
 using FlossApp.Application.Utils;
 
 namespace FlossApp.Application.Tests.Tests.Utils;
@@ -8,7 +8,7 @@ namespace FlossApp.Application.Tests.Tests.Utils;
 public class ColorComparisonFuncsTests
 {
     [TestMethod]
-    [DynamicData(nameof(ColorComparisonAlgorithmsGenerator.GetColorComparisonAlgorithms), typeof(ColorComparisonAlgorithmsGenerator), DynamicDataSourceType.Method)]
+    [DynamicData(nameof(EnumGenerator<ColorComparisonAlgorithms>.Generate), typeof(EnumGenerator<ColorComparisonAlgorithms>), DynamicDataSourceType.Method)]
 
     public void IsAlgorithmImplemented(ColorComparisonAlgorithms algorithm)
     {

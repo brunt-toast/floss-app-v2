@@ -1,6 +1,5 @@
 ﻿using FlossApp.Application.Mock;
 using FlossApp.Application.Services.I18n;
-using FlossApp.I18n;
 
 namespace FlossApp.Application.Tests.Tests.Services.I18n;
 

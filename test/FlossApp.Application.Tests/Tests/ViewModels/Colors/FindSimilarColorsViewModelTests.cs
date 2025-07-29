@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using FlossApp.Application.Enums;
+﻿using System.Drawing;
 using FlossApp.Application.Mock;
 using FlossApp.Application.ViewModels.Colors;
 
