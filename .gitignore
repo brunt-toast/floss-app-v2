@@ -127,3 +127,6 @@ _Pvt_Extensions
 !.vscode/extensions.json
 *.code-workspace
 .history/
+
+# Ignore JetBrains Rider local cache
+.idea/
