@@ -1,0 +1,157 @@
+﻿[
+    {
+        "name": "Black",
+        "hex": "#000000",
+        "isPremium": false
+    },
+    {
+        "name": "Dark Gray",
+        "hex": "#3c3c3c",
+        "isPremium": false
+    },
+    {
+        "name": "Gray",
+        "hex": "#787878",
+        "isPremium": false
+    },
+    {
+        "name": "Light Gray",
+        "hex": "#d2d2d2",
+        "isPremium": false
+    },
+    {
+        "name": "White",
+        "hex": "#ffffff",
+        "isPremium": false
+    },
+    {
+        "name": "Deep Red",
+        "hex": "#600018",
+        "isPremium": false
+    },
+    {
+        "name": "Red",
+        "hex": "#ed1c24",
+        "isPremium": false
+    },
+    {
+        "name": "Orange",
+        "hex": "#ff7f27",
+        "isPremium": false
+    },
+    {
+        "name": "Gold",
+        "hex": "#f6aa09",
+        "isPremium": false
+    },
+    {
+        "name": "Yellow",
+        "hex": "#f9dd3b",
+        "isPremium": false
+    },
+    {
+        "name": "Light Yellow",
+        "hex": "#fffabc",
+        "isPremium": false
+    },
+    {
+        "name": "Dark Green",
+        "hex": "#0eb968",
+        "isPremium": false
+    },
+    {
+        "name": "Green",
+        "hex": "#13e67b",
+        "isPremium": false
+    },
+    {
+        "name": "Light Green",
+        "hex": "#87ff5e",
+        "isPremium": false
+    },
+    {
+        "name": "Dark Teal",
+        "hex": "#0c816e",
+        "isPremium": false
+    },
+    {
+        "name": "Teal",
+        "hex": "#10aea6",
+        "isPremium": false
+    },
+    {
+        "name": "Light Teal",
+        "hex": "#13e1be",
+        "isPremium": false
+    },
+    {
+        "name": "Dark Blue",
+        "hex": "#28509e",
+        "isPremium": false
+    },
+    {
+        "name": "Blue",
+        "hex": "#4093e4",
+        "isPremium": false
+    },
+    {
+        "name": "Cyan",
+        "hex": "#60f7f2",
+        "isPremium": false
+    },
+    {
+        "name": "Indigo",
+        "hex": "#6b50f6",
+        "isPremium": false
+    },
+    {
+        "name": "Light Indigo",
+        "hex": "#99b1fb",
+        "isPremium": false
+    },
+    {
+        "name": "Dark Purple",
+        "hex": "#780c99",
+        "isPremium": false
+    },
+    {
+        "name": "Purple",
+        "hex": "#aa38b9",
+        "isPremium": false
+    },
+    {
+        "name": "Light Purple",
+        "hex": "#e09ff9",
+        "isPremium": false
+    },
+    {
+        "name": "Dark Pink",
+        "hex": "#cb007a",
+        "isPremium": false
+    },
+    {
+        "name": "Pink",
+        "hex": "#ec1f80",
+        "isPremium": false
+    },
+    {
+        "name": "Light Pink",
+        "hex": "#f38da9",
+        "isPremium": false
+    },
+    {
+        "name": "Dark Brown",
+        "hex": "#684634",
+        "isPremium": false
+    },
+    {
+        "name": "Brown",
+        "hex": "#95682a",
+        "isPremium": false
+    },
+    {
+        "name": "Beige",
+        "hex": "#f8b277",
+        "isPremium": false
+    }
+]

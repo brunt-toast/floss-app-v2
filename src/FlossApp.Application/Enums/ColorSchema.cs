@@ -38,4 +38,7 @@ public enum ColorSchema
 
     [Display(Name = "CIE L*a*b*", Description = "Commission Internationale de l'\u00c9clairage: Lightness, Green-Red, Blue-Yellow")]
     CieLab,
+
+    [Display(Name = "WPlace Basic", Description = "The default colors available on https://wplace.live//")]
+    WplaceBasic,
 }
