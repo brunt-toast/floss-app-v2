@@ -14,6 +14,10 @@ public class FlossAppLogger : ILogger
     public void Log<TState>(LogLevel logLevel, EventId eventId, TState state, Exception? exception, Func<TState, Exception?, string> formatter)
     {
         Console.WriteLine($"{DateTime.Now:O} {_categoryName} [{logLevel}] {formatter(state, exception)}");
+        if (exception is not null)
+        {
+            Console.WriteLine($"{exception.Message}{Environment.NewLine}{exception.StackTrace}");
+        }
     }
 
     public bool IsEnabled(LogLevel logLevel)
