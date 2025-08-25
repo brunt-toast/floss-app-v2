@@ -41,4 +41,7 @@ public enum ColorSchema
 
     [Display(Name = "WPlace Basic", Description = "The default colors available on https://wplace.live//")]
     WplaceBasic,
+
+    [Display(Name = "WPlace Full", Description = "All the colours available on https://wplace.live//")]
+    WplaceFull,
 }

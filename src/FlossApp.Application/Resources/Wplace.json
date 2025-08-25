@@ -153,5 +153,146 @@
         "name": "Beige",
         "hex": "#f8b277",
         "isPremium": false
+    },
+
+    {
+        "name": "Medium Gray",
+        "hex": "#aaaaaa",
+        "isPremium": true
+    },
+    {
+        "name": "Light Red",
+        "hex": "#fa8072",
+        "isPremium": true
+    },
+    {
+        "name": "Dark Orange",
+        "hex": "#e45c1a",
+        "isPremium": true
+    },
+    {
+        "name": "Dark Goldenrod",
+        "hex": "#9c8431",
+        "isPremium": true
+    },
+    {
+        "name": "Goldenrod",
+        "hex": "#c5ad31",
+        "isPremium": true
+    },
+    {
+        "name": "Light Goldenrod",
+        "hex": "#e8d45f",
+        "isPremium": true
+    },
+    {
+        "name": "Dark Olive",
+        "hex": "#4a6b3a",
+        "isPremium": true
+    },
+    {
+        "name": "Olive",
+        "hex": "#5a944a",
+        "isPremium": true
+    },
+    {
+        "name": "Light Olive",
+        "hex": "#84c573",
+        "isPremium": true
+    },
+    {
+        "name": "Dark Cyan",
+        "hex": "#0f799f",
+        "isPremium": true
+    },
+    {
+        "name": "Light Cyan",
+        "hex": "#bbfaf2",
+        "isPremium": true
+    },
+    {
+        "name": "Light Blue",
+        "hex": "#7dc7ff",
+        "isPremium": true
+    },
+    {
+        "name": "Dark Indigo",
+        "hex": "#4d31b8",
+        "isPremium": true
+    },
+    {
+        "name": "Light Slate Blue",
+        "hex": "#b5aef1",
+        "isPremium": true
+    },
+    {
+        "name": "Dark Peach",
+        "hex": "#9b5249",
+        "isPremium": true
+    },
+    {
+        "name": "Peach",
+        "hex": "#d18078",
+        "isPremium": true
+    },
+    {
+        "name": "Light Peach",
+        "hex": "#fab6a4",
+        "isPremium": true
+    },
+    {
+        "name": "Dark Tan",
+        "hex": "#7b6352",
+        "isPremium": true
+    },
+    {
+        "name": "Tan",
+        "hex": "#9c846b",
+        "isPremium": true
+    },
+    {
+        "name": "Light Tan",
+        "hex": "#d6b594",
+        "isPremium": true
+    },
+    {
+        "name": "Dark Beige",
+        "hex": "#d18051",
+        "isPremium": true
+    },
+    {
+        "name": "Light Beige",
+        "hex": "#ffc5a5",
+        "isPremium": true
+    },
+    {
+        "name": "Dark Stone",
+        "hex": "#6d643f",
+        "isPremium": true
+    },
+    {
+        "name": "Stone",
+        "hex": "#948c6b",
+        "isPremium": true
+    },
+    {
+        "name": "Light Stone",
+        "hex": "#cdc59e",
+        "isPremium": true
+    },
+    {
+        "name": "Dark Slate",
+        "hex": "#333941",
+        "isPremium": true
+    },
+    {
+        "name": "Slate",
+        "hex": "#6d758d",
+        "isPremium": true
+    },
+    {
+        "name": "Light Slate",
+        "hex": "#b3b9d1",
+        "isPremium": true
     }
 ]

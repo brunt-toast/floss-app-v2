@@ -25,6 +25,7 @@ internal static class ColorSchemaExtensions
             case ColorSchema.Pantone:
             case ColorSchema.Dmc:
             case ColorSchema.WplaceBasic:
+            case ColorSchema.WplaceFull:
                 return false;
             default:
                 throw new ArgumentOutOfRangeException(nameof(schema), schema, null);
