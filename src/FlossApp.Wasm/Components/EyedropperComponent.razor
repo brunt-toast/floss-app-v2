@@ -1,0 +1,26 @@
+﻿@using FlossApp.Application.Extensions.System.Drawing
+@using FlossApp.Application.Services.ColorMatching
+@using FlossApp.Application.ViewModels.Eyedropper
+@inject IColorMatchingService ColorMatchingService
+@inject IEyedropperComponentViewModel ViewModel
+@inject ILogger<EyedropperComponent> Logger
+
+<div class="outer-container">
+    <div class="inner-container">
+        <div class="grid" style="--cols: @Image.Width; --rows: @Image.Height;" data-fill>
+            @foreach (var col in _grid.SelectMany(row => row))
+            {
+                <MudTooltip>
+                    <ChildContent>
+                        <div class="cell" style="@($"background-color: #{col.AsHex()}")"></div>
+                    </ChildContent>
+                    <TooltipContent>
+                        <div class="color-preview" style=" background-color: #@(col.AsHex()); "></div>
+                        @ViewModel.GetSimilar(col).GetAwaiter().GetResult().Name <br />
+                        @ViewModel.GetSimilar(col).GetAwaiter().GetResult().Number
+                    </TooltipContent>
+                </MudTooltip>
+            }
+        </div>
+    </div>
+</div>
