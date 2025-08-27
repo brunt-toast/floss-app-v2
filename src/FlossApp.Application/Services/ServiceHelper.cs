@@ -1,4 +1,5 @@
-﻿using FlossApp.Application.Services.ColorNaming;
+﻿using FlossApp.Application.Services.ColorMatching;
+using FlossApp.Application.Services.ColorNaming;
 using FlossApp.Application.Services.ColorNumbering;
 using FlossApp.Application.Services.ColorProvider;
 using FlossApp.Application.Services.I18n;
@@ -45,6 +46,7 @@ public static class ServiceHelper
         services.AddSingleton<IImageFilteringService, ImageFilteringService>();
         services.AddSingleton<IImageAnalysisService, ImageAnalysisService>();
         services.AddSingleton<ISnackbarService, SnackbarService>();
+        services.AddSingleton<IColorMatchingService, ColorMatchingService>();
 
         return services;
     }

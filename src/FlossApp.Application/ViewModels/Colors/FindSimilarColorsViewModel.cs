@@ -1,17 +1,11 @@
 ﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Drawing;
-using System.Security.Cryptography.X509Certificates;
-using System.Xml.Linq;
 using CommunityToolkit.Mvvm.ComponentModel;
-using FlossApp.Application.Data;
 using FlossApp.Application.Enums;
-using FlossApp.Application.Extensions.FlossApp.Application.Data;
 using FlossApp.Application.Extensions.System.Collections.ObjectModel;
 using FlossApp.Application.Extensions.System.Drawing;
 using FlossApp.Application.Models.RichColor;
-using FlossApp.Application.Services.ColorNaming;
-using FlossApp.Application.Services.ColorNumbering;
+using FlossApp.Application.Services.ColorMatching;
 using FlossApp.Application.Services.ColorProvider;
 using FlossApp.Application.Utils;
 using FlossApp.Core;
@@ -22,16 +16,14 @@ namespace FlossApp.Application.ViewModels.Colors;
 public partial class FindSimilarColorsViewModel : ViewModelBase, IFindSimilarColorsViewModel
 {
     private readonly IColorProviderService _colorProviderService;
-    private readonly IColorNamingService _colorNamingService;
-    private readonly IColorNumberingService _colorNumberingService;
+    private readonly IColorMatchingService _colorMatchingService;
 
     private readonly AsyncDelayedAction _onPropertyChangedDelayedAction;
 
     public FindSimilarColorsViewModel(IServiceProvider services) : base(services)
     {
         _colorProviderService = services.GetRequiredService<IColorProviderService>();
-        _colorNamingService = services.GetRequiredService<IColorNamingService>();
-        _colorNumberingService = services.GetRequiredService<IColorNumberingService>();
+        _colorMatchingService = services.GetRequiredService<IColorMatchingService>();
 
         _onPropertyChangedDelayedAction = new AsyncDelayedAction(RefreshMatches, 1000);
 
@@ -51,11 +43,10 @@ public partial class FindSimilarColorsViewModel : ViewModelBase, IFindSimilarCol
     private async Task RefreshMatches()
     {
         Matches.Clear();
-        foreach (var schema in Enum.GetValues<ColorSchema>())
+        var similarColors = await _colorMatchingService.GetMostSimilarColorsAsync(TargetColor, NumberOfMatches, ComparisonAlgorithm);
+        foreach (var kvp in similarColors)
         {
-            var schemaColors = await _colorProviderService.GetRichColorsAsync(schema);
-            var similarColors = TargetColor.GetMostSimilarColors(schemaColors.ToList(), NumberOfMatches, ComparisonAlgorithm);
-            Matches.TryAdd(schema, [..similarColors]);
+            Matches.Add(kvp.Key, [.. kvp.Value]);
         }
     }
 
@@ -106,7 +97,6 @@ public interface IFindSimilarColorsViewModel
     public int NumberOfMatches { get; set; }
     public ColorSchema InputSchema { get; set; }
     public Dictionary<ColorSchema, ObservableCollection<RichColorModel>> Matches { get; }
-    public ObservableCollection<RichColorModel> ColorsForInputSchema { get; }
 
     public bool IsExactMatch(RichColorModel c);
 }
