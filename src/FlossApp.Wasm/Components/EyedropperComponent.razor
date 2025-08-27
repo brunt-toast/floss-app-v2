@@ -10,7 +10,7 @@
         <div class="grid" style="--cols: @Image.Width; --rows: @Image.Height;" data-fill>
             @foreach (var col in _grid.SelectMany(row => row))
             {
-                <MudTooltip>
+                <MudTooltip ShowOnFocus="true" ShowOnHover="true" ShowOnClick="true">
                     <ChildContent>
                         <div class="cell" style="@($"background-color: #{col.AsHex()}")"></div>
                     </ChildContent>
