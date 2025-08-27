@@ -8,6 +8,7 @@ using FlossApp.Application.Services.ImageFiltering;
 using FlossApp.Application.Services.Snackbar;
 using FlossApp.Application.Telemetry;
 using FlossApp.Application.ViewModels.Colors;
+using FlossApp.Application.ViewModels.Eyedropper;
 using FlossApp.Application.ViewModels.Images;
 using FlossApp.Application.ViewModels.Info;
 using FlossApp.Application.ViewModels.Pickers;
@@ -32,6 +33,8 @@ public static class ServiceHelper
         services.AddTransient<IHoopSizerViewModel, HoopSizerViewModel>();
         services.AddTransient<ILanguagePickerViewModel, LanguagePickerViewModel>();
         services.AddTransient<IAppInfoViewModel, AppInfoViewModel>();
+        services.AddTransient<IEyedropperPageViewModel, EyedropperPageViewModel>();
+        services.AddTransient<IEyedropperComponentViewModel, EyedropperComponentViewModel>();
 
         services.AddSingleton<II18nService, I18nService>(s =>
         {
