@@ -7,15 +7,15 @@ public partial class EyedropperPage
 {
     protected override void OnInitialized()
     {
-        PageViewModel.Init();
+        ViewModel.Init();
         base.OnInitialized();
 
-        PageViewModel.PropertyChanged += OnPageViewModelOnPropertyChanged;
+        ViewModel.PropertyChanged += OnPageViewModelOnPropertyChanged;
     }
 
     private void OnPageViewModelOnPropertyChanged(object? _, PropertyChangedEventArgs e)
     {
-        if (e.PropertyName == nameof(PageViewModel.SelectedColor))
+        if (e.PropertyName == nameof(ViewModel.SelectedColor))
         {
             StateHasChanged();
         }
@@ -31,7 +31,7 @@ public partial class EyedropperPage
         try
         {
             await using var stream = file.OpenReadStream(maxAllowedSize: 1024 * 1024 * 1024);
-            await PageViewModel.LoadFileStreamAsync(stream);
+            await ViewModel.LoadFileStreamAsync(stream);
         }
         catch (Exception ex)
         {

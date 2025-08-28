@@ -2,11 +2,11 @@
 @using FlossApp.Application.Enums
 @using FlossApp.Application.ViewModels.Eyedropper
 @using FlossApp.Wasm.Components
-@inject IEyedropperPageViewModel PageViewModel
+@inject IEyedropperPageViewModel ViewModel
 
-<EyedropperComponent Image="PageViewModel.ImageIn"
-                     @bind-Schema="PageViewModel.TargetSchema"
-                     @bind-ComparisonAlgorithm="PageViewModel.ComparisonAlgorithm" />
+<EyedropperComponent Image="ViewModel.ImageIn"
+                     @bind-Schema="ViewModel.TargetSchema"
+                     @bind-ComparisonAlgorithm="ViewModel.ComparisonAlgorithm" />
 
 <div class="row mt-1">
     <div class="col" style="text-align: center;">
@@ -20,11 +20,11 @@
         </MudFileUpload>
     </div>
     <div class="col" style="text-align: center">
-        <EnumPicker Label="Schema" T="ColorSchema" @bind-Value="PageViewModel.TargetSchema" Filter="PageViewModel.ValidSchemaFilter" />
+        <EnumPicker Label="Schema" T="ColorSchema" @bind-Value="ViewModel.TargetSchema" Filter="ViewModel.ValidSchemaFilter" />
     </div>
     <div class="col" style="text-align: center">
         <EnumPicker Label="Comparison Algorithm" T="ColorComparisonAlgorithms" 
-                    @bind-Value="PageViewModel.ComparisonAlgorithm" />
+                    @bind-Value="ViewModel.ComparisonAlgorithm" />
     </div>
 </div>
 
@@ -32,11 +32,11 @@
     <MudPaper Class="my-1 p-1">
         <div class="row">
             <div class="col col-auto color-sample-container">
-                <div class="color-sample" style="background-color: #@PageViewModel.SelectedColor.AsHex();"></div>
+                <div class="color-sample" style="background-color: #@ViewModel.SelectedColor.AsHex();"></div>
             </div>
             <div class="col">
-                <h4>@PageViewModel.SelectedColor.Name</h4>
-                @PageViewModel.SelectedColor.Number
+                <h4>@ViewModel.SelectedColor.Name</h4>
+                @ViewModel.SelectedColor.Number
             </div>
         </div>
     </MudPaper>
