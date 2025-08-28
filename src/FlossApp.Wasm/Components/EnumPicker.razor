@@ -2,7 +2,7 @@
 @typeparam T
 
 <MudSelect T="T" @bind-Value="Value" Label="@Label">
-    @foreach (var val in Enum.GetValues<T>())
+    @foreach (var val in Enum.GetValues<T>().Where(Filter))
     {
         <MudSelectItem T="T" Value="val">
             @val.ToDisplayName()<br />

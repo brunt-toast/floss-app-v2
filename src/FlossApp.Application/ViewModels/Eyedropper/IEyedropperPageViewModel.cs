@@ -15,4 +15,5 @@ public interface IEyedropperPageViewModel : INotifyPropertyChanged
 
     void Init();
     Task LoadFileStreamAsync(Stream stream);
+    bool ValidSchemaFilter(ColorSchema schema);
 }

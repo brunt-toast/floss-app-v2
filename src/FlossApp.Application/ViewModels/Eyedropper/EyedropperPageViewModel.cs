@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Messaging;
 using FlossApp.Application.Enums;
+using FlossApp.Application.Extensions.FlossApp.Application.Enums;
 using FlossApp.Application.Extensions.System.Drawing;
 using FlossApp.Application.Messages;
 using FlossApp.Application.Models.RichColor;
@@ -19,7 +20,7 @@ public partial class EyedropperPageViewModel : ObservableObject, IEyedropperPage
     private readonly IMessenger _messenger;
     private readonly IColorMatchingService _colorMatchingService;
 
-    [ObservableProperty] public partial ColorSchema TargetSchema { get; set; }
+    [ObservableProperty] public partial ColorSchema TargetSchema { get; set; } 
     [ObservableProperty] public partial ColorComparisonAlgorithms ComparisonAlgorithm { get; set; }
     [ObservableProperty] public partial RichColorModel SelectedColor { get; private set; } 
 
@@ -27,6 +28,8 @@ public partial class EyedropperPageViewModel : ObservableObject, IEyedropperPage
 
     public EyedropperPageViewModel(IServiceProvider services)
     {
+        TargetSchema = Enum.GetValues<ColorSchema>().First(ValidSchemaFilter);
+
         _logger = services.GetRequiredService<ILoggerFactory>().CreateLogger<EyedropperPageViewModel>();
         _messenger = services.GetRequiredService<IMessenger>();
         _colorMatchingService = services.GetRequiredService<IColorMatchingService>();
@@ -71,5 +74,10 @@ public partial class EyedropperPageViewModel : ObservableObject, IEyedropperPage
         {
             _logger.LogError(ex, "Unexpected exception while loading a file stream");
         }
+    }
+
+    public bool ValidSchemaFilter(ColorSchema schema)
+    {
+        return !schema.IsRgbSuperset();
     }
 }

@@ -20,7 +20,7 @@
         </MudFileUpload>
     </div>
     <div class="col" style="text-align: center">
-        <EnumPicker Label="Schema" T="ColorSchema" @bind-Value="PageViewModel.TargetSchema" />
+        <EnumPicker Label="Schema" T="ColorSchema" @bind-Value="PageViewModel.TargetSchema" Filter="PageViewModel.ValidSchemaFilter" />
     </div>
     <div class="col" style="text-align: center">
         <EnumPicker Label="Comparison Algorithm" T="ColorComparisonAlgorithms" 
