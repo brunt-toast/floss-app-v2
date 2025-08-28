@@ -1,0 +1,18 @@
+﻿div.color-sample-container {
+    display: flex;
+    -o-justify-content: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -ms-align-items: center;
+    -o-align-items: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+div.color-sample {
+    margin-left: 1em;
+    height: 3em;
+    width: 3em;
+    -ms-border-radius: 50%;
+    border-radius: 50%;
+}

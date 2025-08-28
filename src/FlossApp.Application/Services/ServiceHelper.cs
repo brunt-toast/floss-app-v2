@@ -1,4 +1,5 @@
-﻿using FlossApp.Application.Services.ColorMatching;
+﻿using CommunityToolkit.Mvvm.Messaging;
+using FlossApp.Application.Services.ColorMatching;
 using FlossApp.Application.Services.ColorNaming;
 using FlossApp.Application.Services.ColorNumbering;
 using FlossApp.Application.Services.ColorProvider;
@@ -35,6 +36,8 @@ public static class ServiceHelper
         services.AddTransient<IAppInfoViewModel, AppInfoViewModel>();
         services.AddTransient<IEyedropperPageViewModel, EyedropperPageViewModel>();
         services.AddTransient<IEyedropperComponentViewModel, EyedropperComponentViewModel>();
+
+        services.AddScoped<IMessenger, WeakReferenceMessenger>();
 
         services.AddSingleton<II18nService, I18nService>(s =>
         {

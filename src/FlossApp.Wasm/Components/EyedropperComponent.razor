@@ -12,7 +12,7 @@
             {
                 <MudTooltip ShowOnFocus="true" ShowOnHover="true" ShowOnClick="true">
                     <ChildContent>
-                        <div class="cell" style="@($"background-color: #{col.AsHex()}")"></div>
+                        <div class="cell" style="@($"background-color: #{col.AsHex()}")" @onclick="() => ViewModel.Select(col)"></div>
                     </ChildContent>
                     <TooltipContent>
                         <div class="color-preview" style=" background-color: #@(col.AsHex()); "></div>
