@@ -37,7 +37,7 @@ public partial class EyedropperPageViewModel : ObservableObject, IEyedropperPage
 
     public void Init()
     {
-        _messenger.Register<ColorSelectedMessage>(this, OnColorSelectedMessageReceived);
+        _messenger.Register<ColorSelectedMessage, string>(this, nameof(EyedropperChannel), OnColorSelectedMessageReceived);
     }
 
     private async void OnColorSelectedMessageReceived(object recipient, ColorSelectedMessage message)

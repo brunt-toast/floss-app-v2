@@ -46,6 +46,6 @@ internal partial class EyedropperComponentViewModel : ObservableObject, IEyedrop
     public void Select(Color col)
     {
         _logger.LogInformation("Send select {col}", col.AsHex());
-        _messenger.Send(new ColorSelectedMessage(col));
+        _messenger.Send(new ColorSelectedMessage(col), nameof(EyedropperChannel));
     }
 }
