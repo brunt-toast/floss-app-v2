@@ -8,6 +8,9 @@ using FlossApp.Application.Enums;
 namespace FlossApp.Application.Utils.Equations;
 
 internal class Trinomial<TX, TY, TZ>
+    where TX : new()
+    where TY : new()
+    where TZ : new()
 {
     protected Func<TY, TZ, TX> CalcX;
     protected Func<TX, TZ, TY> CalcY;
@@ -18,10 +21,21 @@ internal class Trinomial<TX, TY, TZ>
         CalcX = calcX;
         CalcY = calcY;
         CalcZ = calcZ;
+
+        X = new TX();
+        Y = new TY();
+        Z = new TZ();
     }
 
     protected Trinomial()
     {
+        CalcX = (_, _) => new TX();
+        CalcY = (_, _) => new TY();
+        CalcZ = (_, _) => new TZ();
+
+        X = new TX();
+        Y = new TY();
+        Z = new TZ();
     }
 
     public TrinomialTarget Target { get; set; }

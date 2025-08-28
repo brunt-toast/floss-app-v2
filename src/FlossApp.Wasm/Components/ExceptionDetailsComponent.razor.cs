@@ -18,7 +18,7 @@ public partial class ExceptionDetailsComponent
             field = value;
             ExChanged.InvokeAsync(value);
         }
-    }
+    } = new();
 
     [Parameter] public EventCallback<Exception> ExChanged { get; set; }
 }

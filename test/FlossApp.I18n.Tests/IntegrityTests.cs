@@ -60,7 +60,7 @@ public sealed class IntegrityTests
         {
             string ident = _anchorType.Namespace! + ".Resources." + I18nConsts.DefaultLanguage.Replace("-", "_") + file;
             string content = ReadResourceFile(ident);
-            Dictionary<string, object> dict = JsonConvert.DeserializeObject<Dictionary<string, object>>(content);
+            Dictionary<string, object> dict = JsonConvert.DeserializeObject<Dictionary<string, object>>(content) ?? throw new InvalidOperationException();
             keys.AddRange(dict.Keys);
         }
 
@@ -73,7 +73,7 @@ public sealed class IntegrityTests
             {
                 string ident = _anchorType.Namespace! + ".Resources." + langName.Replace("-", "_") + file;
                 string content = ReadResourceFile(ident);
-                Dictionary<string, object> dict = JsonConvert.DeserializeObject<Dictionary<string, object>>(content);
+                Dictionary<string, object> dict = JsonConvert.DeserializeObject<Dictionary<string, object>>(content) ?? throw new InvalidOperationException();
 
                 foreach (var extraKey in dict.Keys.Where(x => !keys.Contains(x)))
                 {
@@ -105,6 +105,7 @@ public sealed class IntegrityTests
     {
         var assembly = _anchorType.Assembly;
         using var stream = assembly.GetManifestResourceStream(fileIdentifier);
+        ArgumentNullException.ThrowIfNull(stream);
         using var reader = new StreamReader(stream, Encoding.UTF8);
         return reader.ReadToEnd();
     }

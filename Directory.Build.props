@@ -2,6 +2,7 @@
   <PropertyGroup>
     <LangVersion>preview</LangVersion>
     <WarningsAsErrors>CA2017</WarningsAsErrors>
+    <NoWarn>BL0007, CS8002</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
     <SignAssembly>true</SignAssembly>

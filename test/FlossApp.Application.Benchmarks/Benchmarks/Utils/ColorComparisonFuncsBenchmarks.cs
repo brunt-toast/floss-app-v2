@@ -22,7 +22,7 @@ namespace FlossApp.Application.Benchmarks.Benchmarks.Utils;
 public class ColorComparisonFuncsBenchmarks
 {
     [ParamsSource(typeof(ColorComparisonAlgorithmsGenerator), nameof(ColorComparisonAlgorithmsGenerator.GetColorComparisonAlgorithms))]
-    public Named<Func<RichColorModel, RichColorModel, double>> ComparisonFunc;
+    public Named<Func<RichColorModel, RichColorModel, double>> ComparisonFunc = new("", (_, _) => 0);
 
     private static RichColorModel s_left;
     private static RichColorModel s_right;

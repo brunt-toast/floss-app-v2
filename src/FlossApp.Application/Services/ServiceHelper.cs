@@ -42,7 +42,7 @@ public static class ServiceHelper
         services.AddSingleton<II18nService, I18nService>(s =>
         {
             var ret = new I18nService(s);
-            ret.InitAsync();
+            _ = ret.InitAsync();
             return ret;
         });
         services.AddSingleton<ILoggerFactory, FlossAppLoggerFactory>();

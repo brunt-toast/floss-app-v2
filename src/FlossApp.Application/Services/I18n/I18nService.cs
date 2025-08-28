@@ -118,6 +118,7 @@ public class I18nService : II18nService
         string resourceName = folderPrefix + "." + fileIdentifier + ".json";
 
         using var stream = assembly.GetManifestResourceStream(resourceName);
+        ArgumentNullException.ThrowIfNull(stream);
         using var reader = new StreamReader(stream, Encoding.UTF8);
         return reader.ReadToEnd();
     }
