@@ -8,6 +8,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Messaging\NewFolder\**" />
+    <EmbeddedResource Remove="Messaging\NewFolder\**" />
+    <None Remove="Messaging\NewFolder\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Resources\Anchor.json" />
     <None Remove="Resources\Copic.json" />
     <None Remove="Resources\Dmc.json" />
