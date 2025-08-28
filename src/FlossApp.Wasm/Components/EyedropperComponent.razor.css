@@ -28,9 +28,9 @@
 
 .cell {
     background: white;
-    border: 1px solid #d8dbe5;
-    -ms-border-radius: 8px;
-    border-radius: 8px;
+    /*border: 1px solid #d8dbe5;*/
+    /*-ms-border-radius: 8px;*/
+    /*border-radius: 8px;*/
     display: grid;
     place-items: center;
     font: 600 14px/1.1 system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
