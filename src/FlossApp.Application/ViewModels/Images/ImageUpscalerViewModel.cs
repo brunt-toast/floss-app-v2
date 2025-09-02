@@ -36,7 +36,7 @@ public partial class ImageUpscalerViewModel : ViewModelBase, IImageUpscalerViewM
     public int TargetWidth => ScaleFactor * _imageIn?.Width ?? 0;
     public int TargetHeight => ScaleFactor * _imageIn?.Height ?? 0;
 
-    [ObservableProperty] public partial string ImageOutBase64 { get; private set; } 
+    [ObservableProperty] public partial string ImageOutBase64 { get; private set; }
 
     [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(TargetWidth))]

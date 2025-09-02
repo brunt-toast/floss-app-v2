@@ -12,5 +12,5 @@ namespace FlossApp.Application.Extensions.FlossApp.Application.Data;
 
 public static class RichColorExtensions
 {
-   
+
 }

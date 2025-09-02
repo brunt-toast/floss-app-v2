@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# Run formatters against changed files
+dotnet format $(git status | grep 'modified:' | sed 's/\s*modified:\s*//' | sed s'/^/--include /')
+

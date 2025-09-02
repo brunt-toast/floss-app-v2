@@ -1,6 +1,6 @@
 ﻿namespace FlossApp.Core;
 
-public readonly record struct RichColor 
+public readonly record struct RichColor
 {
     public byte Red { get; init; }
     public byte Green { get; init; }

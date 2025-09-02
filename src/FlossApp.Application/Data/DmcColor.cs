@@ -13,8 +13,8 @@ public struct DmcColor : IColorFromJson
     [JsonProperty("r")] public byte Red { get; set; }
     [JsonProperty("g")] public byte Green { get; set; }
     [JsonProperty("b")] public byte Blue { get; set; }
-    [JsonProperty("description")] public string Name { get; set; } 
-    [JsonProperty("floss")] public string Number { get; set; } 
+    [JsonProperty("description")] public string Name { get; set; }
+    [JsonProperty("floss")] public string Number { get; set; }
 
     public RichColor AsRichColor()
     {

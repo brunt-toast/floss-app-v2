@@ -9,8 +9,8 @@ using FlossApp.Application.Enums;
 using FlossApp.Application.Mock;
 using FlossApp.Application.Services.ImageFiltering;
 using Microsoft.Extensions.DependencyInjection;
-using SixLabors.ImageSharp.PixelFormats;
 using SixLabors.ImageSharp;
+using SixLabors.ImageSharp.PixelFormats;
 
 namespace FlossApp.Application.Benchmarks.Benchmarks.Services.ImageFiltering;
 

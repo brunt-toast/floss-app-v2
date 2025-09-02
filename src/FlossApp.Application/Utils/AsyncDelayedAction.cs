@@ -32,7 +32,7 @@ public class AsyncDelayedAction
         {
             // ignored
         }
-        catch (TaskCanceledException) 
+        catch (TaskCanceledException)
         {
             // ignored
         }

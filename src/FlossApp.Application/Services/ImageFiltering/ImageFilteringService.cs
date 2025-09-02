@@ -1,13 +1,13 @@
-﻿using SixLabors.ImageSharp;
-using SixLabors.ImageSharp.PixelFormats;
-using SixLabors.ImageSharp.Processing;
-using FlossApp.Application.Enums;
+﻿using FlossApp.Application.Enums;
+using FlossApp.Application.Extensions.FlossApp.Application.Enums;
 using FlossApp.Application.Extensions.System.Drawing;
 using FlossApp.Application.Services.ColorProvider;
 using MethodTimer;
 using Microsoft.Extensions.DependencyInjection;
+using SixLabors.ImageSharp;
+using SixLabors.ImageSharp.PixelFormats;
+using SixLabors.ImageSharp.Processing;
 using SixLabors.ImageSharp.Processing.Processors.Quantization;
-using FlossApp.Application.Extensions.FlossApp.Application.Enums;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace FlossApp.Application.Services.ImageFiltering;

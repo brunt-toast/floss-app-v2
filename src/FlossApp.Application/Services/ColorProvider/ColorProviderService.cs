@@ -64,13 +64,13 @@ internal class ColorProviderService : IColorProviderService
             .ToArray()
             .GroupBy(x => (x.Red, x.Green, x.Blue))
             .Select(r => new RichColor
-                {
-                    Name = string.Join(", ", r.Select(x => x.Name).Distinct()),
-                    Number = string.Join(", ", r.Select(x => x.Number).Distinct()),
-                    Red = r.First().Red,
-                    Green = r.First().Green,
-                    Blue = r.First().Blue
-                })
+            {
+                Name = string.Join(", ", r.Select(x => x.Name).Distinct()),
+                Number = string.Join(", ", r.Select(x => x.Number).Distinct()),
+                Red = r.First().Red,
+                Green = r.First().Green,
+                Blue = r.First().Blue
+            })
             .Select(x => new RichColorModel(x))
             .ToArray();
 

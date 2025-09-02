@@ -16,7 +16,7 @@ public partial class LanguagePickerViewModel : ViewModelBase, ILanguagePickerVie
     private readonly ILogger _logger;
     private bool _isInitialised;
 
-    [ObservableProperty] public partial SupportedLanguage Language { get; set; } 
+    [ObservableProperty] public partial SupportedLanguage Language { get; set; }
 
     public LanguagePickerViewModel(IServiceProvider services) : base(services)
     {

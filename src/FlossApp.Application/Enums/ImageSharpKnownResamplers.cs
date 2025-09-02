@@ -19,7 +19,7 @@ public enum ImageSharpKnownResamplers
     Box,
 
     /// <inheritdoc cref="SixLabors.ImageSharp.Processing.KnownResamplers.CatmullRom" />
-    [Display(Name="Catmull-Rom", Description = "Medium speed, producing sharp results. Best for images with clean lines.")]
+    [Display(Name = "Catmull-Rom", Description = "Medium speed, producing sharp results. Best for images with clean lines.")]
     CatmullRom,
 
     /// <inheritdoc cref="SixLabors.ImageSharp.Processing.KnownResamplers.Hermite" />
@@ -27,15 +27,15 @@ public enum ImageSharpKnownResamplers
     Hermite,
 
     /// <inheritdoc cref="SixLabors.ImageSharp.Processing.KnownResamplers.Lanczos2" />
-    [Display(Name="Lanczos 2px", Description = "Slightly slower and higher quality than Bicubic. Struggles with high-contrast edges.")]
+    [Display(Name = "Lanczos 2px", Description = "Slightly slower and higher quality than Bicubic. Struggles with high-contrast edges.")]
     Lanczos2,
 
     /// <inheritdoc cref="SixLabors.ImageSharp.Processing.KnownResamplers.Lanczos3" />
-    [Display(Name="Lanczos 3px", Description = "Slightly slower and higher quality than lower Lanczos options.")]
+    [Display(Name = "Lanczos 3px", Description = "Slightly slower and higher quality than lower Lanczos options.")]
     Lanczos3,
 
     /// <inheritdoc cref="SixLabors.ImageSharp.Processing.KnownResamplers.Lanczos5" />
-    [Display(Name="Lanczos 5px", Description = "Slightly slower and higher quality than lower Lanczos options.")]
+    [Display(Name = "Lanczos 5px", Description = "Slightly slower and higher quality than lower Lanczos options.")]
     Lanczos5,
 
     /// <inheritdoc cref="SixLabors.ImageSharp.Processing.KnownResamplers.MitchellNetravali" />
@@ -43,7 +43,7 @@ public enum ImageSharpKnownResamplers
     MitchellNetravali,
 
     /// <inheritdoc cref="SixLabors.ImageSharp.Processing.KnownResamplers.NearestNeighbor" />
-    [Display(Name="Nearest neighbor", Description = "The fastest option, but lowest quality. Good for pixel art.")]
+    [Display(Name = "Nearest neighbor", Description = "The fastest option, but lowest quality. Good for pixel art.")]
     NearestNeighbor,
 
     /// <inheritdoc cref="SixLabors.ImageSharp.Processing.KnownResamplers.Robidoux" />
@@ -51,7 +51,7 @@ public enum ImageSharpKnownResamplers
     Robidoux,
 
     /// <inheritdoc cref="SixLabors.ImageSharp.Processing.KnownResamplers.RobidouxSharp" />
-    [Display(Name="Robidoux Sharp", Description = "Slightly slower than Mitchell, but higher quality. Handles unclean lines better.")]
+    [Display(Name = "Robidoux Sharp", Description = "Slightly slower than Mitchell, but higher quality. Handles unclean lines better.")]
     RobidouxSharp,
 
     /// <inheritdoc cref="SixLabors.ImageSharp.Processing.KnownResamplers.Spline" />

@@ -20,9 +20,9 @@ public partial class EyedropperPageViewModel : ObservableObject, IEyedropperPage
     private readonly IMessenger _messenger;
     private readonly IColorMatchingService _colorMatchingService;
 
-    [ObservableProperty] public partial ColorSchema TargetSchema { get; set; } 
+    [ObservableProperty] public partial ColorSchema TargetSchema { get; set; }
     [ObservableProperty] public partial ColorComparisonAlgorithms ComparisonAlgorithm { get; set; }
-    [ObservableProperty] public partial RichColorModel SelectedColor { get; private set; } 
+    [ObservableProperty] public partial RichColorModel SelectedColor { get; private set; }
 
     public Image<Rgba32> ImageIn { get; private set; } = new(1, 1);
 
