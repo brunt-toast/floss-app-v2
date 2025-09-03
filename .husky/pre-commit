@@ -1,5 +1,9 @@
 #!/bin/bash
 
-# Run formatters against changed files
-dotnet format $(git status | grep 'modified:' | sed 's/\s*modified:\s*//' | sed s'/^/--include /')
+# format untracked files
+git ls-files --others --exclude-standard | xargs dotnet format
 
+# format tracked files that still exist
+git status --porcelain | awk 'match($1, "M"){print $2}' | dotnet format
+
+# todo: reconfigure for "dotnet csharpier format"

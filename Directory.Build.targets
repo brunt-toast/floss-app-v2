@@ -1,0 +1,5 @@
+<Project>
+    <!-- Run source generators, for projects that have them -->
+    <Target Name="SafeGenerateSources" DependsOnTargets="GenerateSources"
+        Condition="Exists('$(ProjectDir)\somefileindicating-generators.txt')" />
+</Project>

@@ -5,6 +5,9 @@
 # For unknowns, let git make its best guess, but treat as CRLF 
 *                               text=auto eol=crlf
 
+# For Husky git hooks, treat as lf
+.husky/                         text=auto eol=lf
+
 # Tell difftools to treat "unusual" code files certain ways
 *.cshtml                        text diff=html
 *.razor                         text diff=html
